@@ -1,0 +1,42 @@
+
+<!-- Toolbar -->
+<div >
+  <header>
+    <nav class="navbar navbar-expand navbar-light bg-NTTdata">
+      <div class="container-fluid">
+     <!--   <img src="assets/images/logoNTT.png" height="50px" style="border-radius: 2%;"> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex  align-items-center ">
+            <li class="nav-item">
+              <a class="nav-link active p-3 " aria-current="page" routerLink="/home"><i class="fas fa-home"></i> Home  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active p-3" aria-current="page" routerLink="/interfell"> Interfell </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+ 
+  <div style=" background-image: url('assets/images/nttBackground2.jpg'); background-repeat: no-repeat;   background-attachment: fixed; background-size: cover; height: 100% !important;  display: flex;
+  flex-direction: column;
+  min-height: 100vh;">
+  <router-outlet></router-outlet>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer>
+    <nav class="navbar fixed-bottom navbar-light bg-NTTdata">
+      <div class="container-fluid">
+   <!--    <img  src="assets/images/logoNTT.png" height="20px" style="border-radius: 2%;"> -->
+      </div>
+    </nav>
+  </footer>
+
+</div>
