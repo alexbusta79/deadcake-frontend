@@ -1,89 +1,188 @@
+.logo:hover{
+    transform: scale(1.05);
+    transition:0.5s;
+
+}
+.nav-selection-menu:hover{
+    transform: scale(1.05);
+    transition:0.5s;
+}
+
+.icon-social img:hover{
+    transform: scale(1.2);
+    transition:0.5s;
+    position:relative;
+}
+
+.button_1:hover{
+    transform: scale(1.1);
+    transition:0.5s;
+}
+
 *{
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+/* HEADER */
 
-/* -------------HEADER-------------- */
-.wrapper_row1{
+.header{
     position: relative; 
-    top:-1px; /*Sirve para subir y no verse blanco */
-    background-size:cover;
-    z-index: 99; 
-    background-image: url('/assets/images/Header_DCK_marketplace.png'); 
-    overflow:hidden;
+    top:-1px; /*Sirve para subir y no verse blanco original en -1 */
+    position: fixed;
+    height: 135px;
     width: 100%;
-    height: auto;
+    left:0;
+    z-index: 99;
+    background-image: url('/assets/images/Header_DCK_marketplace.png'); 
+    /*background-color: #17dead; */
 }
 
-.clear {
+.navigation{ /* es también llamado nav */
+    display:flex;
+    justify-content:  space-between;
+    max-width:1600px;/*Original en 992px pero a gusto*/
+    margin:0 auto;
+
+}
+
+/* minuto 22:47*/
+.logo{
+    padding:10px 10px; 
+    line-height: 75px; /* Falta cambiarlo por el logo aplastado*/
+}
+
+.nav-menu{ /* PARA EL UL */
     display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto; 
-    width: 95%;
-    overflow:hidden;
+    margin-right: 40px;
+    list-style:none;
 }
 
-.navigation ul {   
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    flex-wrap: wrap;
-}
-
-.navigation ul li {
-    display: inline-block;
-}
-
-.navigation ul li a {
-    display: inline-block;
-    padding: 0.5rem 0.9rem;
+.nav-menu-item{
+    margin:0 10px;
+    line-height: 115px; /* original 135 Alto de barra de navegación */
+    width:max-content;
+    max-height: 40px; /* Para el tamaño de los items */
 }
 
 .nav-img{
-max-height: 40px; /* Máximo 40 px */
-float:left;
+    padding-left:20px;
+    padding-right:20px;
+
 }
 
-.nav-img_metamask{
-    position:relative;
-    top: -25px;
-    left:12px;
-    max-height: 75px;
-    float:right;
+.nav-toggle{
+    color:#fff;
+    background:none;
+    border:none;
+    font-size:30px;
+    padding: 0 20px;
+    line-height: 75px; /*altura máxima en móviles */
+    cursor:pointer;
+    
+    display:none;
 }
 
-.fl_left{ /*LOGO */
-    position: relative;
-    bottom: 10px;
-    padding-left: 0%;
+@media (max-width: 1060px){
+
+    .header{
+        top:-1px; /*Sirve para subir y no verse blanco original en -1 */
+        position: fixed;
+        height: 75px; /*tamaño para celular*/
+        width: 100%;
+        left:0;
+        z-index: 99;
+        background-size:cover;
+        background-image: url('/assets/images/Header_DCK_marketplace.png'); 
+        /*background-color: #17dead; */
+    }
+    
+    .navigation{ /* es también llamado nav */
+        display:flex;
+        justify-content:  space-between;
+        max-width:1600px;/*Original en 992px pero a gusto*/
+        margin:0 auto;
+    
+    }
+    
+    
+    .logo{
+        padding:10px 40px; 
+        line-height: 40px;
+       /* margin-left:15%;  15% en 375px y 30% para lo demás*/ 
+        content: url('/assets/images/DeadCake logo_Logo DeadCake-Horizontal-03.png');
+        width: 262px; /*Original 262 */
+        height: 60px; /*Original 60 */
+    }
+    
+    .nav-menu{ /* PARA EL UL */
+        flex-direction: column;
+        margin-right: 20px;
+        list-style:none;
+        background-image:url('/assets/images/Background_menu_movil.png'); 
+        /* background-color: rgb(216, 35, 82); */
+        position: fixed;
+        left:0;
+        top: 45px; /* Quedando debajo del nav bar */
+        width:100%; /* inicialmente en 100%*/
+        height:50%;
+        padding:20px 0;
+        border-top: 5px solid rgb(0,94,37);
+        border-bottom: 10px solid rgb(0, 141, 82);
+
+        /*height:calc(50% - 40px); tamaño completo menos el tamaño del logo inicialmente en 100% pantalla */
+        overflow-y: auto;
+
+        left: 100%;
+        transition: left 0.3s;
+    }
+    
+    
+    .nav-menu-item{
+        margin-bottom:10px;
+        line-height: 95px; /* original 135 Alto de barra de navegación */
+        max-height: 40px; /* Para el tamaño de los items */
+        width: fit-content;
+        margin: 0 auto 20px;
+    }   
+
+
+    .nav-toggle{
+        display:block;
+        padding: 0 20px;
+        margin-top:0px;
+        
+    } 
+    
+    .nav-menu_visible{ 
+        left:0;
+    }
+
 }
+
+/*----------*/
 
 
 /* ---------------------------------- */
 /* -------------- BODY -------------- */
 /* ---------------------------------- */
+
 body{
     margin: 0px;
     z-index: 10;
 }
 
 .section{
-    background-image: url('/assets/images/Background_Marketplace_DCK_fondo1.png'); 
+    background-image: url('/assets/images/Background_Marketplace_DCK_fondo_1.png'); 
     display: flex;
     justify-content: center;
     background-size: cover;
-    padding-top: 180px;
+    padding-top: 280px;
     padding-bottom: 640px; /*max 2781*/
     margin-top: -70px;
 
 }
 .section_D{ /*---- Seccion Dashboard ----*/
-    background-image: url('/assets/images/Background_Marketplace_DCK_fondo1.png'); 
+    background-image: url('/assets/images/Background_Marketplace_DCK_fondo_1.png'); 
     display: flex;
     justify-content: center;
     background-size: cover;
@@ -92,25 +191,51 @@ body{
     padding-top: 280px;
     padding-bottom: 640px; /*max 2781*/
     margin-top: -70px;
+
+}
+
+.section_M{
+    background-image: url('/assets/images/Background_Marketplace_DCK_fondo_1.png'); 
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    padding-top: 130px;
+    padding-bottom: 640px; /*max 2781*/
+    margin-top: -70px;
+}
+
+.section_game{
+    background-image: url('/assets/images/Juego_DeadCake_FONDO.png'); 
+    background-color: rgb(34,34,34);
+    display: flex;
+    justify-content: center;
+    background-size:contain;
+    padding-top: 280px;
+    padding-bottom: 640px; /*max 2781*/
+    margin-top: -70px;
+
 }
 
 .container{
     width: 90%;
     max-width: 1280px;
+
 }
 
 .content{ /* Margen inferior de las cajas */
     padding-bottom: 70px;
+
 }
 
 .column_1, .column_2, .column_3{
     display: flex;
     float: left;
     width: 33.33%;
+    
 }
 
 .box_1, .box_2, .box_3{
-    background-image: url('/assets/images/cuadro.png');  
+    background-image: url('/assets/images/Card_nft_DCK_Card_nft_DCK.png'); 
     background-size: contain;
     padding-top: 30px;   /* Mueve a la caja hacia abajo, original 31px */
     padding-bottom: 33px;
@@ -120,7 +245,9 @@ body{
     margin-left: auto;
     margin-right: auto;
     max-width: 425px;
+
 }
+
 
 .imagen_box_1{
     max-width: 330px;
@@ -135,6 +262,7 @@ h4{
     text-align: center;
     font-family: Helvetica, Sans-Serif;
     color:#720029;
+
 }
 
 h5{
@@ -147,7 +275,7 @@ h5{
 }
 
 .button_1{ /* Esta es para el botón verde */
-    background-image: url('/assets/images/boton.png');
+    background-image: url('/assets/images/Card_nft_DCK_Button_card_nft_DCK.png');
     max-width: 155px; /* 135px original */
     background-size: cover;
     font-size: 34px; /* original 18px */
@@ -159,6 +287,7 @@ h5{
     padding-top: 24px; /*Original 20px */
     line-height: 15px; /*Original 15px */
     padding-bottom:26px;   /*Original 22px */
+
 }
 
 .button_1 a{
@@ -171,6 +300,7 @@ h5{
     display: flex;
     width: 33.33%;
 }
+
 
 .imagen_busd{
     position:relative;
@@ -212,7 +342,21 @@ img.dash_item {
 .containerMarket{
     display: flex;
     margin-top:150px;
+    max-width: 1300px;
+}
 
+.containerMarket_M{
+    display: flex;
+    margin-top:150px;
+}
+
+input {
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    margin-right: 0px;
+    width: 75%;
+    margin-right: 20px;
 }
 
 .panelMercado{
@@ -222,19 +366,45 @@ img.dash_item {
     border-color: #720029;
     background-color: #D82352;
     margin-right: 3%;
-    border-radius: 10%;
+    border-radius: 20px;
+    /*color: #17dead;*/
+    
+}
+.panelMercado_M{
+    height:600px;
+    width: 800px;
+    border: 10px;
+    border-color: #720029;
+    background-color: #D82352;
+    margin-right: 3%;
+    border-radius: 20px;
     /*color: #17dead;*/
     
 }
 .panelMercadoInterno{
-    padding-left:40px;
+    padding-left:20px;
     padding-top:20px;
     margin-bottom:5%;
 
 }
 
-.titulo1{
+.panelMercadoExterno{
     padding-left:40px;
+    padding-top:20px;
+    margin-bottom:5%;
+    
+}
+
+.panelMercadoExterno_M{
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 5%;
+    padding-right: 10px;
+    
+}
+
+.titulo1{
+    padding-left:10px;
     position:relative;
     border-radius: 10px;
     background-color: aliceblue;
@@ -246,17 +416,33 @@ img.dash_item {
     margin-bottom:20px;
     
 }
+.titulo1_M{
+    /*padding-left:40px;*/
+    position:relative;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: #720029;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
+    /*width: 330px;*/
+    height:30px;
+    margin-bottom:20px;
+    text-align: center;
+    margin-right: 10px;
+    
+}
 
 .panelVentaInterno{
-    padding-left:40px;
+    padding-left:20px;
     padding-top:20px;
     margin-bottom:5%;
     color: #720029;
     font-family: Helvetica, Sans-Serif;
+    padding-right: 20px;
 
 }
 .titulo2{
-    margin-left: 10px;
+    
     padding-left:10px;
     position:relative;
     border-radius: 10px;
@@ -275,11 +461,32 @@ img.dash_item {
     width:203px;
     margin-right:10px;
 }
+.previewimg_M{
+    height: 280px;
+    width: 235px;
+    margin-right:10px;
+}
 
 .boton_pag{
     position:relative;
     margin-top:180px;
     background-color: #17dead;
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: 700;
+
+}
+.boton_pag_M{
+    position:relative;
+    margin-top:80px;
+    background-color: #17dead;
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
 
 }
 
@@ -289,25 +496,34 @@ img.dash_item {
     border: 100px;
     border-color: #720029;
     background-color: #D82352;
-    border-radius: 10%;
+    border-radius: 20px;
+    /*color: #17dead;*/
+}
+.panelVenta_M{
+    height:600px;
+    width:400px;
+    border: 100px;
+    border-color: #720029;
+    background-color: #D82352;
+    border-radius: 20px;
     /*color: #17dead;*/
 }
 
 .administrative{
     height: 360px;
-    width:1200px;
+    max-width:1300px;
     border-color: #720029;
     background-color: #D82352;
     margin-bottom:-130px;
-    margin-right: 3%;
-    border-radius: 5%;
+    margin-right: 0%;
+    border-radius: 20px;
     /*color: #17dead;*/
 
 }
 
 .administracion_interna{
     height: 250px;
-    width:1300px;
+    max-width:1300px;
     position:relative;
     padding-top:10px;
     font-family: Helvetica, Sans-Serif;
@@ -315,7 +531,7 @@ img.dash_item {
 }
 
 .titulo3{
-    margin-left: 10px;
+    margin-left: 20px;
     padding-left:10px;
     position:relative;
     border-radius: 10px;
@@ -330,10 +546,16 @@ img.dash_item {
 }
 .boton_dashboard{
     background-color: #17dead;
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
 }
 .administrative_options{
-    margin-left: 30px;
+    margin-left: 20px;
     margin-right: 100px;
+    max-width: 500px;
 }
 
 /* -------------------------------------- */
@@ -357,7 +579,7 @@ img.dash_item {
 .redes{
     display:flex;
     text-align: center;
-    
+        padding-left: 15px;
 }
 
 .redes ul{
@@ -369,34 +591,9 @@ img.dash_item {
     flex-wrap: wrap;
 }
 
-.icon-telegram img{ 
-max-width: 80px;
-padding-right: 15px;
-}
-
-.icon-facebook img{
+.icon-social img{
     max-width: 80px;
     padding-right: 15px;
-}
-
-.icon-discord img{
-    max-width: 80px;
-    padding-right: 15px;
-}
-
-.icon-youtube img{
-    max-width: 80px;
-    padding-right: 15px;
-}
-
-.icon-twitter img{
-    max-width: 80px;
-    padding-right: 15px;
-}
-
-.icon-instagram img{
-    max-width: 65px;
-
 }
 
 .copyright{
@@ -418,75 +615,137 @@ padding-right: 15px;
     text-decoration: none;
 }
 
+.NFT_ventas_M{
+    text-align: center;
+}
+
+/* ---------- PANEL DEL JUEGO ---------------*/
+
+.game_window{
+    display: flex;
+    margin-top:150px;
+}
+
+.cakes_view{
+    display:flex;
+    margin-right: 0px;
+}
+
+.game_window_part{
+    margin-right: 20px;
+    margin-bottom: 30px;
+
+}
+
+.horno{
+    display:flex;
+    background-image: url('/assets/images/Juego_horno.png');
+    height: 384px;
+    width:516px;
+    margin-right: 0px;
+    margin-bottom:30px;
+}
+.horno_cake{
+    margin-right: 10px;
+    margin-top: 55px;
+    margin-left:70px;
+}
+.horno_cake_interno_rewards{
+    position:absolute;
+}
+
+.horno_cake_time{
+    margin-left:150px;
+    margin-bottom:35px;
+}
+
+.horno_cake_interno{
+    position:absolute;
+    margin-left: 55px;
+    margin-top:65px;
+
+}
+.horno_items{
+    position:right;
+    margin-left:20px;
+    margin-top:11px;
+}
+
+.horno_items_list{
+    list-style: none;
+}
+
+.items_potenciadores{
+    margin-bottom:6px;
+}
+
+.boton_items{
+    background-image:url('/assets/images/Juego_DeadCake-30.png');
+    width:69px;
+    height:39px;
+}
+.game_panel{
+    background-image: url('/assets/images/Juego_game_panel.png');
+    width:318px;
+    height:801px;
+}
+
+.game_panel_statistics{
+    margin-bottom: 105px;
+}
+
+.panel_tokens{
+    margin-top: 50px;
+}
+.tokens{
+    display:flex;
+    text-align: center;
+    margin-bottom:7px;
+}
+.barra_panel{
+    margin-top:5px;
+    margin-left:7px;
+}
+
+
+.botonera_de_opciones{
+    list-style: none;
+    text-align: center;
+}
+
+.game_panel_buttoms_img{
+    margin-left:-40px;
+    margin-bottom: 15px;
+}
+/* ----------------------------------------- */
+
+@media (min-width:981px)and (max-width:1210px ){
+    .panelMercado{
+        width: 600px;
+    }
+    .panelVenta{
+        width: 350px;
+    }
+
+    .panelMercado_M{
+        width: 600px;
+        height: auto;
+    }
+    .panelVenta_M{
+        width: 350px;
+    }
+    .previewimg_M{
+        height: 215px;
+        width: 170px;
+    }
+}
+
+
 /* ---- Movil ---- */
 
 /*------- Header -------*/
+
 @media (max-width:450px){
-
-.wrapper_row1{
-    position: relative; 
-    top:-1px; /*Sirve para subir y no verse blanco */
-    background-size:cover;
-    z-index: 99; 
-    background-image: url('/assets/images/Header_DCK_marketplace.png');  
-    overflow:hidden;
-    width: 100%;
-    height: 40%;
-    }
-
-.clear {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    justify-content: center;
-    flex-direction: row;
-   
-   }
-
-   .fl_left {
-    bottom: 0px;
-    padding-left: 0%;
-}
-
-h1{
-    margin:15px;
-}
-
-   .navigation ul li a {
-    display: inline-block;
-    padding: 0.1rem 0.5rem;
-    
-    
-    }
-
-   .navigation ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-}
-
-.nav-img{
-    max-height: 25px;
-    float:left;
-    }
-    
-
-
-.nav-img_metamask{
-display: none;
-    }
-
-    li.meta-ico{
-        display: none !important; 
-    }
-.logo{ /*LOGO */
-    position: relative;
-    height: 45px;
-    }
 
 /*----- Footer -----*/
 
@@ -498,6 +757,11 @@ display: none;
 .footer_final{
     padding-top: 25%;
     padding-left:   0%;
+}
+
+
+.icon-social img{
+    max-width: 70px;
 }
 
 .redes ul {
@@ -555,50 +819,152 @@ display: none;
             max-width: 300px;
             text-align: center;
         }
+
+        /* -------BODY -------*/
+
+        .administrative{
+            width: 300px;
+            height: 460px;  
+        }
+
+        .administracion_interna{
+            width: 300px;
+        }
+
+        .administrative_options{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .panelMercado{
+            width: 300px;
+            height: 460px;
+            margin-bottom: 30px;
+        }
+        .panelMercado_M{
+            width: 300px;
+            height: 1300px;
+            margin-bottom: 30px;
+        }
+        .NFT_ventas {
+            text-align: center;
+        }
+
+        .panelVenta{
+            width: 300px;
+            height: auto;
+    padding-bottom: 80px;
+        }
+
+        .panelVenta_M{
+            width: 300px;
+            height: auto;
+            padding-bottom: 80px;
+        }
+
+        .panelVentaInterno{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .titulo1{
+            padding-left: 10px;
+            width: 260px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .titulo1_M{
+            padding-left: 0px;
+            width: 280px;
+            text-align: center;
+        }
+
+        .titulo2{
+
+    margin-left: 0px;
+    padding-left: 0px; 
+    text-align: center;
+        }
+
+        .previewimg {
+            height: auto;
+            width: 260px;
+            margin-right: 0px;
+            padding-bottom: 20px;
+        }
+        .previewimg_M {
+            height: auto;
+            width: 260px;
+            margin-right: 0px;
+            padding-bottom: 20px;
+        }
+        
+
+        .titulo3{
+            width: 260px;
+            height: auto;
+        }
+        .containerMarket{
+            display: block;
+
+        }
+        .containerMarket_M{
+            display: block;
+           margin-top:0px;
+        }
+
+        .panelMercadoInterno{
+            padding-left: 0px;
+        }
+
+        .section_D{
+            padding-top: 180px;
+            padding-bottom: 240px;
+        }
+        .section_M{
+            padding-top: 180px;
+            padding-bottom: 240px;
+        }
+
+      .panelMercadoExterno_M{
+            padding-left: 10px;
+            padding-top: 10px;
+            margin-bottom: 5%;
+            padding-right: 10px;
+        }
+
+        .boton_pag{
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .boton_pag_M{
+            margin-top: 20px;
+        
+        }
+        .pages_btn{
+            text-align: center;
+        }
     }
 
 
 /*------ Tablet ------*/
 @media (max-width: 980px) and (min-width:451px){
-/*------ Header ------*/
 
-    .clear {
-        display: flex;
-        align-items: center;
-        width: 95%;
-        overflow: hidden;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
-    .navigation ul {
-        display: flex;
-        flex-direction: row;
-        list-style: none;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-bottom: 15px;
-        margin-top: -20px;
-}
-    .navigation ul li a {
-        display: inline-block;
-        padding: 0.4rem 0.5rem;
-    }
-    .nav-img{
-        max-height: 30px;
-    }    
-    .nav-img_metamask{
-        position:relative;
-        top:1%;
-        max-height: 35px;  
-        }
         .footer_complet{
-            margin-top: -400px;      
-        }        
+            margin-top: -400px;
+        
+        }
+        
         .footer_final{
             padding-top: 40%;
             padding-left:   0%;
-        }      
+        }
+
+
+        
         .redes ul {
             display: flex;
             text-align: center;
@@ -608,35 +974,171 @@ display: none;
             flex-wrap: wrap;
             justify-content: center;
         }
-        .logo{ /*LOGO */
+/* CAUSA ERRORES 
+        .logo{ 
+
             height: 45px;
-        }
+            } */
      
 /* ----- FOOTER ----- */
+
 .footer_complet{
     margin-top: -550px;
     background-image: url('/assets/images/Footer_DCK_Marketplace.png'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
 }
+
 .footer_final{
     padding-top: 80%;
     padding-left:   0%;
 }
+
+/* ----- body ------- */
+
+.administrative{
+    width: 300px;
+    height: 480px; /*460px original*/  
+}
+.boton_dashboard{
+    margin-top: 6px;
+
 }
 
-@media (max-width: 980px){
-/* ------ Movil body ------ */
+.boton_pag{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.boton_pag_M{
+    margin-top: 20px;
+
+}
+.administracion_interna{
+    width: 300px;
+}
+
+.administrative_options{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.panelMercado{
+    width: 300px;
+    height: 460px;
+    margin-bottom: 30px;
+}
+.panelMercado_M{
+    width: 300px;
+    height: 1300px;
+    margin-bottom: 30px;
+}
+.NFT_ventas {
+    text-align: center;
+}
+.panelMercadoExterno_M{
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 5%;
+    padding-right: 10px;
+}
+
+.pages_btn{
+    text-align: center;
+}
+
+.panelVenta{
+    width: 300px;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+.panelVenta_M{
+    width: 300px;
+    height: auto;
+    padding-bottom: 80px;
+    
+}
+
+.panelVentaInterno{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.titulo1{
+    padding-left: 10px;
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.titulo1_M{
+    padding-left: 0px;
+    width: 280px;
+    text-align: center;
+}
+
+.titulo2{
+
+margin-left: 0px;
+padding-left: 0px; 
+text-align: center;
+}
+
+.previewimg {
+    height: auto;
+    width: 260px;
+    margin-right: 0px;
+}
+.previewimg_M{
+    height: auto;
+    width: 260px;
+    margin-right: 0px;
+}
+
+.titulo3{
+    width: 260px;
+    height: auto;
+}
+.containerMarket{
+    display: block;
+   
+}
+.containerMarket_M{
+    display: block;
+   margin-top:0px;
+}
+
+.panelMercadoInterno{
+    padding-left: 0px;
+}
+.section_D{
+    padding-top: 120px;
+    padding-bottom: 240px;
+}   
+.section_M{
+    padding-top: 120px;
+    padding-bottom: 240px;
+}
+
+}
+
+    @media (max-width: 980px){
+/* ------ Movil Small Screen ------ */
+
+
 .section{
     display: flex;
     justify-content: center;
-    padding-top: 120px;
+    padding-top: 180px;
     padding-bottom: 280px;
+    
 }
 
 .container{
     width: 90%;
+
 }
 
 .column_1, .column_2, .column_3{
@@ -665,10 +1167,12 @@ display: none;
 
 h4{
     font-size: 24px;
+
 }
 
 h5{
     font-size: 18px;
+
 }
 
 .button_1{
@@ -680,6 +1184,7 @@ h5{
     top:7px;
     line-height: 13px;
     padding-bottom: 16px;  
+
 }
 
 .image_coming_soon{
@@ -688,15 +1193,14 @@ h5{
     max-height: 50px;
 }
 
+    input{
+        width: 55%;
+        margin-right: 15px;
+    }
+
+
+    /* .boton_pag_M{
+
+    } */
 }
-
-
-
-
-
-
-
-
-
-
 

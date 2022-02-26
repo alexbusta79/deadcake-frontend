@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewOfferingComponent } from './components/newOffering/newOffering.component';
+import { PlayGameComponent } from './components/playgame/playgame.component';
 
 import {Moment} from 'moment/moment';
 
@@ -20,7 +21,8 @@ import { LadingComponent } from './components/lading/lading.component';
     MarketPlaceComponent,
     LadingComponent,
     DashboardComponent,
-    NewOfferingComponent
+    NewOfferingComponent,
+    PlayGameComponent
   ],
   imports: [
     BrowserModule,

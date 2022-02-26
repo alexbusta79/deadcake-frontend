@@ -1,306 +1,1206 @@
-/* You can add global styles to this file, and also import other style files */
-:host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  .contenutoCentrato{
-    
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 
+*{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.nttData{
-  color: white;
-  ;
+/* HEADER */
+
+.header{
+  position: relative; 
+  top:-1px; /*Sirve para subir y no verse blanco original en -1 */
+  position: fixed;
+  height: 135px;
+  width: 100%;
+  left:0;
+  z-index: 99;
+  background-image: url('/assets/images/Header_DCK_marketplace.png'); 
+  /*background-color: #17dead; */
 }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
+.navigation{ /* es también llamado nav */
+  display:flex;
+  justify-content:  space-between;
+  max-width:1600px;/*Original en 992px pero a gusto*/
+  margin:0 auto;
 
-  p {
-    margin: 0;
-  }
+}
 
-  .spacer {
-    flex: 1;
-  }
+/* minuto 22:47*/
+.logo{
+  padding:10px 10px; 
+  line-height: 75px; /* Falta cambiarlo por el logo aplastado*/
+}
 
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
+.nav-menu{ /* PARA EL UL */
+  display: flex;
+  margin-right: 40px;
+  list-style:none;
+}
 
-  .toolbar img {
-    margin: 0 16px;
-  }
+.nav-menu-item{
+  margin:0 10px;
+  line-height: 115px; /* original 135 Alto de barra de navegación */
+  width:max-content;
+  max-height: 40px; /* Para el tamaño de los items */
+}
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
+.nav-img{
+  padding-left:20px;
+  padding-right:20px;
 
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
+}
 
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
+.nav-toggle{
+  color:#fff;
+  background:none;
+  border:none;
+  font-size:30px;
+  padding: 0 20px;
+  line-height: 75px; /*altura máxima en móviles */
+  cursor:pointer;
+  
+  display:none;
+}
 
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
+@media (max-width: 1060px){
 
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
-
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
-
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
-
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-
-    .card-container > *:not(.circle-link) ,
-    .terminal {
+  .header{
+      top:-1px; /*Sirve para subir y no verse blanco original en -1 */
+      position: fixed;
+      height: 75px; /*tamaño para celular*/
       width: 100%;
-    }
+      left:0;
+      z-index: 99;
+      background-size:cover;
+      background-image: url('/assets/images/Header_DCK_marketplace.png'); 
+      /*background-color: #17dead; */
+  }
+  
+  .navigation{ /* es también llamado nav */
+      display:flex;
+      justify-content:  space-between;
+      max-width:1600px;/*Original en 992px pero a gusto*/
+      margin:0 auto;
+  
+  }
+  
+  
+  .logo{
+      padding:10px 40px; 
+      line-height: 40px;
+     /* margin-left:15%;  15% en 375px y 30% para lo demás*/ 
+      content: url('/assets/images/DeadCake_logo_Logo_DeadCake-Horizontal-03.png');
+      width: 262px; /*Original 262 */
+      height: 60px; /*Original 60 */
+  }
+  
+  .nav-menu{ /* PARA EL UL */
+      flex-direction: column;
+      margin-right: 20px;
+      list-style:none;
+      background-image:url('/assets/images/Background_menu_movil.png'); 
+      /* background-color: rgb(216, 35, 82); */
+      position: fixed;
+      left:0;
+      top: 45px; /* Quedando debajo del nav bar */
+      width:100%; /* inicialmente en 100%*/
+      height:50%;
+      padding:20px 0;
+      border-top: 5px solid rgb(0,94,37);
+      border-bottom: 10px solid rgb(0, 141, 82);
 
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
+      /*height:calc(50% - 40px); tamaño completo menos el tamaño del logo inicialmente en 100% pantalla */
+      overflow-y: auto;
 
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
+      left: 100%;
+      transition: left 0.3s;
+  }
+  
+  
+  .nav-menu-item{
+      margin-bottom:10px;
+      line-height: 95px; /* original 135 Alto de barra de navegación */
+      max-height: 40px; /* Para el tamaño de los items */
+      width: fit-content;
+      margin: 0 auto 20px;
+  }   
 
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
+
+  .nav-toggle{
+      display:block;
+      padding: 0 20px;
+      margin-top:0px;
+      
+  } 
+  
+  .nav-menu_visible{ 
+      left:0;
   }
 
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
+}
+
+/*----------*/
+
+
+/* ---------------------------------- */
+/* -------------- BODY -------------- */
+/* ---------------------------------- */
+
+body{
+  margin: 0px;
+  z-index: 10;
+}
+
+.section{
+  background-image: url('/assets/images/Background_Marketplace_DCK_fondo1.png'); 
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  padding-top: 280px;
+  padding-bottom: 640px; /*max 2781*/
+  margin-top: -70px;
+
+}
+.section_D{ /*---- Seccion Dashboard ----*/
+  background-image: url('/assets/images/Background_Marketplace_DCK_fondo1.png'); 
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 280px;
+  padding-bottom: 640px; /*max 2781*/
+  margin-top: -70px;
+
+}
+
+.section_M{
+  background-image: url('/assets/images/Background_Marketplace_DCK_fondo1.png'); 
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  padding-top: 130px;
+  padding-bottom: 640px; /*max 2781*/
+  margin-top: -70px;
+}
+
+.section_game{
+  background-image: url('/assets/images/Juego_DeadCake_FONDO.png'); 
+  background-color: rgb(34,34,34);
+  display: flex;
+  justify-content: center;
+  background-size:contain;
+  padding-top: 280px;
+  padding-bottom: 640px; /*max 2781*/
+  margin-top: -70px;
+
+}
+
+.container{
+  width: 90%;
+  max-width: 1280px;
+
+}
+
+.content{ /* Margen inferior de las cajas */
+  padding-bottom: 70px;
+
+}
+
+.column_1, .column_2, .column_3{
+  display: flex;
+  float: left;
+  width: 33.33%;
+  
+}
+
+.box_1, .box_2, .box_3{
+  background-image: url('/assets/images/Card_nft_DCK_Card_nft_DCK.png'); 
+  background-size: contain;
+  padding-top: 30px;   /* Mueve a la caja hacia abajo, original 31px */
+  padding-bottom: 33px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 425px;
+
+}
+
+
+.imagen_box_1{
+  max-width: 330px;
+  margin-top: -100px;
+  margin-bottom: -140px;
+}
+
+h4{
+  font-size: 25px;
+  font-weight:900;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Helvetica, Sans-Serif;
+  color:#720029;
+
+}
+
+h5{
+  font-size: 19px; 
+  font-weight: 900; /* original bold y 18px*/
+  /*text-transform: uppercase;*/
+  text-align: center;
+  font-family: Helvetica, Sans-Serif;
+  color:#720029;
+}
+
+.button_1{ /* Esta es para el botón verde */
+  background-image: url('/assets/images/Card_nft_DCK_Button_card_nft_DCK.png');
+  max-width: 155px; /* 135px original */
+  background-size: cover;
+  font-size: 34px; /* original 18px */
+  font-weight: 700;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative; /*esto no estaba originalmente*/
+  padding-top: 24px; /*Original 20px */
+  line-height: 15px; /*Original 15px */
+  padding-bottom:26px;   /*Original 22px */
+
+}
+
+.button_1 a{
+  color: #720029;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold;
+}
+.price{
+  padding-left: 35%; /*Corregir el icono busd y el botón */
+  display: flex;
+  width: 33.33%;
+}
+
+
+.imagen_busd{
+  position:relative;
+  top:33px;
+  margin-left: 5px;
+  margin-right: 2px;
+  width: 24px;
+  height: 24px;
+  margin-top: -3px;
+}
+
+.image_coming_soon{
+  margin-top: 200px;
+  margin-bottom: 250px;
+  max-height: 179px;
+}
+
+.dashb_btn ul{
+  display: flex;
+  text-align: center;
+  list-style: none;
+  padding: 0px;
+  margin: auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.dashb_btn li{
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+img.dash_item {
+  height: 55px;
+}
+
+.containerMarket{
+  display: flex;
+  margin-top:150px;
+  max-width: 1300px;
+}
+
+.containerMarket_M{
+  display: flex;
+  margin-top:150px;
+}
+
+input {
+  border-radius: 10px;
+  border: 0px;
+  padding: 7px;
+  margin-right: 0px;
+  width: 75%;
+  margin-right: 20px;
+}
+
+.panelMercado{
+  height:600px;
+  width: 800px;
+  border: 10px;
+  border-color: #720029;
+  background-color: #D82352;
+  margin-right: 3%;
+  border-radius: 20px;
+  /*color: #17dead;*/
+  
+}
+.panelMercado_M{
+  height:600px;
+  width: 800px;
+  border: 10px;
+  border-color: #720029;
+  background-color: #D82352;
+  margin-right: 3%;
+  border-radius: 20px;
+  /*color: #17dead;*/
+  
+}
+.panelMercadoInterno{
+  padding-left:20px;
+  padding-top:20px;
+  margin-bottom:5%;
+
+}
+
+.panelMercadoExterno{
+  padding-left:40px;
+  padding-top:20px;
+  margin-bottom:5%;
+  
+}
+
+.panelMercadoExterno_M{
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-bottom: 5%;
+  padding-right: 10px;
+  
+}
+
+.titulo1{
+  padding-left:10px;
+  position:relative;
+  border-radius: 10px;
+  background-color: aliceblue;
+  color: #720029;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold;
+  width: 330px;
+  height:30px;
+  margin-bottom:20px;
+  
+}
+.titulo1_M{
+  /*padding-left:40px;*/
+  position:relative;
+  border-radius: 10px;
+  background-color: aliceblue;
+  color: #720029;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold;
+  /*width: 330px;*/
+  height:30px;
+  margin-bottom:20px;
+  text-align: center;
+  margin-right: 10px;
+  
+}
+
+.panelVentaInterno{
+  padding-left:20px;
+  padding-top:20px;
+  margin-bottom:5%;
+  color: #720029;
+  font-family: Helvetica, Sans-Serif;
+  padding-right: 20px;
+
+}
+.titulo2{
+  
+  padding-left:10px;
+  position:relative;
+  border-radius: 10px;
+  background-color: aliceblue;
+  color: #720029;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold;
+  width: 260px;
+  height:30px;
+  margin-bottom:20px;
+  
+}
+
+.previewimg{
+  height:268px;
+  width:203px;
+  margin-right:10px;
+}
+.previewimg_M{
+  height: 280px;
+  width: 235px;
+  margin-right:10px;
+}
+
+.boton_pag{
+  position:relative;
+  margin-top:180px;
+  background-color: #17dead;
+  border-radius: 10px;
+  border: 0px;
+  padding: 7px;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: 700;
+
+}
+.boton_pag_M{
+  position:relative;
+  margin-top:80px;
+  background-color: #17dead;
+  border-radius: 10px;
+  border: 0px;
+  padding: 7px;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold;
+
+}
+
+.panelVenta{
+  height:600px;
+  width:400px;
+  border: 100px;
+  border-color: #720029;
+  background-color: #D82352;
+  border-radius: 20px;
+  /*color: #17dead;*/
+}
+.panelVenta_M{
+  height:600px;
+  width:400px;
+  border: 100px;
+  border-color: #720029;
+  background-color: #D82352;
+  border-radius: 20px;
+  /*color: #17dead;*/
+}
+
+.administrative{
+  height: 360px;
+  max-width:1300px;
+  border-color: #720029;
+  background-color: #D82352;
+  margin-bottom:-130px;
+  margin-right: 0%;
+  border-radius: 20px;
+  /*color: #17dead;*/
+
+}
+
+.administracion_interna{
+  height: 250px;
+  max-width:1300px;
+  position:relative;
+  padding-top:10px;
+  font-family: Helvetica, Sans-Serif;
+
+}
+
+.titulo3{
+  margin-left: 20px;
+  padding-left:10px;
+  position:relative;
+  border-radius: 10px;
+  background-color: aliceblue;
+  color: #720029;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold;
+  width: 560px;
+  height:30px;
+  margin-bottom:30px;
+  
+}
+.boton_dashboard{
+  background-color: #17dead;
+  border-radius: 10px;
+  border: 0px;
+  padding: 7px;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold;
+}
+.administrative_options{
+  margin-left: 20px;
+  margin-right: 100px;
+  max-width: 500px;
+}
+
+/* -------------------------------------- */
+/*  -------------- Footer --------------  */
+/* -------------------------------------- */
+
+.footer_complet{
+  margin-top: -605px;
+  background-image: url('/assets/images/Footer_DCK_Marketplace.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.footer_final{
+  padding-top: 40%;
+  padding-left:   0%;
+}
+
+.redes{
+  display:flex;
+  text-align: center;
+      padding-left: 15px;
+}
+
+.redes ul{
+  display:flex;
+  text-align: center;
+  list-style: none;
+  padding: 0px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.icon-social img{
+  max-width: 80px;
+  padding-right: 15px;
+}
+
+.copyright{
+  padding-bottom: 80px;
+  margin: auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+.copyright p{
+  color: #720029;
+  font-family: Helvetica, Sans-Serif;
+  font-weight: bold; 
+  font-size: 18px; 
+}
+
+.copyright a{
+  color: #720029;
+  text-decoration: none;
+}
+
+.NFT_ventas_M{
+  text-align: center;
+}
+
+/* ---------- PANEL DEL JUEGO ---------------*/
+
+.game_window{
+  display: flex;
+  margin-top:150px;
+}
+
+.cakes_view{
+  display:flex;
+  margin-right: 0px;
+}
+
+.game_window_part{
+  margin-right: 20px;
+  margin-bottom: 30px;
+
+}
+
+.horno{
+  display:flex;
+  background-image: url('/assets/images/Juego_horno.png');
+  height: 384px;
+  width:516px;
+  margin-right: 0px;
+  margin-bottom:30px;
+}
+.horno_cake{
+  margin-right: 10px;
+  margin-top: 55px;
+  margin-left:70px;
+}
+.horno_cake_interno_rewards{
+  position:absolute;
+}
+
+.horno_cake_time{
+  margin-left:150px;
+  margin-bottom:35px;
+}
+
+.horno_cake_interno{
+  position:absolute;
+  margin-left: 55px;
+  margin-top:65px;
+
+}
+.horno_items{
+  position:right;
+  margin-left:20px;
+  margin-top:11px;
+}
+
+.horno_items_list{
+  list-style: none;
+}
+
+.items_potenciadores{
+  margin-bottom:6px;
+}
+
+.boton_items{
+  background-image:url('/assets/images/Juego_DeadCake-30.png');
+  width:69px;
+  height:39px;
+}
+.game_panel{
+  background-image: url('/assets/images/Juego_game_panel.png');
+  width:318px;
+  height:801px;
+}
+
+.game_panel_statistics{
+  margin-bottom: 105px;
+}
+
+.panel_tokens{
+  margin-top: 50px;
+}
+.tokens{
+  display:flex;
+  text-align: center;
+  margin-bottom:7px;
+}
+.barra_panel{
+  margin-top:5px;
+  margin-left:7px;
+}
+
+
+.botonera_de_opciones{
+  list-style: none;
+  text-align: center;
+}
+
+.game_panel_buttoms_img{
+  margin-left:-40px;
+  margin-bottom: 15px;
+}
+/* ----------------------------------------- */
+
+@media (min-width:981px)and (max-width:1210px ){
+  .panelMercado{
+      width: 600px;
   }
+  .panelVenta{
+      width: 350px;
+  }
+
+  .panelMercado_M{
+      width: 600px;
+      height: auto;
+  }
+  .panelVenta_M{
+      width: 350px;
+  }
+  .previewimg_M{
+      height: 215px;
+      width: 170px;
+  }
+}
+
+
+/* ---- Movil ---- */
+
+/*------- Header -------*/
+
+@media (max-width:450px){
+
+/*----- Footer -----*/
+
+.footer_complet{
+  margin-top: -215px;
+
+}
+
+.footer_final{
+  padding-top: 25%;
+  padding-left:   0%;
+}
+
+
+.icon-social img{
+  max-width: 70px;
+}
+
+.redes ul {
+  display: flex;
+  text-align: center;
+  list-style: none;
+  padding: 0px;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+
+          
+  .icon-telegram img{
+      max-width: 70px;
+      padding-right:5px;
+      padding-left:5px;
+      }
+          
+      .icon-facebook img{
+          max-width: 70px;
+          padding-right: 5px;
+          padding-left:5px;
+      }
+          
+      .icon-discord img{
+          max-width: 70px;
+          padding-right: 5px;
+          padding-left:5px;
+      }
+          
+      .icon-youtube img{
+          max-width: 70px;
+          padding-right: 5px;
+          padding-left:5px;
+      }
+          
+      .icon-twitter img{
+          max-width: 70px;
+          padding-right: 5px;
+          padding-left:5px;
+      }
+          
+          
+      .icon-instagram img{
+          max-width: 70px;
+          padding-right: 5px;
+          padding-left:5px;
+      }
+
+
+      .copyright {
+          padding-bottom: 20px;
+          margin: auto;
+          max-width: 300px;
+          text-align: center;
+      }
+
+      /* -------BODY -------*/
+
+      .administrative{
+          width: 300px;
+          height: 460px;  
+      }
+
+      .administracion_interna{
+          width: 300px;
+      }
+
+      .administrative_options{
+          margin-left: 20px;
+          margin-right: 20px;
+      }
+
+      .panelMercado{
+          width: 300px;
+          height: 460px;
+          margin-bottom: 30px;
+      }
+      .panelMercado_M{
+          width: 300px;
+          height: 1300px;
+          margin-bottom: 30px;
+      }
+      .NFT_ventas {
+          text-align: center;
+      }
+
+      .panelVenta{
+          width: 300px;
+          height: auto;
+  padding-bottom: 80px;
+      }
+
+      .panelVenta_M{
+          width: 300px;
+          height: auto;
+          padding-bottom: 80px;
+      }
+
+      .panelVentaInterno{
+          padding-left: 20px;
+          padding-right: 20px;
+      }
+
+      .titulo1{
+          padding-left: 10px;
+          width: 260px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .titulo1_M{
+          padding-left: 0px;
+          width: 280px;
+          text-align: center;
+      }
+
+      .titulo2{
+
+  margin-left: 0px;
+  padding-left: 0px; 
+  text-align: center;
+      }
+
+      .previewimg {
+          height: auto;
+          width: 260px;
+          margin-right: 0px;
+          padding-bottom: 20px;
+      }
+      .previewimg_M {
+          height: auto;
+          width: 260px;
+          margin-right: 0px;
+          padding-bottom: 20px;
+      }
+      
+
+      .titulo3{
+          width: 260px;
+          height: auto;
+      }
+      .containerMarket{
+          display: block;
+
+      }
+      .containerMarket_M{
+          display: block;
+         margin-top:0px;
+      }
+
+      .panelMercadoInterno{
+          padding-left: 0px;
+      }
+
+      .section_D{
+          padding-top: 180px;
+          padding-bottom: 240px;
+      }
+      .section_M{
+          padding-top: 180px;
+          padding-bottom: 240px;
+      }
+
+    .panelMercadoExterno_M{
+          padding-left: 10px;
+          padding-top: 10px;
+          margin-bottom: 5%;
+          padding-right: 10px;
+      }
+
+      .boton_pag{
+          margin-top: 40px;
+          margin-bottom: 20px;
+      }
+
+      .boton_pag_M{
+          margin-top: 20px;
+      
+      }
+      .pages_btn{
+          text-align: center;
+      }
+  }
+
+
+/*------ Tablet ------*/
+@media (max-width: 980px) and (min-width:451px){
+
+
+      .footer_complet{
+          margin-top: -400px;
+      
+      }
+      
+      .footer_final{
+          padding-top: 40%;
+          padding-left:   0%;
+      }
+
+
+      
+      .redes ul {
+          display: flex;
+          text-align: center;
+          list-style: none;
+          padding: 0px;
+          margin: auto;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+/* CAUSA ERRORES 
+      .logo{ 
+
+          height: 45px;
+          } */
+   
+/* ----- FOOTER ----- */
+
+.footer_complet{
+  margin-top: -550px;
+  background-image: url('/assets/images/Footer_DCK_Marketplace.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.footer_final{
+  padding-top: 80%;
+  padding-left:   0%;
+}
+
+/* ----- body ------- */
+.logo:hover{
+  transform: scale(1.05);
+  transition:0.5s;
+
+}
+.nav-selection-menu:hover{
+  transform: scale(1.05);
+  transition:0.5s;
+}
+
+.icon-social img:hover{
+  transform: scale(1.2);
+  transition:0.5s;
+  position:relative;
+}
+
+.button_1:hover{
+  transform: scale(1.1);
+  transition:0.5s;
+}
+
+.administrative{
+  width: 300px;
+  height: 480px; /*460px original*/  
+}
+.boton_dashboard{
+  margin-top: 6px;
+
+}
+
+.boton_pag{
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.boton_pag_M{
+  margin-top: 20px;
+
+}
+.administracion_interna{
+  width: 300px;
+}
+
+.administrative_options{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.panelMercado{
+  width: 300px;
+  height: 460px;
+  margin-bottom: 30px;
+}
+.panelMercado_M{
+  width: 300px;
+  height: 1300px;
+  margin-bottom: 30px;
+}
+.NFT_ventas {
+  text-align: center;
+}
+.panelMercadoExterno_M{
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-bottom: 5%;
+  padding-right: 10px;
+}
+
+.pages_btn{
+  text-align: center;
+}
+
+.panelVenta{
+  width: 300px;
+  height: auto;
+  padding-bottom: 80px;
+}
+
+.panelVenta_M{
+  width: 300px;
+  height: auto;
+  padding-bottom: 80px;
+  
+}
+
+.panelVentaInterno{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.titulo1{
+  padding-left: 10px;
+  width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.titulo1_M{
+  padding-left: 0px;
+  width: 280px;
+  text-align: center;
+}
+
+.titulo2{
+
+margin-left: 0px;
+padding-left: 0px; 
+text-align: center;
+}
+
+.previewimg {
+  height: auto;
+  width: 260px;
+  margin-right: 0px;
+}
+.previewimg_M{
+  height: auto;
+  width: 260px;
+  margin-right: 0px;
+}
+
+.titulo3{
+  width: 260px;
+  height: auto;
+}
+.containerMarket{
+  display: block;
+ 
+}
+.containerMarket_M{
+  display: block;
+ margin-top:0px;
+}
+
+.panelMercadoInterno{
+  padding-left: 0px;
+}
+.section_D{
+  padding-top: 120px;
+  padding-bottom: 240px;
+}   
+.section_M{
+  padding-top: 120px;
+  padding-bottom: 240px;
+}
+
+}
+
+  @media (max-width: 980px){
+/* ------ Movil Small Screen ------ */
+
+
+.section{
+  display: flex;
+  justify-content: center;
+  padding-top: 180px;
+  padding-bottom: 280px;
+  
+}
+
+.container{
+  width: 90%;
+
+}
+
+.column_1, .column_2, .column_3{
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.box_1, .box_2, .box_3{
+  padding-bottom: 33px;
+  padding-top: 12px;   /* Mueve a la caja hacia abajo, originalmente 20px */
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.imagen_box_1{
+  max-width: 250px;
+  margin-top: -90px;
+  margin-bottom: -145px;
+}
+
+.price{
+  position:relative;
+  top:8px;
+  right:13px;
+}
+
+h4{
+  font-size: 24px;
+
+}
+
+h5{
+  font-size: 18px;
+
+}
+
+.button_1{
+  max-width: 110px;
+  font-size: 23px;
+  font-weight: 600;
+  padding-top: 17px;
+  position:relative; /* ESTO NO ESTABA */
+  top:7px;
+  line-height: 13px;
+  padding-bottom: 16px;  
+
+}
+
+.image_coming_soon{
+  position:relative;
+  top:10px;
+  max-height: 50px;
+}
+
+  input{
+      width: 55%;
+      margin-right: 15px;
+  }
+
+
+  /* .boton_pag_M{
+
+  } */
+}
+
