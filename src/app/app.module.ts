@@ -14,6 +14,7 @@ import { PlayGameComponent } from './components/playgame/playgame.component';
 import {Moment} from 'moment/moment';
 
 import { LadingComponent } from './components/lading/lading.component';
+import { MarketPlaceService } from './services/marketPlace.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LadingComponent } from './components/lading/lading.component';
     CommonModule,
   ],
   providers: [
-    UsersService
+    UsersService,
+    MarketPlaceService
   ],
   bootstrap: [AppComponent]
 })

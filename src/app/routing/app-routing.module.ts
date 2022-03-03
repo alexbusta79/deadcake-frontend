@@ -6,11 +6,12 @@ import { DashboardComponent } from '.././components/dashboard/dashboard.componen
 import { NewOfferingComponent } from '.././components/newOffering/newOffering.component';
 import { PlayGameComponent } from '.././components/playgame/playgame.component';
 
+
 const routes: Routes = [
   //{path: "", redirectTo: "", pathMatch: "full"},
-  {path:'lading', component: LadingComponent},
+  {path:'', component: LadingComponent},
   {path:'dashboard', component: DashboardComponent},
-  {path:'marketplace', component: MarketPlaceComponent},
+  {path:'marketplace', component: NewOfferingComponent},
   {path:'playgame', component: PlayGameComponent},
   {path:'newoffering', component: NewOfferingComponent}
 ];

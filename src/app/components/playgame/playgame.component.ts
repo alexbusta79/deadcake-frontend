@@ -28,6 +28,8 @@ export class PlayGameComponent implements OnInit {
   @ViewChild('modalConfermaInsert') modalConfermaInsert: any;
   @ViewChild('modalUserModifica') modalUserModifica: any;
 
+  video : boolean = false; 
+
   constructor(
     private usersService: UsersService,
     private router : Router,
@@ -36,7 +38,10 @@ export class PlayGameComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.stampaAll();
+    this.stampaAll();  // ensenas el video 
+
+   //setTimeout(pedro,32); 
+   // this.video = true; 
   }
   
   stampaAll(){

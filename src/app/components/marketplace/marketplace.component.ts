@@ -19,7 +19,7 @@ export class MarketPlaceComponent implements OnInit {
   users: User[] = [];
   userDaModificare: User= new User();
   singleUser: User = new User;
-
+  viewBox = false; 
   @ViewChild('closebutton') closebutton: any;
   @ViewChild('modalUserInfo') modalUserInfo: any;
   @ViewChild('modalConfermaUpdate') modalConfermaUpdate: any;
