@@ -8,6 +8,7 @@ let tokenAbi = require('./tokenContract.json');
 let busdAbi = require('./busdABI.json');
 let nftAbi = require('./nftABI.json');
 let marketPlaceAbi = require('./marketPlaceABI.json');
+let gameAbi = require('./gameABI.json');
 
 @Injectable({
     providedIn: 'root'
@@ -48,10 +49,16 @@ export class MarketPlaceService {
         return addresses.length ? addresses[0] : null;
     };
 
+    //private _tokenContractAddress: string = "0xDBb6b22e1BaBEec8B06564c306fed9ed82A51c58";
+    //private busdToken: string = "0x41070b9F1300Af9a9fd6048394B3032CD09c7bc9";
+    //private nftContract: string = "0x7670D131A526e210A4b6855b839D61b699AA85c9";
+    //private marketPlaceContract: string = "0x62710565837D481Fe4aCD2B738Ebe5DdfA9c9423";
+
     private _tokenContractAddress: string = "0xDBb6b22e1BaBEec8B06564c306fed9ed82A51c58";
-    private busdToken: string = "0x41070b9F1300Af9a9fd6048394B3032CD09c7bc9";
-    private nftContract: string = "0x7670D131A526e210A4b6855b839D61b699AA85c9";
-    private marketPlaceContract: string = "0x62710565837D481Fe4aCD2B738Ebe5DdfA9c9423";
+    private busdToken: string = "0xc3F487945a33c0C16280f7dE793765F7f4341EbC";
+    private nftContract: string = "0xEB6F0934a821b24029b57765D1906A3BD98a3eD2";
+    private marketPlaceContract: string = "0xC05B9668Bd3d320886B396F0D23B75a1EC2c0755";
+    private gameContract: string = "0xE51716a9DCa1c9ad6AFb5E9Df76e35B312EFB5f2";
 
     /* METODOS DEL NFT */
     public nftNoMinteados = async (idCaja: number ) => {
@@ -60,9 +67,7 @@ export class MarketPlaceService {
                     nftAbi,
                     this.nftContract,
                 );
-                const nftNoMinteados = await contract.methods.nftNoMinteados(idCaja).call();
-                console.log("nftNoMinteados - Caja " + idCaja,nftNoMinteados);
-                return nftNoMinteados; 
+                return await contract.methods.nftNoMinteados(idCaja).call();
         } catch (error) {
             console.log(error);
         }
@@ -116,8 +121,68 @@ export class MarketPlaceService {
         }
     }  
 
-
-
+    /* METODOS DEL JUEGO */
+    public reclamarRecompensa = async (idCaja : number) => {
+        try {
+                const contract = new window.web3.eth.Contract(
+                    gameAbi,
+                    this.gameContract,
+                );
+                await contract.methods.reclamarRecompenza(idCaja).send({ 
+                    from: await this.getAddress()
+                });
+        } catch (error) {
+            console.log(error);
+        }
+    }     
+    public superadoTiempoDeFarming = async (idCaja : number) => {
+        try {
+                const contract = new window.web3.eth.Contract(
+                    gameAbi,
+                    this.gameContract,
+                );
+                let wallet = await this.getAddress(); 
+                return await contract.methods.superadoTiempoDeFarming(wallet,idCaja).call();
+        } catch (error) {
+            console.log(error);
+        }
+    }  
+    public recompensaAcumulada = async (idCaja : number) => {
+        try {
+                const contract = new window.web3.eth.Contract(
+                    gameAbi,
+                    this.gameContract,
+                );
+                let wallet = await this.getAddress(); 
+                return await contract.methods.recompensaAcumulada(wallet,idCaja).call();
+        } catch (error) {
+            console.log(error);
+        }
+    }  
+    public tiempoDeFarmingTotal = async (idCaja : number) => {
+        try {
+                const contract = new window.web3.eth.Contract(
+                    gameAbi,
+                    this.gameContract,
+                );
+                let wallet = await this.getAddress(); 
+                return await contract.methods.tiempoDeFarmingTotal(wallet,idCaja).call();
+        } catch (error) {
+            console.log(error);
+        }
+    }       
+    public balanceDelFarming = async () => {
+        try {
+                const contract = new window.web3.eth.Contract(
+                    gameAbi,
+                    this.gameContract,
+                );
+                let wallet = await this.getAddress(); 
+                return await contract.methods.balanceOf(wallet).call();
+        } catch (error) {
+            console.log(error);
+        }
+    }  
 
 
 

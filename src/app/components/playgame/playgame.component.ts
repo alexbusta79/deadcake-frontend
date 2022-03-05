@@ -5,54 +5,54 @@ import { Router, RouterLink } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from '../../services/users.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { MarketPlaceService } from 'src/app/services/marketPlace.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './playgame.component.html',
-  styleUrls: ['./playgame.component.css'],
-  encapsulation: ViewEncapsulation.None, 
-  
+  styleUrls: ['./playgame.component.css']  
 })
-
 export class PlayGameComponent implements OnInit {
-  newUser:User = new User();
-  users: User[] = [];
-  userDaModificare: User= new User();
-  singleUser: User = new User;
-
-  @ViewChild('closebutton') closebutton: any;
-  @ViewChild('modalUserInfo') modalUserInfo: any;
-  @ViewChild('modalConfermaUpdate') modalConfermaUpdate: any;
-  @ViewChild('modalRichiestaDelete') modalRichiestaDelete: any;
-  @ViewChild('modalConfermaDelete') modalConfermaDelete: any;
-  @ViewChild('modalConfermaInsert') modalConfermaInsert: any;
-  @ViewChild('modalUserModifica') modalUserModifica: any;
 
   video : boolean = false; 
+  superadoTiempoFarming1!: boolean; 
+  superadoTiempoFarming2!: boolean; 
+  superadoTiempoFarming3!: boolean; 
+  recompensaAcumulada1!: number;
+  recompensaAcumulada2!: number;
+  recompensaAcumulada3!: number;
+  tiempoDeFarmingTotal1!: number;
+  tiempoDeFarmingTotal2!: number;
+  tiempoDeFarmingTotal3!: number;
+  balanceDelFarming!: number;
+  decimalesToken : number = 1000000000000000000; 
+  decimalesJuego : number = 10000000000; 
 
-  constructor(
-    private usersService: UsersService,
-    private router : Router,
-    private modalService: NgbModal
-   
-    ) { }
+  constructor(private marketPlaceService : MarketPlaceService,private router : Router) { }
+
 
   ngOnInit() {
-    this.stampaAll();  // ensenas el video 
+    this.marketPlaceService.superadoTiempoDeFarming(1).then(data => this.superadoTiempoFarming1 = data );
+    this.marketPlaceService.superadoTiempoDeFarming(2).then(data => this.superadoTiempoFarming2 = data );
+    this.marketPlaceService.superadoTiempoDeFarming(3).then(data => this.superadoTiempoFarming3 = data );
 
-   //setTimeout(pedro,32); (variable,valor) 
-   // this.video = true; 
+    this.marketPlaceService.recompensaAcumulada(1).then(data => this.recompensaAcumulada1 = data );
+    this.marketPlaceService.recompensaAcumulada(2).then(data => this.recompensaAcumulada2 = data );
+    this.marketPlaceService.recompensaAcumulada(3).then(data => this.recompensaAcumulada3 = data );
+
+    this.marketPlaceService.tiempoDeFarmingTotal(1).then(data => this.tiempoDeFarmingTotal1 = data );
+    this.marketPlaceService.tiempoDeFarmingTotal(2).then(data => this.tiempoDeFarmingTotal2 = data );
+    this.marketPlaceService.tiempoDeFarmingTotal(3).then(data => this.tiempoDeFarmingTotal3 = data );
+
+    this.marketPlaceService.balanceDelFarming().then(data => this.balanceDelFarming = data / this.decimalesJuego );
+
   }
   
-  stampaAll(){
-    this.usersService.getUsers().subscribe((res: User[]) => { 
-      this.users = res;
-    }, err => {
-      console.log(err);
-    });
-
+  reclamarRecompensa(idCaja : number){
+    this.marketPlaceService.reclamarRecompensa(idCaja).then(data =>  this.router.navigateByUrl('/newoffering') );
   }
 
+  /*
   riempiModaleConId(idRiga:number){
       this.usersService.getUser(idRiga).subscribe((userById: User) => {
       this.singleUser = userById;
@@ -146,5 +146,5 @@ export class PlayGameComponent implements OnInit {
         console.log(errore);
       }  
     );
-  }
+  }*/
 }

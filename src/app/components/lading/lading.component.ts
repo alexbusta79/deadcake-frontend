@@ -8,32 +8,39 @@ import { MarketPlaceService } from './../../services/marketPlace.service';
   styleUrls: ['./lading.component.css'],
 })
 export class LadingComponent implements OnInit {
-  title = 'ngEth';
   
-  private window: any;
-
   nftNoMinteadosCaja1!: number; 
   nftNoMinteadosCaja2!: number; 
   nftNoMinteadosCaja3!: number; 
 
-  constructor(@Inject(DOCUMENT) private document: Document,private marketPlaceService : MarketPlaceService) {
-    this.window = this.document.defaultView;
+  precioCaja1!: number; 
+  precioCaja2!: number; 
+  precioCaja3!: number; 
+
+  decimalesBUSD : number = 1000000000000000000; 
+
+  constructor(private marketPlaceService : MarketPlaceService) {
   }
 
   ngOnInit(): void {
     this.marketPlaceService.openMetamask().then();
-    this.marketPlaceService.nftNoMinteados(1).then(data => this.nftNoMinteadosCaja1 = data );
-    this.marketPlaceService.nftNoMinteados(2).then(data => this.nftNoMinteadosCaja2 = data );
-    this.marketPlaceService.nftNoMinteados(3).then(data => this.nftNoMinteadosCaja3 = data );
+    this.nftNoMinteados();
+    this.marketPlaceService.precioCaja(1).then(data => this.precioCaja1 = data / this.decimalesBUSD );
+    this.marketPlaceService.precioCaja(2).then(data => this.precioCaja2 = data / this.decimalesBUSD );
+    this.marketPlaceService.precioCaja(3).then(data => this.precioCaja3 = data / this.decimalesBUSD );
   }
 
   aprobarEnvioTokensAlContrato(idCaja : number) {
     this.marketPlaceService.precioCaja(idCaja).then(data => {
-      console.log(data); 
       this.marketPlaceService.aprobarEnvioTokensAlContrato(data).then(data => {
-        console.log(data); 
-        this.marketPlaceService.mintNFT(idCaja).then(data => console.log(data));
+        this.marketPlaceService.mintNFT(idCaja).then(data => this.nftNoMinteados() );
       });
     });
+  }
+
+  nftNoMinteados() {
+    this.marketPlaceService.nftNoMinteados(1).then(data => this.nftNoMinteadosCaja1 = data );
+    this.marketPlaceService.nftNoMinteados(2).then(data => this.nftNoMinteadosCaja2 = data );
+    this.marketPlaceService.nftNoMinteados(3).then(data => this.nftNoMinteadosCaja3 = data );
   }
 }

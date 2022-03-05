@@ -12,14 +12,19 @@
                             <div class="horno_cake_interno_rewards"> <a href="#"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
                         </div>
                     </div>
+                    {{tiempoDeFarmingTotal1}}
+                    {{recompensaAcumulada1}}
                     <div class="horno_items">
+                        {{superadoTiempoFarming1}}
+                        
                         <ul class="horno_items_list">
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
+                            <li class="items_potenciadores"><a (click)="reclamarRecompensa(1)"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
                             <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
                         </ul>
+                    
                     </div>
                 </div>
 
@@ -32,12 +37,17 @@
                             <div class="horno_cake_interno_rewards"> <a href="#"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
                         </div>
                     </div>
+
+                    
+                    {{tiempoDeFarmingTotal2}}
+                    {{recompensaAcumulada2}}
                     <div class="horno_items">
+                        {{superadoTiempoFarming2}}
                         <ul class="horno_items_list">
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
+                            <li class="items_potenciadores"><a (click)="reclamarRecompensa(2)"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
                             <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
                         </ul>
                     </div>
@@ -53,12 +63,15 @@
                             <div class="horno_cake_interno_rewards"> <a href="#"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
                         </div>
                     </div>
+                    {{tiempoDeFarmingTotal3}}
+                    {{recompensaAcumulada3}}
                     <div class="horno_items">
+                        {{superadoTiempoFarming3}}
                         <ul class="horno_items_list">
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
                             <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
+                            <li class="items_potenciadores"><a (click)="reclamarRecompensa(3)"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
                             <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
                         </ul>
                     </div>
@@ -72,6 +85,7 @@
         </div>
 
         <div class="game_panel">
+            {{balanceDelFarming}}
             <div class="game_panel_statistics">
                 <ul class="panel_tokens">
                     <li class="tokens"><div><img src="/assets/images/Juego_token_DCK.png" alt=""></div><div><img src="/assets/images/Juego_nivel_de_juego.png" alt="" class="barra_panel"></div></li>

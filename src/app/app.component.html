@@ -13,12 +13,14 @@
       <ul class="nav-metamask">
           <li class="nav-menu-item-metamask"><a aria-current="page" routerLink="" class="nav-img nav-link"><img src="/assets/images/DCK items page_English.png"   class="nav-selection-menu"></a></li>
           <li class="nav-menu-item-metamask">
-            <div *ngIf="mostrarConnect"> <a aria-current="page" (click)="conectarMetamask()" class="nav-img nav-link">  
+            <div *ngIf="mostrarConnect">    
               {{numeroWallet}} 
-              <div *ngIf= "mostrarConnect">
-                <img src="/assets/images/Button DCK_Connect DCK.png" class="nav-selection-menu" > 
-              </div> </a>
             </div> 
+            <div *ngIf= "!mostrarConnect">
+                <a aria-current="page" (click)="conectarMetamask()" class="nav-img nav-link">  
+                <img src="/assets/images/Button DCK_Connect DCK.png" class="nav-selection-menu" >  </a>
+            </div> 
+            
           </li>   
       </ul>
   </nav>

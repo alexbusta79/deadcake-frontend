@@ -18,15 +18,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mostrarConnect=false;
 
   }
   
   conectarMetamask() {
-    this.marketPlaceService.openMetamask().then();
+   // this.marketPlaceService.openMetamask().then();
     this.marketPlaceService.getAddress().then(data => {
-      this.numeroWallet = data;
-      this.mostrarConnect=true;
+      if(data != false && data != null ) {
+        this.numeroWallet = data;
+        this.mostrarConnect = true;
+      }
     });
   }
 }

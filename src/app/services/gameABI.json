@@ -15,24 +15,14 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256[3]",
-				"name": "_precios",
-				"type": "uint256[3]"
+				"internalType": "uint256",
+				"name": "tiempoParaRecompensas",
+				"type": "uint256"
 			},
 			{
-				"internalType": "string[6]",
-				"name": "_tokensUriCaja1",
-				"type": "string[6]"
-			},
-			{
-				"internalType": "string[4]",
-				"name": "_tokensUriCaja2",
-				"type": "string[4]"
-			},
-			{
-				"internalType": "string[4]",
-				"name": "_tokensUriCaja3",
-				"type": "string[4]"
+				"internalType": "uint256[]",
+				"name": "gananciasAlSegundo",
+				"type": "uint256[]"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -50,13 +40,13 @@
 			{
 				"indexed": true,
 				"internalType": "address",
-				"name": "approved",
+				"name": "spender",
 				"type": "address"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "value",
 				"type": "uint256"
 			}
 		],
@@ -64,45 +54,26 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "operator",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "bool",
-				"name": "approved",
-				"type": "bool"
-			}
-		],
-		"name": "ApprovalForAll",
-		"type": "event"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "to",
+				"name": "spender",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
 		"name": "approve",
-		"outputs": [],
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -122,12 +93,12 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256[3]",
-				"name": "precios",
-				"type": "uint256[3]"
+				"internalType": "uint256[]",
+				"name": "gananciasAlSegundo",
+				"type": "uint256[]"
 			}
 		],
-		"name": "cambiarPreciosCajasNFT",
+		"name": "cambiarGananciasAlSegundo",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -135,17 +106,17 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_idNFT",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "precioNFT",
+				"name": "subtractedValue",
 				"type": "uint256"
 			}
 		],
-		"name": "cambiarPreciosNFT",
+		"name": "decreaseAllowance",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -160,26 +131,58 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "recipient",
+				"name": "addressFarming",
 				"type": "address"
 			},
 			{
 				"internalType": "uint8",
-				"name": "_cajaID",
+				"name": "cajaId",
 				"type": "uint8"
+			}
+		],
+		"name": "farming",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "inversor",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "microondas",
+				"type": "uint8"
+			}
+		],
+		"name": "FarmingActivo",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "precioNFT",
+				"name": "addedValue",
 				"type": "uint256"
 			}
 		],
-		"name": "mintNFT",
+		"name": "increaseAllowance",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "bool",
 				"name": "",
-				"type": "uint256"
+				"type": "bool"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -205,6 +208,44 @@
 		"type": "event"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "cajaId",
+				"type": "uint8"
+			}
+		],
+		"name": "reclamarRecompenza",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "inversor",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "microondas",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "cantidad",
+				"type": "uint256"
+			}
+		],
+		"name": "ReclamoRecompensa",
+		"type": "event"
+	},
+	{
 		"inputs": [],
 		"name": "renounceOwnership",
 		"outputs": [],
@@ -215,68 +256,23 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
+				"name": "recipient",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bytes",
-				"name": "_data",
-				"type": "bytes"
-			}
-		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "operator",
-				"type": "address"
-			},
+		"name": "transfer",
+		"outputs": [
 			{
 				"internalType": "bool",
-				"name": "approved",
+				"name": "",
 				"type": "bool"
 			}
 		],
-		"name": "setApprovalForAll",
-		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -296,9 +292,9 @@
 				"type": "address"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "value",
 				"type": "uint256"
 			}
 		],
@@ -309,45 +305,28 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "from",
+				"name": "sender",
 				"type": "address"
 			},
 			{
 				"internalType": "address",
-				"name": "to",
+				"name": "recipient",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
 		"name": "transferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+		"outputs": [
 			{
-				"internalType": "address",
-				"name": "vendedor",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "comprador",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_idNFT",
-				"type": "uint256"
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
-		"name": "transferNFT",
-		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -370,6 +349,30 @@
 				"internalType": "address",
 				"name": "owner",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
 			}
 		],
 		"name": "balanceOf",
@@ -384,43 +387,36 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "getApproved",
+		"inputs": [],
+		"name": "decimals",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "uint8",
 				"name": "",
-				"type": "address"
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "operator",
-				"type": "address"
-			}
-		],
-		"name": "isApprovedForAll",
+		"inputs": [],
+		"name": "gananciasPorSegundoMicroondas",
 		"outputs": [
 			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
+				"internalType": "uint256",
+				"name": "caja1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "caja2",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "caja3",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -459,44 +455,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "_cajaID",
-				"type": "uint8"
-			}
-		],
-		"name": "nftMinteados",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "nftMint",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "_cajaID",
-				"type": "uint8"
-			}
-		],
-		"name": "nftNoMinteados",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "nftNoMint",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "owner",
 		"outputs": [
@@ -512,107 +470,41 @@
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "addressFarming",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "cajaId",
+				"type": "uint8"
+			}
+		],
+		"name": "recompensaAcumulada",
+		"outputs": [
+			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "recompensa",
 				"type": "uint256"
 			}
 		],
-		"name": "ownerOf",
-		"outputs": [
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "address",
-				"name": "",
+				"name": "addressFarming",
 				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
+			},
 			{
 				"internalType": "uint8",
-				"name": "_cajaID",
+				"name": "cajaId",
 				"type": "uint8"
 			}
 		],
-		"name": "precioDelNFT",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "precioNft",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_nftId",
-				"type": "uint256"
-			}
-		],
-		"name": "precioDelNFTEnMarketPlace",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "precioNft",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "_cajaID",
-				"type": "uint8"
-			}
-		],
-		"name": "pruebaCaja",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "val",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "number",
-				"type": "uint8"
-			}
-		],
-		"name": "random",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes4",
-				"name": "interfaceId",
-				"type": "bytes4"
-			}
-		],
-		"name": "supportsInterface",
+		"name": "superadoTiempoDeFarming",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -639,36 +531,35 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_nftId",
-				"type": "uint256"
-			}
-		],
-		"name": "tipoCajaNFT",
-		"outputs": [
+				"internalType": "address",
+				"name": "addressFarming",
+				"type": "address"
+			},
 			{
 				"internalType": "uint8",
-				"name": "tipoNFT",
+				"name": "cajaId",
 				"type": "uint8"
+			}
+		],
+		"name": "tiempoDeFarmingTotal",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "tokenURI",
+		"inputs": [],
+		"name": "totalSupply",
 		"outputs": [
 			{
-				"internalType": "string",
+				"internalType": "uint256",
 				"name": "",
-				"type": "string"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",

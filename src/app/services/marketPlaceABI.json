@@ -10,6 +10,11 @@
 				"internalType": "address",
 				"name": "NFTAddress",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "GAMEAddress",
+				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -44,6 +49,25 @@
 			}
 		],
 		"name": "BuyNFT",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_farmeador",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_idCaja",
+				"type": "uint256"
+			}
+		],
+		"name": "FarmingNFT",
 		"type": "event"
 	},
 	{
