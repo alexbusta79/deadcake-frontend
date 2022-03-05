@@ -40,7 +40,7 @@ export class PlayGameComponent implements OnInit {
   ngOnInit() {
     this.stampaAll();  // ensenas el video 
 
-   //setTimeout(pedro,32); 
+   //setTimeout(pedro,32); (variable,valor) 
    // this.video = true; 
   }
   

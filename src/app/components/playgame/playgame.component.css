@@ -1,0 +1,179 @@
+/*Animations*/
+.logo:hover{
+    transform: scale(1.05);
+    transition:0.5s;
+  
+  }
+  .game_panel_buttoms_img:hover{
+    transform: scale(1.15);
+    transition:0.5s;
+  }
+  /*---------*/
+
+
+
+
+/* ---------- PANEL DEL JUEGO ---------------*/
+
+.game_window{
+    display: flex;
+    margin-top:21px;  /*original 150px*/
+    
+}
+
+.game_window_part{
+    margin-right: 20px;
+    margin-bottom: 30px;
+
+}
+
+.horno{
+    display:flex;
+    background-image: url('/assets/images/Juego_horno.png');
+    background-size: cover;
+    height: 384px; /* Original 384px, luego 500px*/
+    width:514px; /* Original 514px, 672px*/
+    margin-right: 0px;
+    margin-bottom:30px;
+}
+.horno_cake{
+    margin-right: 10px;
+    margin-top: 55px;
+    margin-left:70px;
+}
+.horno_cake_interno_rewards{
+    position:absolute;
+}
+
+.horno_cake_time{
+    margin-left:150px;
+    margin-bottom:35px;
+}
+
+.horno_cake_interno{
+    position:absolute;
+    margin-left: 55px;
+    margin-top:65px;
+
+}
+.horno_items{
+    position:right;
+    margin-left:20px;
+    margin-top:28px;
+}
+
+.horno_items_list{
+    list-style: none;
+}
+
+.items_potenciadores{
+    margin-bottom:9px;
+}
+
+.boton_items{
+    background-image:url('/assets/images/Juego_DeadCake-30.png');
+    width:69px;
+    height:39px;
+}
+.game_panel{
+    background-image: url('/assets/images/Juego_game_panel.png');
+    position:flex;
+    width:318px;
+    height:801px;
+    
+}
+
+.game_panel_statistics{
+    margin-bottom: 105px;
+}
+
+.panel_tokens{
+    margin-top: 50px;
+}
+.tokens{
+    display:flex;
+    text-align: center;
+    margin-bottom:7px;
+}
+.barra_panel{
+    margin-top:5px;
+    margin-left:7px;
+}
+
+
+.botonera_de_opciones{
+    list-style: none;
+    text-align: center;
+}
+
+.game_panel_buttoms_img{
+    margin-left:-40px;
+    margin-bottom: 15px;
+}
+/* ----------------------------------------- */
+.horno_cake_interno_NFT_img{
+    size-adjust:300px;
+    height: 300px;
+    position:cover;
+}
+
+.cakes_view{
+    position:flex; /*No estaba antes*/
+    flex-direction: column;
+    /*margin-top:-95px;  No cambiar a -95 hasta que logre mover el panel*/
+    display:flex;
+    margin-right: 0px;
+}
+
+.game_window_part{
+    margin-bottom:0px;
+    margin-right:100px;
+}
+
+@media (max-width: 1400px){
+    .game_window{
+        margin-top:10px;
+    }
+    .cakes_view{
+        position:flex; /*No estaba antes*/
+        flex-direction: column;
+    }
+    .game_window_part{
+        margin-bottom:0px;
+        position:flex; /*No estaba antes*/
+        flex-direction: column;
+        margin-right:30px;
+       /* background-color: aliceblue; Eliminar*/
+        width: 100%;
+    }
+
+    .horno{
+        display:flex;
+        background-image: url('/assets/images/Juego_horno.png');
+        height: 384px;
+        width:516px;
+        margin-right: 0px;
+        margin-bottom:30px;
+    }
+
+
+}
+
+@media (max-width: 900px){
+    .game_window{
+        position:flex; /*No estaba antes*/
+        flex-direction: column;
+        margin-top:-70px;
+       
+    }
+
+    .game_panel{
+      position:flex;  
+      margin-left: 18%;
+    }
+    
+
+}
+
+/* FOOOOOTEEEER */
+

@@ -1,0 +1,131 @@
+.button_1:hover{
+    cursor:pointer;
+
+}
+
+
+h4{
+    font-size: 25px;
+    font-weight:900;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Helvetica, Sans-Serif;
+    color:#720029;
+
+}
+
+h5{
+    font-size: 19px; 
+    font-weight: 900; /* original bold y 18px*/
+    /*text-transform: uppercase;*/
+    text-align: center;
+    font-family: Helvetica, Sans-Serif;
+    color:#720029;
+}
+.rial{
+
+    padding-top:40px;
+}
+/*
+
+.Panel_NFTS_enVenta{
+    display:flex;
+    width:auto;
+    position:absolute;
+}
+
+.ReservaNFT1{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    margin-top:500px;
+    margin-left: 113px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(114,0,41);
+    height: 50px;
+    width: 200px;
+}
+
+.ReservaNFT2{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    margin-left: 233px;
+    margin-top:500px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(114,0,41);
+    height: 50px;
+    width: 200px;
+}
+
+.ReservaNFT3{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    margin-left: 233px;
+    margin-top:500px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(114,0,41);
+    height: 50px;
+    width: 200px;
+}
+
+@media (max-width: 1440px) {
+
+    
+.ReservaNFT1{
+    margin-left: 93px;
+}
+
+.ReservaNFT2{
+    margin-left: 170px;
+}
+
+.ReservaNFT3{
+    margin-left: 170px;
+}
+    
+}
+
+@media (max-width: 1200px) {
+
+    
+    .ReservaNFT1{
+        margin-left: 93px;
+    }
+    
+    .ReservaNFT2{
+        margin-left: 110px;
+    }
+    
+    .ReservaNFT3{
+        margin-left: 110px;
+    }
+        
+    }
+
+    @media (max-width: 980px) {
+
+    
+        .Panel_NFTS_enVenta{
+            display:flex;
+            flex-direction: column;
+            position:auto;
+        }
+
+        .ReservaNFT1{
+            margin-top:350px;
+            margin-left: 40%;
+        }
+        
+        .ReservaNFT2{
+            margin-top:410px;
+            margin-left: 130px;
+        }
+        
+        .ReservaNFT3{
+            margin-top:420px;
+            margin-left: 130px;
+        }
+            
+        } */

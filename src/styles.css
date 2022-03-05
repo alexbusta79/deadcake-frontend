@@ -3,6 +3,30 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+/*Animations*/
+.logo:hover{
+  transform: scale(1.05);
+  transition:0.5s;
+
+}
+.nav-selection-menu:hover{
+  transform: scale(1.05);
+  transition:0.5s;
+}
+
+.icon-social img:hover{
+  transform: scale(1.2);
+  transition:0.5s;
+  position:relative;
+}
+
+.button_1:hover{
+  transform: scale(1.1);
+  transition:0.5s;
+}
+/*---------*/
+
 /* HEADER */
 
 .header{
@@ -28,18 +52,22 @@
 /* minuto 22:47*/
 .logo{
   padding:10px 10px; 
+  margin-right:28px;
   line-height: 75px; /* Falta cambiarlo por el logo aplastado*/
 }
 
 .nav-menu{ /* PARA EL UL */
   display: flex;
+  position:relative;
+  left:-100px; /*pila*/
   margin-right: 40px;
+  margin-top:-14px;
   list-style:none;
 }
 
 .nav-menu-item{
-  margin:0 10px;
-  line-height: 115px; /* original 135 Alto de barra de navegación */
+  margin:0 10px; /* Originalmente 0 10px */
+  line-height: 115px; /* original 135 Alto de barra de navegación, segunda opción 115px */
   width:max-content;
   max-height: 40px; /* Para el tamaño de los items */
 }
@@ -125,11 +153,15 @@
       margin: 0 auto 20px;
   }   
 
+  .nav-metamask{
+    
+  }
+
 
   .nav-toggle{
       display:block;
       padding: 0 20px;
-      margin-top:0px;
+      margin-top:0px; /*original 0px*/
       
   } 
   
@@ -152,7 +184,7 @@ body{
 }
 
 .section{
-  background-image: url('/assets/images/Background_Marketplace_DCK_fondo1.png'); 
+  background-image: url('/assets/images/Background_Marketplace_DCK_fondo_1.png'); 
   display: flex;
   justify-content: center;
   background-size: cover;
@@ -217,7 +249,7 @@ body{
 .box_1, .box_2, .box_3{
   background-image: url('/assets/images/Card_nft_DCK_Card_nft_DCK.png'); 
   background-size: contain;
-  padding-top: 30px;   /* Mueve a la caja hacia abajo, original 31px */
+  padding-top: 60px;   /* Mueve a la caja hacia abajo, original 30px */
   padding-bottom: 33px;
   padding-left: 20px;
   padding-right: 20px;
@@ -231,13 +263,13 @@ body{
 
 .imagen_box_1{
   max-width: 330px;
-  margin-top: -100px;
-  margin-bottom: -140px;
+  margin-top: -70px; /*-100px*/
+  margin-bottom: -120px;
 }
 
 h4{
   font-size: 25px;
-  font-weight:900;
+  font-weight:900; /*900 original*/
   text-transform: uppercase;
   text-align: center;
   font-family: Helvetica, Sans-Serif;
@@ -256,13 +288,16 @@ h5{
 
 .button_1{ /* Esta es para el botón verde */
   background-image: url('/assets/images/Card_nft_DCK_Button_card_nft_DCK.png');
-  max-width: 155px; /* 135px original */
-  background-size: cover;
+  max-width: 155px; /* 135px original // 155px  */
+  background-size:contain; /*cover*/
+  background-repeat: no-repeat;
   font-size: 34px; /* original 18px */
   font-weight: 700;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top:33px;
+
   position:relative; /*esto no estaba originalmente*/
   padding-top: 24px; /*Original 20px */
   line-height: 15px; /*Original 15px */
@@ -284,7 +319,7 @@ h5{
 
 .imagen_busd{
   position:relative;
-  top:33px;
+  top:2px;
   margin-left: 5px;
   margin-right: 2px;
   width: 24px;
@@ -477,7 +512,6 @@ input {
   border-color: #720029;
   background-color: #D82352;
   border-radius: 20px;
-  /*color: #17dead;*/
 }
 .panelVenta_M{
   height:600px;
@@ -486,7 +520,6 @@ input {
   border-color: #720029;
   background-color: #D82352;
   border-radius: 20px;
-  /*color: #17dead;*/
 }
 
 .administrative{
@@ -497,8 +530,6 @@ input {
   margin-bottom:-130px;
   margin-right: 0%;
   border-radius: 20px;
-  /*color: #17dead;*/
-
 }
 
 .administracion_interna{
@@ -507,7 +538,6 @@ input {
   position:relative;
   padding-top:10px;
   font-family: Helvetica, Sans-Serif;
-
 }
 
 .titulo3{
@@ -543,11 +573,13 @@ input {
 /* -------------------------------------- */
 
 .footer_complet{
+   /*No estaba*/
   margin-top: -605px;
   background-image: url('/assets/images/Footer_DCK_Marketplace.png'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  
 
 }
 
@@ -602,16 +634,19 @@ input {
 /* ---------- PANEL DEL JUEGO ---------------*/
 
 .game_window{
+  
   display: flex;
   margin-top:150px;
 }
 
 .cakes_view{
+  
   display:flex;
   margin-right: 0px;
 }
 
 .game_window_part{
+  
   margin-right: 20px;
   margin-bottom: 30px;
 
@@ -648,7 +683,7 @@ input {
 .horno_items{
   position:right;
   margin-left:20px;
-  margin-top:11px;
+  margin-top:28px;
 }
 
 .horno_items_list{
@@ -656,7 +691,7 @@ input {
 }
 
 .items_potenciadores{
-  margin-bottom:6px;
+  margin-bottom:9px;
 }
 
 .boton_items{
@@ -675,6 +710,7 @@ input {
 }
 
 .panel_tokens{
+  margin-left:10px;
   margin-top: 50px;
 }
 .tokens{
@@ -730,72 +766,34 @@ input {
 /*----- Footer -----*/
 
 .footer_complet{
-  margin-top: -215px;
+  margin-top: -215px; /*-215px*/
 
 }
 
 .footer_final{
   padding-top: 25%;
+  /*padding-bottom:-30px;*/
   padding-left:   0%;
 }
 
-
 .icon-social img{
-  max-width: 70px;
+  max-width: 50px; /*original 70px*/
 }
+
 
 .redes ul {
   display: flex;
   text-align: center;
   list-style: none;
-  padding: 0px;
-  margin: auto;
+  /*padding: 0px;
+  margin: auto;*/
   flex-wrap: wrap;
   justify-content: center;
   }
 
-          
-  .icon-telegram img{
-      max-width: 70px;
-      padding-right:5px;
-      padding-left:5px;
-      }
-          
-      .icon-facebook img{
-          max-width: 70px;
-          padding-right: 5px;
-          padding-left:5px;
-      }
-          
-      .icon-discord img{
-          max-width: 70px;
-          padding-right: 5px;
-          padding-left:5px;
-      }
-          
-      .icon-youtube img{
-          max-width: 70px;
-          padding-right: 5px;
-          padding-left:5px;
-      }
-          
-      .icon-twitter img{
-          max-width: 70px;
-          padding-right: 5px;
-          padding-left:5px;
-      }
-          
-          
-      .icon-instagram img{
-          max-width: 70px;
-          padding-right: 5px;
-          padding-left:5px;
-      }
-
-
       .copyright {
-          padding-bottom: 20px;
-          margin: auto;
+          /*padding-bottom: -20px;*/
+          /*margin: auto;*/
           max-width: 300px;
           text-align: center;
       }
@@ -1148,15 +1146,15 @@ text-align: center;
 
 .box_1, .box_2, .box_3{
   padding-bottom: 33px;
-  padding-top: 12px;   /* Mueve a la caja hacia abajo, originalmente 20px */
+  padding-top: 40px;   /* Mueve a la caja hacia abajo, originalmente 20px */
   padding-left: 5px;
   padding-right: 5px;
 }
 
 .imagen_box_1{
   max-width: 250px;
-  margin-top: -90px;
-  margin-bottom: -145px;
+  margin-top: -55px;
+  margin-bottom: -120px;
 }
 
 .price{
@@ -1181,7 +1179,7 @@ h5{
   font-weight: 600;
   padding-top: 17px;
   position:relative; /* ESTO NO ESTABA */
-  top:7px;
+  top:-8px;
   line-height: 13px;
   padding-bottom: 16px;  
 

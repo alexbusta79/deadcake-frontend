@@ -1,23 +1,4 @@
-.logo:hover{
-    transform: scale(1.05);
-    transition:0.5s;
 
-}
-.nav-selection-menu:hover{
-    transform: scale(1.05);
-    transition:0.5s;
-}
-
-.icon-social img:hover{
-    transform: scale(1.2);
-    transition:0.5s;
-    position:relative;
-}
-
-.button_1:hover{
-    transform: scale(1.1);
-    transition:0.5s;
-}
 
 *{
     -webkit-box-sizing: border-box;
@@ -42,6 +23,10 @@
     justify-content:  space-between;
     max-width:1600px;/*Original en 992px pero a gusto*/
     margin:0 auto;
+    /*Esto no estaba*/
+
+    
+    /*-------------*/
 
 }
 
@@ -53,9 +38,26 @@
 
 .nav-menu{ /* PARA EL UL */
     display: flex;
-    margin-right: 40px;
+    
+    /* Esto no estaba */
+    margin-left:150px; /*original en margin-left:250px; */
+    /* ----------- */
+
+    margin-right: 0px;
     list-style:none;
 }
+
+.nav-metamask{
+    display: flex;
+    margin-left: 20px;
+    list-style:none;
+    
+}
+
+.nav-menu-item-metamask{
+    line-height: 88px;
+}
+
 
 .nav-menu-item{
     margin:0 10px;
@@ -205,18 +207,19 @@ body{
 }
 
 .section_game{
-    background-image: url('/assets/images/Juego_DeadCake_FONDO.png'); 
+    background-image: url('/src/assets/images/Juego_DeadCake_FONDO.png'); 
     background-color: rgb(34,34,34);
     display: flex;
     justify-content: center;
     background-size:contain;
-    padding-top: 280px;
+    padding-top: 280px; /*280px original */
     padding-bottom: 640px; /*max 2781*/
     margin-top: -70px;
 
 }
 
 .container{
+    
     width: 90%;
     max-width: 1280px;
 
@@ -339,11 +342,6 @@ img.dash_item {
     height: 55px;
 }
 
-.containerMarket{
-    display: flex;
-    margin-top:150px;
-    max-width: 1300px;
-}
 
 .containerMarket_M{
     display: flex;
@@ -359,17 +357,7 @@ input {
     margin-right: 20px;
 }
 
-.panelMercado{
-    height:600px;
-    width: 800px;
-    border: 10px;
-    border-color: #720029;
-    background-color: #D82352;
-    margin-right: 3%;
-    border-radius: 20px;
-    /*color: #17dead;*/
-    
-}
+
 .panelMercado_M{
     height:600px;
     width: 800px;
@@ -381,12 +369,7 @@ input {
     /*color: #17dead;*/
     
 }
-.panelMercadoInterno{
-    padding-left:20px;
-    padding-top:20px;
-    margin-bottom:5%;
 
-}
 
 .panelMercadoExterno{
     padding-left:40px;
@@ -432,35 +415,6 @@ input {
     
 }
 
-.panelVentaInterno{
-    padding-left:20px;
-    padding-top:20px;
-    margin-bottom:5%;
-    color: #720029;
-    font-family: Helvetica, Sans-Serif;
-    padding-right: 20px;
-
-}
-.titulo2{
-    
-    padding-left:10px;
-    position:relative;
-    border-radius: 10px;
-    background-color: aliceblue;
-    color: #720029;
-    font-family: Helvetica, Sans-Serif;
-    font-weight: bold;
-    width: 260px;
-    height:30px;
-    margin-bottom:20px;
-    
-}
-
-.previewimg{
-    height:268px;
-    width:203px;
-    margin-right:10px;
-}
 .previewimg_M{
     height: 280px;
     width: 235px;
@@ -490,15 +444,7 @@ input {
 
 }
 
-.panelVenta{
-    height:600px;
-    width:400px;
-    border: 100px;
-    border-color: #720029;
-    background-color: #D82352;
-    border-radius: 20px;
-    /*color: #17dead;*/
-}
+
 .panelVenta_M{
     height:600px;
     width:400px;
@@ -509,54 +455,7 @@ input {
     /*color: #17dead;*/
 }
 
-.administrative{
-    height: 360px;
-    max-width:1300px;
-    border-color: #720029;
-    background-color: #D82352;
-    margin-bottom:-130px;
-    margin-right: 0%;
-    border-radius: 20px;
-    /*color: #17dead;*/
 
-}
-
-.administracion_interna{
-    height: 250px;
-    max-width:1300px;
-    position:relative;
-    padding-top:10px;
-    font-family: Helvetica, Sans-Serif;
-
-}
-
-.titulo3{
-    margin-left: 20px;
-    padding-left:10px;
-    position:relative;
-    border-radius: 10px;
-    background-color: aliceblue;
-    color: #720029;
-    font-family: Helvetica, Sans-Serif;
-    font-weight: bold;
-    width: 560px;
-    height:30px;
-    margin-bottom:30px;
-    
-}
-.boton_dashboard{
-    background-color: #17dead;
-    border-radius: 10px;
-    border: 0px;
-    padding: 7px;
-    font-family: Helvetica, Sans-Serif;
-    font-weight: bold;
-}
-.administrative_options{
-    margin-left: 20px;
-    margin-right: 100px;
-    max-width: 500px;
-}
 
 /* -------------------------------------- */
 /*  -------------- Footer --------------  */
@@ -619,113 +518,10 @@ input {
     text-align: center;
 }
 
-/* ---------- PANEL DEL JUEGO ---------------*/
 
-.game_window{
-    display: flex;
-    margin-top:150px;
-}
-
-.cakes_view{
-    display:flex;
-    margin-right: 0px;
-}
-
-.game_window_part{
-    margin-right: 20px;
-    margin-bottom: 30px;
-
-}
-
-.horno{
-    display:flex;
-    background-image: url('/assets/images/Juego_horno.png');
-    height: 384px;
-    width:516px;
-    margin-right: 0px;
-    margin-bottom:30px;
-}
-.horno_cake{
-    margin-right: 10px;
-    margin-top: 55px;
-    margin-left:70px;
-}
-.horno_cake_interno_rewards{
-    position:absolute;
-}
-
-.horno_cake_time{
-    margin-left:150px;
-    margin-bottom:35px;
-}
-
-.horno_cake_interno{
-    position:absolute;
-    margin-left: 55px;
-    margin-top:65px;
-
-}
-.horno_items{
-    position:right;
-    margin-left:20px;
-    margin-top:11px;
-}
-
-.horno_items_list{
-    list-style: none;
-}
-
-.items_potenciadores{
-    margin-bottom:6px;
-}
-
-.boton_items{
-    background-image:url('/assets/images/Juego_DeadCake-30.png');
-    width:69px;
-    height:39px;
-}
-.game_panel{
-    background-image: url('/assets/images/Juego_game_panel.png');
-    width:318px;
-    height:801px;
-}
-
-.game_panel_statistics{
-    margin-bottom: 105px;
-}
-
-.panel_tokens{
-    margin-top: 50px;
-}
-.tokens{
-    display:flex;
-    text-align: center;
-    margin-bottom:7px;
-}
-.barra_panel{
-    margin-top:5px;
-    margin-left:7px;
-}
-
-
-.botonera_de_opciones{
-    list-style: none;
-    text-align: center;
-}
-
-.game_panel_buttoms_img{
-    margin-left:-40px;
-    margin-bottom: 15px;
-}
-/* ----------------------------------------- */
 
 @media (min-width:981px)and (max-width:1210px ){
-    .panelMercado{
-        width: 600px;
-    }
-    .panelVenta{
-        width: 350px;
-    }
+    
 
     .panelMercado_M{
         width: 600px;
@@ -820,27 +616,7 @@ input {
             text-align: center;
         }
 
-        /* -------BODY -------*/
-
-        .administrative{
-            width: 300px;
-            height: 460px;  
-        }
-
-        .administracion_interna{
-            width: 300px;
-        }
-
-        .administrative_options{
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-
-        .panelMercado{
-            width: 300px;
-            height: 460px;
-            margin-bottom: 30px;
-        }
+        
         .panelMercado_M{
             width: 300px;
             height: 1300px;
@@ -850,11 +626,7 @@ input {
             text-align: center;
         }
 
-        .panelVenta{
-            width: 300px;
-            height: auto;
-    padding-bottom: 80px;
-        }
+        
 
         .panelVenta_M{
             width: 300px;
@@ -862,17 +634,7 @@ input {
             padding-bottom: 80px;
         }
 
-        .panelVentaInterno{
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .titulo1{
-            padding-left: 10px;
-            width: 260px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        
 
         .titulo1_M{
             padding-left: 0px;
@@ -887,12 +649,7 @@ input {
     text-align: center;
         }
 
-        .previewimg {
-            height: auto;
-            width: 260px;
-            margin-right: 0px;
-            padding-bottom: 20px;
-        }
+        
         .previewimg_M {
             height: auto;
             width: 260px;
@@ -901,14 +658,7 @@ input {
         }
         
 
-        .titulo3{
-            width: 260px;
-            height: auto;
-        }
-        .containerMarket{
-            display: block;
-
-        }
+        
         .containerMarket_M{
             display: block;
            margin-top:0px;

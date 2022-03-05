@@ -1,0 +1,345 @@
+.containerMarket{
+    display: flex;
+    margin-top:150px;
+    max-width: 1300px;
+}
+
+.panelMercado{
+    height:600px;
+    width: 800px;
+    border: 10px;
+    border-color: #720029;
+    background-color: #D82352;
+    margin-right: 3%;
+    border-radius: 20px;
+    
+}
+
+.panelMercadoInterno{
+    padding-left:20px;
+    padding-top:20px;
+    margin-bottom:5%;
+
+}
+
+
+.panelVentaInterno{
+    padding-left:20px;
+    padding-top:20px;
+    margin-bottom:5%;
+    color: #720029;
+    font-family: Helvetica, Sans-Serif;
+    padding-right: 20px;
+
+}
+.titulo2{
+    
+    padding-left:10px;
+    position:relative;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: #720029;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
+    width: 260px;
+    height:30px;
+    margin-bottom:20px;
+    
+}
+
+.previewimg{
+    height:268px;
+    width:203px;
+    margin-right:10px;
+}
+
+.panelVenta{
+    height:600px;
+    width:400px;
+    border: 100px;
+    border-color: #720029;
+    background-color: #D82352;
+    border-radius: 20px;
+    /*color: #17dead;*/
+}
+
+.administrative{
+    height: 360px;
+    max-width:1300px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #720029;
+    background-color: #D82352;
+    margin-bottom:-130px;
+    margin-right: 0%;
+    border-radius: 20px;
+}
+
+.administracion_interna{
+    height: 250px;
+    max-width:1300px;
+    position:relative;
+    padding-top:10px;
+    font-family: Helvetica, Sans-Serif;
+
+}
+
+.titulo3{
+    margin-left: 290px;
+    padding-left:10px;
+    position:relative;
+    border-style: solid;
+    border-radius: 10px;
+    border-color:#52001e;
+    background-color: aliceblue;
+    border-width: 3px;
+    color: #720029;
+    width: 730px;
+    height:45px;
+    margin-bottom:30px;
+    
+}
+.Titulo_OPCIONES{
+    font-family: Helvetica, Sans-Serif;
+    font-weight: 800;
+}
+
+.Opciones_de_usuario{
+    font-family: Helvetica, Sans-Serif;
+    color: #1f000b;
+    font-size: 19px;
+}
+
+.boton_dashboard{
+    background-color: #17dead;
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
+}
+.administrative_options{
+    margin-left: 20px;
+    margin-right: 100px;
+    max-width: 500px;
+}
+
+.panelMercado{
+    border-style: solid;
+    border-radius: 15px;
+    border-color:#52001e;
+    border-width: 4px;
+    color: #720029;
+}
+
+.panelVenta{
+    border-style: solid;
+    border-radius: 15px;
+    border-color:#52001e;
+    border-width: 5px;
+    color: #720029;
+
+}
+
+.titulo1{
+    border-style: solid;
+    border-radius: 15px;
+    border-color:#52001e;
+    border-width: 4px;
+    background-color: aliceblue;
+    width:190px;
+    height: 50px;
+
+}
+
+.titulo2{
+    border-style: solid;
+    border-radius: 15px;
+    border-color:#52001e;
+    border-width: 4px;
+    background-color: aliceblue;
+    width:310px;
+    height: 50px;
+
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+
+@media (min-width:981px)and (max-width:1210px ){
+
+    .panelMercado{
+        width: 600px;
+    }
+    .panelVenta{
+        width: 350px;
+    }
+
+}
+
+@media (max-width:450px){
+
+
+    /* -------BODY -------*/
+
+    .administrative{
+        width: 300px;
+        height: 500px;  
+    }
+
+    
+    .administracion_interna{
+        width: 300px;
+    }
+
+    .administrative_options{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .panelMercado{
+        width: 300px;
+        height: 460px;
+        margin-bottom: 30px;
+    }
+
+    .panelVenta{
+        width: 300px;
+        height: auto;
+padding-bottom: 80px;
+    }
+
+    .panelVentaInterno{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .titulo1{
+        padding-left: 10px;
+        width: 260px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .previewimg {
+        height: auto;
+        width: 260px;
+        margin-right: 0px;
+        padding-bottom: 20px;
+    }
+
+    .titulo3{
+        width: 260px;
+        height: auto;
+    }
+    .containerMarket{
+        display: block;
+
+    }
+
+    .panelMercadoInterno{
+        padding-left: 0px;
+    }
+}
+
+
+
+
+
+
+
+@media (max-width: 980px) and (min-width:451px){
+
+/* ----- body ------- */
+
+.administrative{
+width: 300px;
+height: 500px; /*460px original*/  
+}
+.boton_dashboard{
+margin-top: 6px;
+
+}
+
+.titulo3{
+    margin-left: 10px;
+    width: 400px;
+}
+
+.Titulo_OPCIONES{
+    font-size: 27px;
+}
+
+.boton_pag{
+margin-top: 40px;
+margin-bottom: 20px;
+}
+
+.administracion_interna{
+width: 300px;
+}
+
+.administrative_options{
+margin-left: 20px;
+margin-right: 20px;
+}
+
+.panelMercado{
+width: 300px;
+height: 460px;
+margin-bottom: 30px;
+}
+
+.NFT_ventas {
+text-align: center;
+}
+
+.pages_btn{
+text-align: center;
+}
+
+.panelVenta{
+width: 300px;
+height: 400px;
+padding-bottom: 80px;
+}
+
+.panelVentaInterno{
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.titulo1{
+padding-left: 10px;
+width: 260px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.titulo2{
+
+    width: 240px;
+    height: 75px;
+
+}
+
+.previewimg {
+height: auto;
+width: 260px;
+margin-right: 0px;
+}
+
+.titulo3{
+width: 260px;
+height: auto;
+}
+.containerMarket{
+display: block;
+}
+
+.panelMercadoInterno{
+padding-left: 0px;
+}
+
+
+
+}
