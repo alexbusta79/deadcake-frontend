@@ -569,36 +569,34 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint8",
-				"name": "_cajaID",
-				"type": "uint8"
+				"internalType": "address",
+				"name": "propietario",
+				"type": "address"
 			}
 		],
-		"name": "pruebaCaja",
+		"name": "propietarioNFT",
 		"outputs": [
 			{
-				"internalType": "string",
-				"name": "val",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "number",
-				"type": "uint8"
-			}
-		],
-		"name": "random",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"components": [
+					{
+						"internalType": "uint8",
+						"name": "caja1",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "caja2",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "caja3",
+						"type": "uint8"
+					}
+				],
+				"internalType": "struct DeadCakeNFT.PropiedadNFT",
+				"name": "propiedadTotal",
+				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",

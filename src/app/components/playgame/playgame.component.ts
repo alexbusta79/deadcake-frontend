@@ -1,10 +1,6 @@
 
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { User } from 'src/app/models/user.model';
-import { UsersService } from '../../services/users.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MarketPlaceService } from 'src/app/services/marketPlace.service';
 
 @Component({
@@ -25,8 +21,12 @@ export class PlayGameComponent implements OnInit {
   tiempoDeFarmingTotal2!: number;
   tiempoDeFarmingTotal3!: number;
   balanceDelFarming!: number;
-  decimalesToken : number = 1000000000000000000; 
+  balanceDelToken!: number;
+  decimalesToken : number = 1000; 
   decimalesJuego : number = 10000000000; 
+  nftTotales1!: number;
+  nftTotales2!: number;
+  nftTotales3!: number;
 
   constructor(private marketPlaceService : MarketPlaceService,private router : Router) { }
 
@@ -46,10 +46,17 @@ export class PlayGameComponent implements OnInit {
 
     this.marketPlaceService.balanceDelFarming().then(data => this.balanceDelFarming = data / this.decimalesJuego );
 
+    this.marketPlaceService.balanceDelToken().then(data => this.balanceDelToken = data / this.decimalesToken );
+
+    this.marketPlaceService.propietarioNFT().then(data => {
+      this.nftTotales1 = data.caja1; 
+      this.nftTotales2 = data.caja2;
+      this.nftTotales3 = data.caja3;
+    });
   }
   
   reclamarRecompensa(idCaja : number){
-    this.marketPlaceService.reclamarRecompensa(idCaja).then(data =>  this.router.navigateByUrl('/newoffering') );
+    this.marketPlaceService.reclamarRecompensa(idCaja).then(data =>   this.ngOnInit()    );
   }
 
   /*

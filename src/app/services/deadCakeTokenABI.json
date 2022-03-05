@@ -1,30 +1,6 @@
 [
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "agregarUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tiempoParaRecompensas",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "gananciasAlSegundo",
-				"type": "uint256[]"
-			}
-		],
+		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -81,32 +57,6 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "borrarUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "gananciasAlSegundo",
-				"type": "uint256[]"
-			}
-		],
-		"name": "cambiarGananciasAlSegundo",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
 				"name": "spender",
 				"type": "address"
 			},
@@ -130,39 +80,67 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "addressFarming",
-				"type": "address"
-			},
-			{
-				"internalType": "uint8",
-				"name": "cajaId",
-				"type": "uint8"
+				"internalType": "uint256",
+				"name": "tAmount",
+				"type": "uint256"
 			}
 		],
-		"name": "farming",
+		"name": "deliver",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": false,
 				"internalType": "address",
-				"name": "inversor",
+				"name": "account",
 				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint8",
-				"name": "microondas",
-				"type": "uint8"
 			}
 		],
-		"name": "FarmingActivo",
-		"type": "event"
+		"name": "excludeFromFee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "excludeFromReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "includeInFee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "includeInReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -189,6 +167,32 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "time",
+				"type": "uint256"
+			}
+		],
+		"name": "lock",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "minTokensBeforeSwap",
+				"type": "uint256"
+			}
+		],
+		"name": "MinTokensBeforeSwapUpdated",
+		"type": "event"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -208,14 +212,60 @@
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
-				"internalType": "uint8",
-				"name": "cajaId",
-				"type": "uint8"
+				"internalType": "uint256",
+				"name": "liquidityFee",
+				"type": "uint256"
 			}
 		],
-		"name": "reclamarRecompensa",
+		"name": "setLiquidityFeePercent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "maxTxPercent",
+				"type": "uint256"
+			}
+		],
+		"name": "setMaxTxPercent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_enabled",
+				"type": "bool"
+			}
+		],
+		"name": "setSwapAndLiquifyEnabled",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "taxFee",
+				"type": "uint256"
+			}
+		],
+		"name": "setTaxFeePercent",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -225,32 +275,38 @@
 		"inputs": [
 			{
 				"indexed": false,
-				"internalType": "address",
-				"name": "inversor",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint8",
-				"name": "microondas",
-				"type": "uint8"
+				"internalType": "uint256",
+				"name": "tokensSwapped",
+				"type": "uint256"
 			},
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "cantidad",
+				"name": "ethReceived",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokensIntoLiqudity",
 				"type": "uint256"
 			}
 		],
-		"name": "ReclamoRecompensa",
+		"name": "SwapAndLiquify",
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "enabled",
+				"type": "bool"
+			}
+		],
+		"name": "SwapAndLiquifyEnabledUpdated",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -344,6 +400,56 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "unlock",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	},
+	{
+		"inputs": [],
+		"name": "_liquidityFee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "_maxTxAmount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "_taxFee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -401,22 +507,25 @@
 	},
 	{
 		"inputs": [],
-		"name": "gananciasPorSegundoMicroondas",
+		"name": "geUnlockTime",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "caja1",
+				"name": "",
 				"type": "uint256"
-			},
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "inSwapAndLiquify",
+		"outputs": [
 			{
-				"internalType": "uint256",
-				"name": "caja2",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "caja3",
-				"type": "uint256"
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -430,7 +539,26 @@
 				"type": "address"
 			}
 		],
-		"name": "isUser",
+		"name": "isExcludedFromFee",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "isExcludedFromReward",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -470,21 +598,21 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "addressFarming",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "tAmount",
+				"type": "uint256"
 			},
 			{
-				"internalType": "uint8",
-				"name": "cajaId",
-				"type": "uint8"
+				"internalType": "bool",
+				"name": "deductTransferFee",
+				"type": "bool"
 			}
 		],
-		"name": "recompensaAcumulada",
+		"name": "reflectionFromToken",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "recompensa",
+				"name": "",
 				"type": "uint256"
 			}
 		],
@@ -492,19 +620,8 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "addressFarming",
-				"type": "address"
-			},
-			{
-				"internalType": "uint8",
-				"name": "cajaId",
-				"type": "uint8"
-			}
-		],
-		"name": "superadoTiempoDeFarming",
+		"inputs": [],
+		"name": "swapAndLiquifyEnabled",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -531,17 +648,25 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "addressFarming",
-				"type": "address"
-			},
-			{
-				"internalType": "uint8",
-				"name": "cajaId",
-				"type": "uint8"
+				"internalType": "uint256",
+				"name": "rAmount",
+				"type": "uint256"
 			}
 		],
-		"name": "tiempoDeFarmingTotal",
+		"name": "tokenFromReflection",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalFees",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -560,6 +685,32 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "uniswapV2Pair",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "uniswapV2Router",
+		"outputs": [
+			{
+				"internalType": "contract IUniswapV2Router02",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
