@@ -27,6 +27,7 @@ export class PlayGameComponent implements OnInit {
   nftTotales1!: number;
   nftTotales2!: number;
   nftTotales3!: number;
+  balanceDelNFT!: number;
 
   constructor(private marketPlaceService : MarketPlaceService,private router : Router) { }
 
@@ -47,6 +48,8 @@ export class PlayGameComponent implements OnInit {
     this.marketPlaceService.balanceDelFarming().then(data => this.balanceDelFarming = data / this.decimalesJuego );
 
     this.marketPlaceService.balanceDelToken().then(data => this.balanceDelToken = data / this.decimalesToken );
+
+    this.marketPlaceService.balanceDelNFT().then(data => this.balanceDelNFT = data );
 
     this.marketPlaceService.propietarioNFT().then(data => {
       this.nftTotales1 = data.caja1; 

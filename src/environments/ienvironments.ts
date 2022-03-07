@@ -1,7 +1,7 @@
 export class IEnvironment implements IEnvironmentParams {
     public production: boolean;
-    public basicURL: string = 'http://localhost:8090';
-    public siteName: string = 'Interfell';
+    public basicURL: string = 'http://localhost:4200';
+    public siteName: string = 'DeadCake';
   
     constructor(params: IEnvironmentParams) {
       this.production = params.production ?? false;

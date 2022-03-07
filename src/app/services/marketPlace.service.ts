@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import Web3 from "web3";
+import { environment } from 'src/environments/environment';
 
 declare const window: any;
 let deadCakeTokenAbi = require('./deadCakeTokenABI.json');
@@ -9,6 +9,7 @@ let busdAbi = require('./busdABI.json');
 let nftAbi = require('./nftABI.json');
 let marketPlaceAbi = require('./marketPlaceABI.json');
 let gameAbi = require('./gameABI.json');
+let SERVER_URL = `${environment.basicURL}`;
 
 @Injectable({
     providedIn: 'root'
@@ -86,6 +87,18 @@ export class MarketPlaceService {
                     this.nftContract,
                 );
                 return await contract.methods.propietarioNFT(await this.getAddress()).call();
+        } catch (error) {
+            console.log(error);
+        }
+    }      
+
+    public balanceDelNFT = async ( ) => {
+        try {
+                const contract = new window.web3.eth.Contract(
+                    nftAbi,
+                    this.nftContract,
+                );
+                return await contract.methods.balanceOf(await this.getAddress()).call();
         } catch (error) {
             console.log(error);
         }
@@ -198,4 +211,72 @@ export class MarketPlaceService {
             console.log(error);
         }
     }  
+
+
+    /* METODOS Para agregar Tokens en Metamask */
+    public agregarIconDeadCakeToken = async () => {
+        let tokenSymbol = 'DCK';
+        let tokenDecimals = 3;
+        let tokenImage = SERVER_URL+"/assets/images/logo_token_dck.png";
+        try {
+            const wasAdded = await this.window.ethereum.request({
+            method: 'wallet_watchAsset',
+            params: {
+                type: 'ERC20', 
+                options: {
+                address: this.deadCakeToken, 
+                symbol: tokenSymbol, 
+                decimals: tokenDecimals, 
+                image: tokenImage, 
+                },
+            },
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }  
+    public agregarIconDeadCakeFarming = async () => {
+        let tokenSymbol = 'DCKT';
+        let tokenDecimals = 10;
+        let tokenImage = SERVER_URL+"/assets/images/Icon_DCK_model_farming.png";
+        try {
+            const wasAdded = await this.window.ethereum.request({
+            method: 'wallet_watchAsset',
+            params: {
+                type: 'ERC20', 
+                options: {
+                address: this.gameContract, 
+                symbol: tokenSymbol, 
+                decimals: tokenDecimals, 
+                image: tokenImage, 
+                },
+            },
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }  
+
+    public agregarIconDeadCakeNFT = async () => {
+        let tokenSymbol = 'DCK';
+        let tokenDecimals = 0;
+        let tokenImage = SERVER_URL+"/assets/images/Icon_DCK_model_nft.png";
+        try {
+            const wasAdded = await this.window.ethereum.request({
+            method: 'wallet_watchAsset',
+            params: {
+                type: 'ERC20', 
+                options: {
+                address: this.nftContract, 
+                symbol: tokenSymbol, 
+                decimals: tokenDecimals, 
+                image: tokenImage, 
+                },
+            },
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }  
+
 }

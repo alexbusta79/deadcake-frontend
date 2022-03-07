@@ -30,6 +30,18 @@ export class LadingComponent implements OnInit {
     this.marketPlaceService.precioCaja(3).then(data => this.precioCaja3 = data / this.decimalesBUSD );
   }
 
+  agregarIconDeadCakeToken() {
+    this.marketPlaceService.agregarIconDeadCakeToken().then();
+  }
+
+  agregarIconDeadCakeFarming() {
+    this.marketPlaceService.agregarIconDeadCakeFarming().then();
+  }
+
+  agregarIconDeadCakeNFT() {
+    this.marketPlaceService.agregarIconDeadCakeNFT().then();
+  }
+
   aprobarEnvioTokensAlContrato(idCaja : number) {
     this.marketPlaceService.precioCaja(idCaja).then(data => {
       this.marketPlaceService.aprobarEnvioTokensAlContrato(data).then(data => {
