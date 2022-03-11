@@ -25,21 +25,26 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void{ //No sé porque el void ngOnInit(): void {}
     this.quitarMenu();
-  }
-  
-  conectarMetamask() {
-   // this.marketPlaceService.openMetamask().then();
-    this.marketPlaceService.getAddress().then(data => {
-      if(data != false && data != null ) {
-        let anyToString!: String; /* */
 
-        this.numeroWallet = data;
+    this.marketPlaceService.getAccounts().then(addresses => {
+      if (!addresses.length) { 
+        this.mostrarConnect = false;
+      } else {
+        let anyToString!: String; 
+
+        this.numeroWallet = addresses[0];
         this.mostrarConnect = true;
-        /* */
+
         anyToString = String(this.numeroWallet);
         this.muestraWallet = anyToString.substr(0,9);
       }
     });
+  }
+  
+  conectarMetamask() {
+    this.marketPlaceService.openMetamask().then(data =>
+      this.ngOnInit()
+    );
   }
 
   desplegarMenu() {

@@ -23,7 +23,7 @@ export class LadingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.marketPlaceService.openMetamask().then();
+    //this.marketPlaceService.openMetamask().then();
     this.nftNoMinteados();
     this.marketPlaceService.precioCaja(1).then(data => this.precioCaja1 = data / this.decimalesBUSD );
     this.marketPlaceService.precioCaja(2).then(data => this.precioCaja2 = data / this.decimalesBUSD );
