@@ -168,27 +168,18 @@ export class PlayGameComponent implements OnInit {
 
     this.marketPlaceService.balanceDelToken().then(data => this.balanceDelToken = data / this.decimalesToken );
 
-    this.marketPlaceService.balanceDelNFT().then(data => this.balanceDelNFT = data );
+    this.marketPlaceService.balanceDelNFT().then(data => this.balanceDelNFT = data != null ? data : 0);
 
     this.marketPlaceService.propietarioNFT(1).then(data => {
-      this.nftTotales1 = data.cantidad; 
-      if(isNaN(this.nftTotales1)){
-        this.nftTotales1=0;
-      }
+        this.nftTotales1 = data != null ? data.cantidad :0; 
     });
     this.marketPlaceService.propietarioNFT(2).then(data => {
-      this.nftTotales2 = data.cantidad; 
-      if(isNaN(this.nftTotales1)){
-        this.nftTotales1=0;
-      }
+      this.nftTotales2 = data != null ? data.cantidad :0; 
     });
     this.marketPlaceService.propietarioNFT(3).then(data => {
-      this.nftTotales3 = data.cantidad; 
-      if(isNaN(this.nftTotales1)){
-        this.nftTotales1=0;
-      }
+      this.nftTotales3 = data != null ? data.cantidad :0; 
     });
-  }
+}
   
   reclamarRecompensa(idCaja : number){
     this.marketPlaceService.reclamarRecompensa(idCaja).then(data =>   this.ngOnInit()    );

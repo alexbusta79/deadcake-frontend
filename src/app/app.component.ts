@@ -10,33 +10,23 @@ import { MarketPlaceService } from './services/marketPlace.service';
 export class AppComponent implements OnInit {
   title = 'ngEth';
   private window: any;
-  numeroWallet : any; 
   mostrarConnect : boolean =  false;
-  /*  */
   muestraWallet!: string;
   menuDesplegable: boolean = false;
-  /*  */
-
-
 
   constructor(@Inject(DOCUMENT) private document: Document,private marketPlaceService : MarketPlaceService) {
     this.window = this.document.defaultView;
   }
 
-  ngOnInit(): void{ //No sé porque el void ngOnInit(): void {}
+  ngOnInit(): void{ 
     this.quitarMenu();
 
-    this.marketPlaceService.getAccounts().then(addresses => {
-      if (!addresses.length) { 
+    this.marketPlaceService.getAddress().then(addresses => {
+      if (addresses == null) { 
         this.mostrarConnect = false;
       } else {
-        let anyToString!: String; 
-
-        this.numeroWallet = addresses[0];
+        this.muestraWallet = addresses.substr(0,9);
         this.mostrarConnect = true;
-
-        anyToString = String(this.numeroWallet);
-        this.muestraWallet = anyToString.substr(0,9);
       }
     });
   }

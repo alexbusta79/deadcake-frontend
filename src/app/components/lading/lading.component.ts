@@ -44,8 +44,10 @@ export class LadingComponent implements OnInit {
 
   aprobarEnvioTokensAlContrato(idCaja : number) {
     this.marketPlaceService.precioCaja(idCaja).then(data => {
-      this.marketPlaceService.aprobarEnvioTokensAlContrato(data).then(data => {
-        this.marketPlaceService.mintNFT(idCaja).then(data => this.nftNoMinteados() );
+      this.marketPlaceService.aprobarEnvioTokensAlContrato(data).then(aprobacion => {
+        if(aprobacion != null) {
+          this.marketPlaceService.mintNFT(idCaja).then(data => this.nftNoMinteados() );
+        }
       });
     });
   }

@@ -30,22 +30,15 @@ export class MarketPlaceService {
     }
 
     public openMetamask = async () => {
-        if (this.window.ethereum) {
-            this.window.web3 = new Web3(this.window.ethereum);
-            this.window.ethereum.enable();
-         }
+       // if (this.window.ethereum) {
+            this.window.web3 = new Web3(window.ethereum);
+            return await window.ethereum.enable();
+        // }
     };
 
     public getAddress = async () => {
         this.window.web3 = new Web3(window.ethereum);
         let addresses = await this.getAccounts();
-        if (!addresses.length) {
-            try {
-                addresses = await window.ethereum.enable();
-            } catch (e) {
-                return false;
-            }
-        }
         return addresses.length ? addresses[0] : null;
     };
 
@@ -65,6 +58,7 @@ export class MarketPlaceService {
                 return await contract.methods.nftNoMinteados(idCaja).call();
         } catch (error) {
             console.log(error);
+            return 0; 
         }
     }
     
@@ -77,6 +71,7 @@ export class MarketPlaceService {
                 return await contract.methods.precioDelNFT(idCaja).call();
         } catch (error) {
             console.log(error);
+            return 0; 
         }
     }
     
@@ -86,9 +81,11 @@ export class MarketPlaceService {
                     nftAbi,
                     this.nftContract,
                 );
-                return await contract.methods.propietarioNFT(await this.getAddress(),idCaja).call();
+                let direccion = await this.getAddress();
+                return direccion != null ? await contract.methods.propietarioNFT(direccion,idCaja).call() : null;
             } catch (error) {
             console.log(error);
+            return 0; 
         }
     }      
 
@@ -98,9 +95,11 @@ export class MarketPlaceService {
                     nftAbi,
                     this.nftContract,
                 );
-                return await contract.methods.balanceOf(await this.getAddress()).call();
+                let direccion = await this.getAddress();
+                return direccion != null ? await contract.methods.balanceOf(direccion).call() : null;
         } catch (error) {
             console.log(error);
+            return 0; 
         }
     }      
 
@@ -111,11 +110,14 @@ export class MarketPlaceService {
                     marketPlaceAbi,
                     this.marketPlaceContract,
                 );
-                return await contract.methods.nftMint(idCaja).send({
-                    from:  await this.getAddress()
-                });
+              
+                let direccion = await this.getAddress();
+                return direccion != null ? await contract.methods.nftMint(idCaja).send({
+                    from:  direccion
+                }) : null;          
         } catch (error) {
             console.log(error);
+            return null; 
         }
     }  
 
@@ -126,12 +128,14 @@ export class MarketPlaceService {
                     busdAbi,
                     this.busdToken,
                 );
-                const aprobacion = await contract.methods.approve(this.marketPlaceContract,numeroTokens).send({
-                    from: await this.getAddress()
-                });
+                let direccion = await this.getAddress();
+                const aprobacion = direccion != null ? await contract.methods.approve(this.marketPlaceContract,numeroTokens).send({
+                    from: direccion
+                }) : null; 
                 return aprobacion; 
         } catch (error) {
             console.log(error);
+            return null; 
         }
     }  
 
@@ -142,11 +146,13 @@ export class MarketPlaceService {
                     gameAbi,
                     this.gameContract,
                 );
-                await contract.methods.reclamarRecompensa(idCaja).send({ 
-                    from: await this.getAddress()
-                });
+                let direccion = await this.getAddress();
+                return direccion != null ? await contract.methods.reclamarRecompensa(idCaja).send({ 
+                    from: direccion
+                }) : null; 
         } catch (error) {
             console.log(error);
+            return null; 
         }
     }     
     public superadoTiempoDeFarming = async (idCaja : number) => {
@@ -155,10 +161,12 @@ export class MarketPlaceService {
                     gameAbi,
                     this.gameContract,
                 );
-                let wallet = await this.getAddress(); 
-                return await contract.methods.superadoTiempoDeFarming(wallet,idCaja).call();
+                let direccion = await this.getAddress();
+                return direccion != null ? 
+                await contract.methods.superadoTiempoDeFarming(direccion,idCaja).call() : 0; 
         } catch (error) {
             console.log(error);
+            return 0; 
         }
     }  
     public recompensaAcumulada = async (idCaja : number) => {
@@ -167,10 +175,12 @@ export class MarketPlaceService {
                     gameAbi,
                     this.gameContract,
                 );
-                let wallet = await this.getAddress(); 
-                return await contract.methods.recompensaAcumulada(wallet,idCaja).call();
+                let direccion = await this.getAddress();
+                return direccion != null ? 
+                await contract.methods.recompensaAcumulada(direccion,idCaja).call() : null;
         } catch (error) {
             console.log(error);
+            return null; 
         }
     }  
     public tiempoDeFarmingTotal = async (idCaja : number) => {
@@ -179,10 +189,12 @@ export class MarketPlaceService {
                     gameAbi,
                     this.gameContract,
                 );
-                let wallet = await this.getAddress(); 
-                return await contract.methods.tiempoDeFarmingTotal(wallet,idCaja).call();
+                let direccion = await this.getAddress();
+                return direccion != null ? 
+                await contract.methods.tiempoDeFarmingTotal(direccion,idCaja).call() : null; 
         } catch (error) {
             console.log(error);
+            return null; 
         }
     }     
     
@@ -204,10 +216,12 @@ export class MarketPlaceService {
                     gameAbi,
                     this.gameContract,
                 );
-                let wallet = await this.getAddress(); 
-                return await contract.methods.balanceOf(wallet).call();
+                let direccion = await this.getAddress();
+                return direccion != null ? 
+                await contract.methods.balanceOf(direccion).call() : null; 
         } catch (error) {
             console.log(error);
+            return null; 
         }
     }  
 
@@ -218,10 +232,11 @@ export class MarketPlaceService {
                     deadCakeTokenAbi,
                     this.deadCakeToken
                 );
-                let wallet = await this.getAddress(); 
-                return await contract.methods.balanceOf(wallet).call();
+                let direccion = await this.getAddress(); 
+                return direccion != null ? await contract.methods.balanceOf(direccion).call() : 0; 
         } catch (error) {
             console.log(error);
+            return 0; 
         }
     }  
 
