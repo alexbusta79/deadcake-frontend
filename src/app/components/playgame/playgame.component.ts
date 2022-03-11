@@ -85,7 +85,7 @@ export class PlayGameComponent implements OnInit {
         this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
           let tiempoRestante;
           //let dato = 14123;
-          if (data >= tiempoFarming) {
+          if (Number(data) >= Number(tiempoFarming)) {
             tiempoRestante = 0;
           } else { 
             tiempoRestante = tiempoFarming - data; 
@@ -116,7 +116,7 @@ export class PlayGameComponent implements OnInit {
         this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
           let tiempoRestante;
           //let dato = 14123;
-          if (data >= tiempoFarming) {
+          if (Number(data) >= Number(tiempoFarming)) {
             tiempoRestante = 0;
           } else { 
             tiempoRestante = tiempoFarming - data; 
@@ -147,7 +147,7 @@ export class PlayGameComponent implements OnInit {
         this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
           let tiempoRestante;
           //let dato = 14123;
-          if (data >= tiempoFarming) {
+          if (Number(data) >= Number(tiempoFarming)) {
             tiempoRestante = 0;
           } else { 
             tiempoRestante = tiempoFarming - data; 
