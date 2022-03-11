@@ -75,93 +75,96 @@ export class PlayGameComponent implements OnInit {
     });
 
     this.marketPlaceService.tiempoDeFarmingTotal(1).then(data => {
-      this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
-        let tiempoRestante;
-        //let dato = 14123;
-          if (data >= tiempoFarming) {
-          tiempoRestante = 0;
-        } else { tiempoRestante = tiempoFarming - data; }
-        
-        let minutos = tiempoRestante / 60;
-        let hora = minutos / 60;
-        let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
-        let minutosDecena = cantidadMinutos / 10;
-  
-        this.unidadHora1= Math.trunc(hora);
-        this.decenaMinutos1 = Math.trunc(minutosDecena);
-        this.unidadMinutos1 = cantidadMinutos - (this.decenaMinutos1 * 10);
-        this.tiempoDeFarmingTotal1 = data;
-        //Mostrar NFT
-        this.existenciaNFT1 = true;
-  
-        if(isNaN(data)){
+      if(data == null) {
         this.unidadHora1= 0;
         this.decenaMinutos1 = 0;
         this.unidadMinutos1 = 0;
         this.existenciaNFT1 = false;
-        }
+       this.recompensaAcumulada1 = 0; 
+      } else {
+        this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
+          let tiempoRestante;
+          //let dato = 14123;
+          if (data >= tiempoFarming) {
+            tiempoRestante = 0;
+          } else { 
+            tiempoRestante = tiempoFarming - data; 
+          }
+          let minutos = tiempoRestante / 60;
+          let hora = minutos / 60;
+          let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
+          let minutosDecena = cantidadMinutos / 10;
+    
+          this.unidadHora1= Math.trunc(hora);
+          this.decenaMinutos1 = Math.trunc(minutosDecena);
+          this.unidadMinutos1 = cantidadMinutos - (this.decenaMinutos1 * 10);
+          this.tiempoDeFarmingTotal1 = data;
+          //Mostrar NFT
+          this.existenciaNFT1 = true;
+        });
       }
-      );
     } );
   
     this.marketPlaceService.tiempoDeFarmingTotal(2).then(data => {
-      this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
-        let tiempoRestante;
-        //let dato = 14123;
-          if (data >= tiempoFarming) {
-          tiempoRestante = 0;
-        } else { tiempoRestante = tiempoFarming - data; }
-        
-        let minutos = tiempoRestante / 60;
-        let hora = minutos / 60;
-        let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
-        let minutosDecena = cantidadMinutos / 10;
-  
-        this.unidadHora2= Math.trunc(hora);
-        this.decenaMinutos2 = Math.trunc(minutosDecena);
-        this.unidadMinutos2 = cantidadMinutos - (this.decenaMinutos2 * 10);
-        this.tiempoDeFarmingTotal2 = data;
-        //Mostrar NFT
-        this.existenciaNFT2 = true;
-  
-        if(isNaN(data)){
+      if(data == null) {
         this.unidadHora2= 0;
         this.decenaMinutos2 = 0;
         this.unidadMinutos2 = 0;
         this.existenciaNFT2 = false;
-        }
+       this.recompensaAcumulada2 = 0; 
+      } else {
+        this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
+          let tiempoRestante;
+          //let dato = 14123;
+          if (data >= tiempoFarming) {
+            tiempoRestante = 0;
+          } else { 
+            tiempoRestante = tiempoFarming - data; 
+          }
+          let minutos = tiempoRestante / 60;
+          let hora = minutos / 60;
+          let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
+          let minutosDecena = cantidadMinutos / 10;
+    
+          this.unidadHora2= Math.trunc(hora);
+          this.decenaMinutos2 = Math.trunc(minutosDecena);
+          this.unidadMinutos2 = cantidadMinutos - (this.decenaMinutos2 * 10);
+          this.tiempoDeFarmingTotal2 = data;
+          //Mostrar NFT
+          this.existenciaNFT2 = true;
+        });
       }
-      );
     } );
 
     this.marketPlaceService.tiempoDeFarmingTotal(3).then(data => {
-      this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
-        let tiempoRestante;
-        //let dato = 14123;
-          if (data >= tiempoFarming) {
-          tiempoRestante = 0;
-        } else { tiempoRestante = tiempoFarming - data; }
-        
-        let minutos = tiempoRestante / 60;
-        let hora = minutos / 60;
-        let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
-        let minutosDecena = cantidadMinutos / 10;
-  
-        this.unidadHora3= Math.trunc(hora);
-        this.decenaMinutos3 = Math.trunc(minutosDecena);
-        this.unidadMinutos3 = cantidadMinutos - (this.decenaMinutos3 * 10);
-        this.tiempoDeFarmingTotal3 = data;
-        //Mostrar NFT
-        this.existenciaNFT3 = true;
-  
-        if(isNaN(data)){
+      if(data == null) {
         this.unidadHora3= 0;
         this.decenaMinutos3 = 0;
         this.unidadMinutos3 = 0;
         this.existenciaNFT3 = false;
-        }
+       this.recompensaAcumulada3 = 0; 
+      } else {
+        this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
+          let tiempoRestante;
+          //let dato = 14123;
+          if (data >= tiempoFarming) {
+            tiempoRestante = 0;
+          } else { 
+            tiempoRestante = tiempoFarming - data; 
+          }
+          let minutos = tiempoRestante / 60;
+          let hora = minutos / 60;
+          let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
+          let minutosDecena = cantidadMinutos / 10;
+    
+          this.unidadHora3= Math.trunc(hora);
+          this.decenaMinutos3 = Math.trunc(minutosDecena);
+          this.unidadMinutos3 = cantidadMinutos - (this.decenaMinutos3 * 10);
+          this.tiempoDeFarmingTotal3 = data;
+          //Mostrar NFT
+          this.existenciaNFT3 = true;
+        });
       }
-      );
     } );
 
     this.marketPlaceService.balanceDelFarming().then(data => this.balanceDelFarming = data / this.decimalesJuego );
