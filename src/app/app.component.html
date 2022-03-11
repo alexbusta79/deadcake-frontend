@@ -1,30 +1,51 @@
 <header class="header">
   <nav class="navigation">  
       <a aria-current="page" routerLink="" class="logo nav-link" > <img src="/assets/images/Logo DCK.png"  alt="">  </a>  
-      <button class="nav-toggle">
-          <i class="fas fa-bars"></i>
-      </button>
-      <ul class="nav-menu">
-          <li class="nav-menu-item"><a aria-current="page" routerLink="/playgame" class="nav-img nav-link"><img src="/assets/images/Button DCK_Playgame DCK.png"  class="nav-selection-menu"></a></li>
-          <li class="nav-menu-item"><a aria-current="page" routerLink="/dashboard" class="nav-img nav-link"><img src="/assets/images/Button DCK_Dashboard DCK.png" class="nav-selection-menu"></a></li>
-          <li class="nav-menu-item"><a aria-current="page" routerLink="/marketplace" class="nav-img nav-link"><img src="/assets/images/Button DCK_Marketplace DCK.png" class="nav-selection-menu" ></a></li>
-          <li class="nav-menu-item"><a aria-current="page" routerLink="/newoffering" class="nav-img nav-link"><img src="/assets/images/Button DCK_New offering DCK.png" class="nav-selection-menu" ></a></li>
+      
+
+      <!-- ******************************************* -->
+      <ul class="nav-menu" *ngIf="!menuDesplegable">
+          <li class="nav-menu-item"><a aria-current="page" routerLink="/playgame" class="nav-img nav-link"><img src="/assets/images/Button_playgame.png"  class="nav-selection-menu"></a></li>
+          <li class="nav-menu-item"><a aria-current="page" routerLink="/dashboard" class="nav-img nav-link"><img src="/assets/images/Button_dashboard.png" class="nav-selection-menu"></a></li>
+          <li class="nav-menu-item"><a aria-current="page" routerLink="/marketplace" class="nav-img nav-link"><img src="/assets/images/Button_marketplace.png" class="nav-selection-menu" ></a></li>
+          <li class="nav-menu-item"><a aria-current="page" routerLink="/newoffering" class="nav-img nav-link"><img src="/assets/images/Button_new_offering.png" class="nav-selection-menu" ></a></li>
       </ul>
+
+      <ul class="nav-menu nav-menu_visible" *ngIf="menuDesplegable">
+        <li class="nav-menu-item"><a aria-current="page" routerLink="/playgame" class="nav-img nav-link"><img src="/assets/images/Button_playgame.png"  class="nav-selection-menu"></a></li>
+        <li class="nav-menu-item"><a aria-current="page" routerLink="/dashboard" class="nav-img nav-link"><img src="/assets/images/Button_dashboard.png" class="nav-selection-menu"></a></li>
+        <li class="nav-menu-item"><a aria-current="page" routerLink="/marketplace" class="nav-img nav-link"><img src="/assets/images/Button_marketplace.png" class="nav-selection-menu" ></a></li>
+        <li class="nav-menu-item"><a aria-current="page" routerLink="/newoffering" class="nav-img nav-link"><img src="/assets/images/Button_new_offering.png" class="nav-selection-menu" ></a></li>
+    </ul>
+
+      <!-- *******************************************  -->
+
+
       <ul class="nav-metamask">
-          <li class="nav-menu-item-metamask"><a aria-current="page" routerLink="" class="nav-img nav-link"><img src="/assets/images/DCK items page_English.png"   class="nav-selection-menu"></a></li>
+          <!--<li class="nav-menu-item-metamask"><a aria-current="page" routerLink="" class="nav-img nav-link"><img src="/assets/images/DCK items page_English.png"   class="nav-selection-menu"></a></li> -->
           <li class="nav-menu-item-metamask">
-            <div *ngIf="mostrarConnect">    
-              {{numeroWallet}} 
-            </div> 
-            <div *ngIf= "!mostrarConnect">
-                <a aria-current="page" (click)="conectarMetamask()" class="nav-img nav-link">  
-                <img src="/assets/images/Button DCK_Connect DCK.png" class="nav-selection-menu" >  </a>
-            </div> 
-            
+            <div *ngIf="mostrarConnect"> <!-- ESTE ES EL IF TRUE: SIN EL "!"-->   
+              <div class="fondo_wallet">
+
+              </div>
+              <h6 class="numero_Wallet"><!--  23423423jdsnu32nbqwnji23njnsjewuj5jdd023 {{numeroWallet}} --> {{muestraWallet}} </h6>
+            </div>
+            <div *ngIf= "!mostrarConnect"> <!-- ESTE ES EL IF FALSE: CON EL "!"-->
+              <a aria-current="page" (click)="conectarMetamask()" class="nav-img nav-link">  
+              <img src="/assets/images/Button DCK_Connect DCK.png" class="nav-selection-menu-connect" >  </a>
+          </div> 
+          
           </li>   
       </ul>
+      <button class="nav-toggle">
+        <a (click)="desplegarMenu()" > <img src="/assets/images/Buttom_desplegable.png" alt="" class="desplegable_menu"></a>
+      </button>
   </nav>
 </header>
 <div>
   <router-outlet></router-outlet>
+
+  
+
+
 </div>

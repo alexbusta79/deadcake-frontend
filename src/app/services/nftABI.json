@@ -189,6 +189,31 @@
 		"anonymous": false,
 		"inputs": [
 			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "propietario",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "idCaja",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "idNFT",
+				"type": "uint256"
+			}
+		],
+		"name": "MintNFT",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
 				"indexed": true,
 				"internalType": "address",
 				"name": "previousOwner",
@@ -363,6 +388,37 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "vendedor",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "comprador",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "idCaja",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "idNFT",
+				"type": "uint256"
+			}
+		],
+		"name": "VentaNFT",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -572,6 +628,11 @@
 				"internalType": "address",
 				"name": "propietario",
 				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "idCaja",
+				"type": "uint8"
 			}
 		],
 		"name": "propietarioNFT",
@@ -580,22 +641,17 @@
 				"components": [
 					{
 						"internalType": "uint8",
-						"name": "caja1",
+						"name": "cantidad",
 						"type": "uint8"
 					},
 					{
-						"internalType": "uint8",
-						"name": "caja2",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint8",
-						"name": "caja3",
-						"type": "uint8"
+						"internalType": "uint256[]",
+						"name": "nftIds",
+						"type": "uint256[]"
 					}
 				],
-				"internalType": "struct DeadCakeNFT.PropiedadNFT",
-				"name": "propiedadTotal",
+				"internalType": "struct DeadCakeNFT.NFT",
+				"name": "propiedadTotalPorCaja",
 				"type": "tuple"
 			}
 		],

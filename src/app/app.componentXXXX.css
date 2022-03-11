@@ -1,0 +1,956 @@
+
+
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* HEADER */
+/*
+.header{
+    position: relative; 
+    top:-1px; Sirve para subir y no verse blanco original en -1 
+    position: fixed;
+    height: 135px;
+    width: 100%;
+    left:0;
+    z-index: 99;
+    background-image: url('/assets/images/Header_DCK_marketplace.png'); 
+
+}*/
+
+.navigation{ /* es también llamado nav */
+    display:flex;
+    justify-content:  space-between;
+    max-width:1600px;/*Original en 992px pero a gusto*/
+    margin:0 auto;
+    /*Esto no estaba*/
+
+    
+    /*-------------*/
+
+}
+
+/* minuto 22:47*/
+.logo{
+    padding:10px 10px; 
+    line-height: 75px; /* Falta cambiarlo por el logo aplastado*/
+}
+
+.nav-menu{ /* PARA EL UL */
+    display: flex;
+    
+    /* Esto no estaba */
+    margin-left:150px; /*original en margin-left:250px; */
+    /* ----------- */
+
+    margin-right: 0px;
+    list-style:none;
+}
+
+.nav-metamask{
+    display: flex;
+    margin-left: 20px;
+    list-style:none;
+    
+}
+
+.nav-menu-item-metamask{
+    line-height: 88px;
+}
+
+
+.nav-menu-item{
+    margin:0 10px;
+    line-height: 115px; /* original 135 Alto de barra de navegación */
+    width:max-content;
+    max-height: 40px; /* Para el tamaño de los items */
+}
+
+.nav-img{
+    padding-left:20px;
+    padding-right:20px;
+
+}
+
+.nav-toggle{
+    color:#fff;
+    background:none;
+    border:none;
+    font-size:30px;
+    padding: 0 20px;
+    line-height: 75px; /*altura máxima en móviles */
+    cursor:pointer;
+    
+    display:none;
+}
+
+@media (max-width: 1060px){
+
+    .header{
+        top:-1px; /*Sirve para subir y no verse blanco original en -1 */
+        position: fixed;
+        height: 75px; /*tamaño para celular*/
+        width: 100%;
+        left:0;
+        z-index: 99;
+        background-size:cover;
+        background-image: url('/assets/images/Header_DCK_marketplace.png'); 
+        /*background-color: #17dead; */
+    }
+    
+    .navigation{ /* es también llamado nav */
+        display:flex;
+        justify-content:  space-between;
+        max-width:1600px;/*Original en 992px pero a gusto*/
+        margin:0 auto;
+    
+    }
+    
+    
+    .logo{
+        padding:10px 40px; 
+        line-height: 40px;
+       /* margin-left:15%;  15% en 375px y 30% para lo demás*/ 
+        content: url('/assets/images/DeadCake logo_Logo DeadCake-Horizontal-03.png');
+        width: 262px; /*Original 262 */
+        height: 60px; /*Original 60 */
+    }
+    
+    .nav-menu{ /* PARA EL UL */
+        flex-direction: column;
+        margin-right: 20px;
+        list-style:none;
+        background-image:url('/assets/images/Background_menu_movil.png'); 
+        /* background-color: rgb(216, 35, 82); */
+        position: fixed;
+        left:0;
+        top: 45px; /* Quedando debajo del nav bar */
+        width:100%; /* inicialmente en 100%*/
+        height:50%;
+        padding:20px 0;
+        border-top: 5px solid rgb(0,94,37);
+        border-bottom: 10px solid rgb(0, 141, 82);
+
+        /*height:calc(50% - 40px); tamaño completo menos el tamaño del logo inicialmente en 100% pantalla */
+        overflow-y: auto;
+
+        left: 100%;
+        transition: left 0.3s;
+    }
+    
+    
+    .nav-menu-item{
+        margin-bottom:10px;
+        line-height: 95px; /* original 135 Alto de barra de navegación */
+        max-height: 40px; /* Para el tamaño de los items */
+        width: fit-content;
+        margin: 0 auto 20px;
+    }   
+
+
+    .nav-toggle{
+        display:block;
+        padding: 0 20px;
+        margin-top:0px;
+        
+    } 
+    
+    .nav-menu_visible{ 
+        left:0;
+    }
+
+}
+
+/*----------*/
+
+
+/* ---------------------------------- */
+/* -------------- BODY -------------- */
+/* ---------------------------------- */
+
+body{
+    margin: 0px;
+    z-index: 10;
+}
+
+.section{
+    background-image: url('/assets/images/Background_Marketplace_DCK_fondo_1.png'); 
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    padding-top: 280px;
+    padding-bottom: 640px; /*max 2781*/
+    margin-top: -70px;
+
+}
+.section_D{ /*---- Seccion Dashboard ----*/
+    background-image: url('/assets/images/Background_Marketplace_DCK_fondo_1.png'); 
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 280px;
+    padding-bottom: 640px; /*max 2781*/
+    margin-top: -70px;
+
+}
+
+.section_M{
+    background-image: url('/assets/images/Background_Marketplace_DCK_fondo_1.png'); 
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    padding-top: 130px;
+    padding-bottom: 640px; /*max 2781*/
+    margin-top: -70px;
+}
+
+.section_game{
+    background-image: url('/src/assets/images/Juego_DeadCake_FONDO.png'); 
+    background-color: rgb(34,34,34);
+    display: flex;
+    justify-content: center;
+    background-size:contain;
+    padding-top: 280px; /*280px original */
+    padding-bottom: 640px; /*max 2781*/
+    margin-top: -70px;
+
+}
+
+.container{
+    
+    width: 90%;
+    max-width: 1280px;
+
+}
+
+.content{ /* Margen inferior de las cajas */
+    padding-bottom: 70px;
+
+}
+
+.column_1, .column_2, .column_3{
+    display: flex;
+    float: left;
+    width: 33.33%;
+    
+}
+
+.box_1, .box_2, .box_3{
+    background-image: url('/assets/images/Card_nft_DCK_Card_nft_DCK.png'); 
+    background-size: contain;
+    padding-top: 30px;   /* Mueve a la caja hacia abajo, original 31px */
+    padding-bottom: 33px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 425px;
+
+}
+
+
+.imagen_box_1{
+    max-width: 330px;
+    margin-top: -100px;
+    margin-bottom: -140px;
+}
+
+h4{
+    font-size: 25px;
+    font-weight:900;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Helvetica, Sans-Serif;
+    color:#720029;
+
+}
+
+h5{
+    font-size: 19px; 
+    font-weight: 900; /* original bold y 18px*/
+    /*text-transform: uppercase;*/
+    text-align: center;
+    font-family: Helvetica, Sans-Serif;
+    color:#720029;
+}
+
+.button_1{ /* Esta es para el botón verde */
+    background-image: url('/assets/images/Card_nft_DCK_Button_card_nft_DCK.png');
+    max-width: 155px; /* 135px original */
+    background-size: cover;
+    font-size: 34px; /* original 18px */
+    font-weight: 700;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative; /*esto no estaba originalmente*/
+    padding-top: 24px; /*Original 20px */
+    line-height: 15px; /*Original 15px */
+    padding-bottom:26px;   /*Original 22px */
+
+}
+
+.button_1 a{
+    color: #720029;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
+}
+.price{
+    padding-left: 35%; /*Corregir el icono busd y el botón */
+    display: flex;
+    width: 33.33%;
+}
+
+
+.imagen_busd{
+    position:relative;
+    top:33px;
+    margin-left: 5px;
+    margin-right: 2px;
+    width: 24px;
+    height: 24px;
+    margin-top: -3px;
+}
+
+.image_coming_soon{
+    margin-top: 200px;
+    margin-bottom: 250px;
+    max-height: 179px;
+}
+
+.dashb_btn ul{
+    display: flex;
+    text-align: center;
+    list-style: none;
+    padding: 0px;
+    margin: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.dashb_btn li{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+img.dash_item {
+    height: 55px;
+}
+
+
+.containerMarket_M{
+    display: flex;
+    margin-top:150px;
+}
+
+input {
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    margin-right: 0px;
+    width: 75%;
+    margin-right: 20px;
+}
+
+
+.panelMercado_M{
+    height:600px;
+    width: 800px;
+    border: 10px;
+    border-color: #720029;
+    background-color: #D82352;
+    margin-right: 3%;
+    border-radius: 20px;
+    /*color: #17dead;*/
+    
+}
+
+
+.panelMercadoExterno{
+    padding-left:40px;
+    padding-top:20px;
+    margin-bottom:5%;
+    
+}
+
+.panelMercadoExterno_M{
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 5%;
+    padding-right: 10px;
+    
+}
+
+.titulo1{
+    padding-left:10px;
+    position:relative;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: #720029;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
+    width: 330px;
+    height:30px;
+    margin-bottom:20px;
+    
+}
+.titulo1_M{
+    /*padding-left:40px;*/
+    position:relative;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: #720029;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
+    /*width: 330px;*/
+    height:30px;
+    margin-bottom:20px;
+    text-align: center;
+    margin-right: 10px;
+    
+}
+
+.previewimg_M{
+    height: 280px;
+    width: 235px;
+    margin-right:10px;
+}
+
+.boton_pag{
+    position:relative;
+    margin-top:180px;
+    background-color: #17dead;
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: 700;
+
+}
+.boton_pag_M{
+    position:relative;
+    margin-top:80px;
+    background-color: #17dead;
+    border-radius: 10px;
+    border: 0px;
+    padding: 7px;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold;
+
+}
+
+
+.panelVenta_M{
+    height:600px;
+    width:400px;
+    border: 100px;
+    border-color: #720029;
+    background-color: #D82352;
+    border-radius: 20px;
+    /*color: #17dead;*/
+}
+
+
+
+/* -------------------------------------- */
+/*  -------------- Footer --------------  */
+/* -------------------------------------- */
+
+.footer_complet{
+    margin-top: -605px;
+    background-image: url('/assets/images/Footer_DCK_Marketplace.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.footer_final{
+    padding-top: 40%;
+    padding-left:   0%;
+}
+
+.redes{
+    display:flex;
+    text-align: center;
+        padding-left: 15px;
+}
+
+.redes ul{
+    display:flex;
+    text-align: center;
+    list-style: none;
+    padding: 0px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.icon-social img{
+    max-width: 80px;
+    padding-right: 15px;
+}
+
+.copyright{
+    padding-bottom: 80px;
+    margin: auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+.copyright p{
+    color: #720029;
+    font-family: Helvetica, Sans-Serif;
+    font-weight: bold; 
+    font-size: 18px; 
+}
+
+.copyright a{
+    color: #720029;
+    text-decoration: none;
+}
+
+.NFT_ventas_M{
+    text-align: center;
+}
+
+
+
+@media (min-width:981px)and (max-width:1210px ){
+    
+
+    .panelMercado_M{
+        width: 600px;
+        height: auto;
+    }
+    .panelVenta_M{
+        width: 350px;
+    }
+    .previewimg_M{
+        height: 215px;
+        width: 170px;
+    }
+}
+
+
+/* ---- Movil ---- */
+
+/*------- Header -------*/
+
+@media (max-width:450px){
+
+/*----- Footer -----*/
+
+.footer_complet{
+    margin-top: -215px;
+
+}
+
+.footer_final{
+    padding-top: 25%;
+    padding-left:   0%;
+}
+
+
+.icon-social img{
+    max-width: 70px;
+}
+
+.redes ul {
+    display: flex;
+    text-align: center;
+    list-style: none;
+    padding: 0px;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+
+            
+    .icon-telegram img{
+        max-width: 70px;
+        padding-right:5px;
+        padding-left:5px;
+        }
+            
+        .icon-facebook img{
+            max-width: 70px;
+            padding-right: 5px;
+            padding-left:5px;
+        }
+            
+        .icon-discord img{
+            max-width: 70px;
+            padding-right: 5px;
+            padding-left:5px;
+        }
+            
+        .icon-youtube img{
+            max-width: 70px;
+            padding-right: 5px;
+            padding-left:5px;
+        }
+            
+        .icon-twitter img{
+            max-width: 70px;
+            padding-right: 5px;
+            padding-left:5px;
+        }
+            
+            
+        .icon-instagram img{
+            max-width: 70px;
+            padding-right: 5px;
+            padding-left:5px;
+        }
+
+
+        .copyright {
+            padding-bottom: 20px;
+            margin: auto;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        
+        .panelMercado_M{
+            width: 300px;
+            height: 1300px;
+            margin-bottom: 30px;
+        }
+        .NFT_ventas {
+            text-align: center;
+        }
+
+        
+
+        .panelVenta_M{
+            width: 300px;
+            height: auto;
+            padding-bottom: 80px;
+        }
+
+        
+
+        .titulo1_M{
+            padding-left: 0px;
+            width: 280px;
+            text-align: center;
+        }
+
+        .titulo2{
+
+    margin-left: 0px;
+    padding-left: 0px; 
+    text-align: center;
+        }
+
+        
+        .previewimg_M {
+            height: auto;
+            width: 260px;
+            margin-right: 0px;
+            padding-bottom: 20px;
+        }
+        
+
+        
+        .containerMarket_M{
+            display: block;
+           margin-top:0px;
+        }
+
+        .panelMercadoInterno{
+            padding-left: 0px;
+        }
+
+        .section_D{
+            padding-top: 180px;
+            padding-bottom: 240px;
+        }
+        .section_M{
+            padding-top: 180px;
+            padding-bottom: 240px;
+        }
+
+      .panelMercadoExterno_M{
+            padding-left: 10px;
+            padding-top: 10px;
+            margin-bottom: 5%;
+            padding-right: 10px;
+        }
+
+        .boton_pag{
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .boton_pag_M{
+            margin-top: 20px;
+        
+        }
+        .pages_btn{
+            text-align: center;
+        }
+    }
+
+
+/*------ Tablet ------*/
+@media (max-width: 980px) and (min-width:451px){
+
+
+        .footer_complet{
+            margin-top: -400px;
+        
+        }
+        
+        .footer_final{
+            padding-top: 40%;
+            padding-left:   0%;
+        }
+
+
+        
+        .redes ul {
+            display: flex;
+            text-align: center;
+            list-style: none;
+            padding: 0px;
+            margin: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+/* CAUSA ERRORES 
+        .logo{ 
+
+            height: 45px;
+            } */
+     
+/* ----- FOOTER ----- */
+
+.footer_complet{
+    margin-top: -550px;
+    background-image: url('/assets/images/Footer_DCK_Marketplace.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.footer_final{
+    padding-top: 80%;
+    padding-left:   0%;
+}
+
+/* ----- body ------- */
+
+.administrative{
+    width: 300px;
+    height: 480px; /*460px original*/  
+}
+.boton_dashboard{
+    margin-top: 6px;
+
+}
+
+.boton_pag{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.boton_pag_M{
+    margin-top: 20px;
+
+}
+.administracion_interna{
+    width: 300px;
+}
+
+.administrative_options{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.panelMercado{
+    width: 300px;
+    height: 460px;
+    margin-bottom: 30px;
+}
+.panelMercado_M{
+    width: 300px;
+    height: 1300px;
+    margin-bottom: 30px;
+}
+.NFT_ventas {
+    text-align: center;
+}
+.panelMercadoExterno_M{
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 5%;
+    padding-right: 10px;
+}
+
+.pages_btn{
+    text-align: center;
+}
+
+.panelVenta{
+    width: 300px;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+.panelVenta_M{
+    width: 300px;
+    height: auto;
+    padding-bottom: 80px;
+    
+}
+
+.panelVentaInterno{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.titulo1{
+    padding-left: 10px;
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.titulo1_M{
+    padding-left: 0px;
+    width: 280px;
+    text-align: center;
+}
+
+.titulo2{
+
+margin-left: 0px;
+padding-left: 0px; 
+text-align: center;
+}
+
+.previewimg {
+    height: auto;
+    width: 260px;
+    margin-right: 0px;
+}
+.previewimg_M{
+    height: auto;
+    width: 260px;
+    margin-right: 0px;
+}
+
+.titulo3{
+    width: 260px;
+    height: auto;
+}
+.containerMarket{
+    display: block;
+   
+}
+.containerMarket_M{
+    display: block;
+   margin-top:0px;
+}
+
+.panelMercadoInterno{
+    padding-left: 0px;
+}
+.section_D{
+    padding-top: 120px;
+    padding-bottom: 240px;
+}   
+.section_M{
+    padding-top: 120px;
+    padding-bottom: 240px;
+}
+
+}
+
+    @media (max-width: 980px){
+/* ------ Movil Small Screen ------ */
+
+
+.section{
+    display: flex;
+    justify-content: center;
+    padding-top: 180px;
+    padding-bottom: 280px;
+    
+}
+
+.container{
+    width: 90%;
+
+}
+
+.column_1, .column_2, .column_3{
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.box_1, .box_2, .box_3{
+    padding-bottom: 33px;
+    padding-top: 12px;   /* Mueve a la caja hacia abajo, originalmente 20px */
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.imagen_box_1{
+    max-width: 250px;
+    margin-top: -90px;
+    margin-bottom: -145px;
+}
+
+.price{
+    position:relative;
+    top:8px;
+    right:13px;
+}
+
+h4{
+    font-size: 24px;
+
+}
+
+h5{
+    font-size: 18px;
+
+}
+
+.button_1{
+    max-width: 110px;
+    font-size: 23px;
+    font-weight: 600;
+    padding-top: 17px;
+    position:relative; /* ESTO NO ESTABA */
+    top:7px;
+    line-height: 13px;
+    padding-bottom: 16px;  
+
+}
+
+.image_coming_soon{
+    position:relative;
+    top:10px;
+    max-height: 50px;
+}
+
+    input{
+        width: 55%;
+        margin-right: 15px;
+    }
+
+
+    /* .boton_pag_M{
+
+    } */
+}
+

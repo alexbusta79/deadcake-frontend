@@ -400,29 +400,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "gananciasPorSegundoMicroondas",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "caja1",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "caja2",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "caja3",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -523,6 +500,19 @@
 				"internalType": "string",
 				"name": "",
 				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "tiempoDeFarming",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",

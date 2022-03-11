@@ -30,12 +30,12 @@ contract DeadCakeNFT is  ERC721URIStorage, Ownable {
     // Lista IDs NFT  vs TIPO NFT  
     mapping(uint256 => uint8 ) private listaIdNFTPorTipo;
     // Propiedad NFT
-    struct PropiedadNFT {
-        uint8 caja1;   
-        uint8 caja2;
-        uint8 caja3;  
-    } 
-    mapping(address => PropiedadNFT ) private propietariosNFT;    
+    struct NFT {
+        uint8 cantidad;   
+        uint256[] nftIds;    
+    }
+    mapping (address => mapping (uint8 => NFT)) private propietariosNFT;
+
     // Representa la unica Caja
     struct Caja {
         uint256 nftMinteados;   
@@ -45,12 +45,25 @@ contract DeadCakeNFT is  ERC721URIStorage, Ownable {
     }
     Caja[4] private cajas;   
 
+   event MintNFT(address propietario, uint8 idCaja, uint256 idNFT);
+   event VentaNFT(address vendedor,address comprador, uint8 idCaja, uint256 idNFT);
+
     constructor(uint256[3] memory _precios,string[6] memory _tokensUriCaja1,string[4] memory _tokensUriCaja2,string[4] memory _tokensUriCaja3) ERC721("DeadCakeNFT", "DCK") {     
         configuracionInicialCajas(_precios,_tokensUriCaja1,_tokensUriCaja2,_tokensUriCaja3);
     }
 
     modifier onlyUser() {
         require(isUser(msg.sender), "Restringido solo a Usuarios");
+        _;
+    }
+
+    modifier cajasValidas(uint8 cajaId) {
+        require(cajaId > 0 && cajaId < 4 , "La caja NFT no existe");
+        _;
+    }
+
+    modifier existeNft(uint256 _nftId) {
+        require(listaIdNFTPorTipo[_nftId] > 0, "La caja NFT no existe");
         _;
     }
 
@@ -77,7 +90,7 @@ contract DeadCakeNFT is  ERC721URIStorage, Ownable {
         return true; 
     }    
 
-    function mintNFT(address recipient, uint8 _cajaID, uint256 precioNFT) external onlyUser returns (uint256) {
+    function mintNFT(address recipient, uint8 _cajaID, uint256 precioNFT) external onlyUser cajasValidas(_cajaID) returns (uint256) {
         _nftIds.increment();
 
         uint256 nuevoIdNFT = _nftIds.current();
@@ -91,33 +104,16 @@ contract DeadCakeNFT is  ERC721URIStorage, Ownable {
 
         preciosNFT[nuevoIdNFT] = precioNFT;
 
-        incrementarPropiedadNFT(recipient,_cajaID);
+        propietariosNFT[recipient][_cajaID].cantidad += 1; 
+        propietariosNFT[recipient][_cajaID].nftIds.push(nuevoIdNFT);   
+
+        emit MintNFT(recipient,_cajaID,nuevoIdNFT);
 
         return nuevoIdNFT;
     }
 
-    function incrementarPropiedadNFT(address propietario, uint8 _cajaID) internal {
-        if(_cajaID == 1) {
-            propietariosNFT[propietario].caja1 = propietariosNFT[propietario].caja1 + 1;
-        }
-        if(_cajaID == 2) {
-            propietariosNFT[propietario].caja2 = propietariosNFT[propietario].caja2 + 1;
-        }
-        if(_cajaID == 3) {
-            propietariosNFT[propietario].caja3 = propietariosNFT[propietario].caja3 + 1;
-        }        
-    }
-
     function decrementarPropiedadNFT(address propietario, uint8 _cajaID) internal {
-        if(_cajaID == 1) {
-            propietariosNFT[propietario].caja1 = propietariosNFT[propietario].caja1 - 1;
-        }
-        if(_cajaID == 2) {
-            propietariosNFT[propietario].caja2 = propietariosNFT[propietario].caja2 - 1;
-        }
-        if(_cajaID == 3) {
-            propietariosNFT[propietario].caja3 = propietariosNFT[propietario].caja3 - 1;
-        }        
+        propietariosNFT[propietario][_cajaID].cantidad -= 1; 
     }
 
     function random(uint8 number) internal view returns(uint){
@@ -134,47 +130,39 @@ contract DeadCakeNFT is  ERC721URIStorage, Ownable {
         _transfer(vendedor, comprador, _idNFT);
 
         uint8 cajaId = tipoCajaNFT(_idNFT);
-        incrementarPropiedadNFT(comprador,cajaId);
-        decrementarPropiedadNFT(vendedor,cajaId);
+
+        propietariosNFT[comprador][cajaId].cantidad += 1;
+        propietariosNFT[comprador][cajaId].nftIds.push(_idNFT);   
+
+        propietariosNFT[vendedor][cajaId].cantidad -= 1;
+        propietariosNFT[vendedor][cajaId].nftIds.pop();
+
+        emit VentaNFT(vendedor,comprador, cajaId,_idNFT);        
     }
   
-    function propietarioNFT (address  propietario) public view returns (PropiedadNFT memory propiedadTotal) {
-        return propietariosNFT[propietario];
+    function propietarioNFT (address propietario, uint8 idCaja) public view returns ( NFT memory propiedadTotalPorCaja) {
+         return propietariosNFT[propietario][idCaja]; 
     }
 
-    function tipoCajaNFT (uint256 _nftId) public view returns (uint8 tipoNFT) {
-        require(_existeNft(_nftId),"Este NFT no existe !!!!");
+    function tipoCajaNFT (uint256 _nftId) public existeNft(_nftId) view returns (uint8 tipoNFT) {
         return listaIdNFTPorTipo[_nftId];
     }
 
-    function precioDelNFT (uint8 _cajaID) external view returns (uint256 precioNft) {
-        require(_existeCajaNft(_cajaID),"Esta caja de NFT no Existe !!!! ");
+    function precioDelNFT (uint8 _cajaID) external cajasValidas(_cajaID) view returns (uint256 precioNft) {
         return cajas[_cajaID].precio;
     }
 
-    function precioDelNFTEnMarketPlace (uint256 _nftId) external view returns (uint256 precioNft) {
-        require(_existeNft(_nftId),"Este NFT no existe !!!! ");
+    function precioDelNFTEnMarketPlace (uint256 _nftId) external existeNft(_nftId) view returns (uint256 precioNft) {
         return preciosNFT[_nftId];
     }    
 
     function nftMinteados (uint8 _cajaID) external view returns (uint256 nftMint) {
-        require(_existeCajaNft(_cajaID),"Esta caja de NFT no Existe !!!! ");
         return cajas[_cajaID].nftMinteados;
     }
 
-    function nftNoMinteados (uint8 _cajaID) external view returns (uint256 nftNoMint) {
-        require(_existeCajaNft(_cajaID),"Esta caja de NFT no Existe !!!! ");
+    function nftNoMinteados (uint8 _cajaID) external cajasValidas(_cajaID) view returns (uint256 nftNoMint) {
         return cajas[_cajaID].nftNoMinteados;
     }
-
-    function _existeCajaNft (uint8 _cajaID) private pure returns (bool existeCajaNft) {
-      return _cajaID > 0 && _cajaID < 4;
-    }  
-
-    function _existeNft (uint256 _nftId) private view returns (bool existsNft) {
-      return listaIdNFTPorTipo[_nftId] > 0;
-    }  
-
 
     function configuracionInicialCajas(uint256[3] memory precios,string[6] memory _tokensUri1,string[4] memory _tokensUri2,string[4] memory _tokensUri3 ) private {
        cajas[1] = Caja({
@@ -208,19 +196,12 @@ contract DeadCakeGame is ERC20, Ownable {
     // Roles del Contrato  
     mapping(address => bool ) private roles;
     uint8 private decimalesTotales = 10;
-    struct TiempoMicroondas {
-        uint256 caja1;
-        uint256 caja2;
-        uint256 caja3;
-    }
-    struct GananciaPorSegundo {
-        uint256 caja1;
-        uint256 caja2;
-        uint256 caja3;
-    }
-    mapping(address => TiempoMicroondas) private listaDeFarming;
+
+    mapping (address => mapping (uint8 => uint256)) private listaDeFarming;
+    uint256[4] private gananciasPorSegundoMicroondas; 
+
     uint256 private configuracionTiempoDeFarming ; 
-    GananciaPorSegundo public gananciasPorSegundoMicroondas; 
+    
     event FarmingActivo(address inversor, uint8 microondas);
     event ReclamoRecompensa(address inversor, uint8 microondas, uint256 cantidad);
 
@@ -240,14 +221,19 @@ contract DeadCakeGame is ERC20, Ownable {
         _;
     }
 
+    modifier cajasValidas(uint8 cajaId) {
+        require(cajaId > 0 && cajaId < 4 , "La caja no existe");
+        _;
+    }
+
     function cambiarGananciasAlSegundo(uint256[] memory gananciasAlSegundo) public onlyOwner {
         _cambiarGananciasAlSegundo(gananciasAlSegundo); 
     }
 
     function _cambiarGananciasAlSegundo(uint256[] memory gananciasAlSegundo) internal {
-        gananciasPorSegundoMicroondas.caja1 = gananciasAlSegundo[0]; 
-        gananciasPorSegundoMicroondas.caja2 = gananciasAlSegundo[1]; 
-        gananciasPorSegundoMicroondas.caja3 = gananciasAlSegundo[2];  
+        gananciasPorSegundoMicroondas[1] = gananciasAlSegundo[0]; 
+        gananciasPorSegundoMicroondas[2] = gananciasAlSegundo[1]; 
+        gananciasPorSegundoMicroondas[3] = gananciasAlSegundo[2];  
     }
 
     function agregarUser(address account) public onlyOwner {
@@ -263,77 +249,44 @@ contract DeadCakeGame is ERC20, Ownable {
         return true;
     }
 	
-    function farming(address addressFarming, uint8 cajaId) external onlyUser {
-        require(cajaId > 0 && cajaId < 4 , "La caja no existe");
+    function farming(address addressFarming, uint8 cajaId) external cajasValidas(cajaId) onlyUser {
         uint256 tokensAReclamar = recompensaAcumulada(addressFarming,cajaId);
         if(tokensAReclamar > 0) {
             _mint(addressFarming, tokensAReclamar);
             emit ReclamoRecompensa(addressFarming,cajaId,tokensAReclamar);
         }
-        if(cajaId == 1) {
-            listaDeFarming[addressFarming].caja1 =  block.timestamp;
-        }
-        if(cajaId == 2) {
-            listaDeFarming[addressFarming].caja2 =  block.timestamp;
-        }
-        if(cajaId == 3) {
-            listaDeFarming[addressFarming].caja3 =  block.timestamp;
-        }
+        listaDeFarming[addressFarming][cajaId] = block.timestamp;
         emit FarmingActivo(addressFarming,cajaId);
     }
 
-	function reclamarRecompensa(uint8 cajaId) public {
-        require(cajaId > 0 && cajaId < 4 , "La caja no existe");
+	function reclamarRecompensa(uint8 cajaId) public cajasValidas(cajaId)  {
         require(superadoTiempoDeFarming(msg.sender,cajaId), "No superado el tiempo para reclamar");
         uint256 tokensAReclamar = recompensaAcumulada(msg.sender,cajaId);
-        resetTiempoDeFarming(msg.sender,cajaId);
+        listaDeFarming[msg.sender][cajaId] = block.timestamp;     
         _mint(msg.sender, tokensAReclamar);
+
         emit ReclamoRecompensa(msg.sender,cajaId,tokensAReclamar); 
     }
+	
+    function tiempoDeFarming() view public returns(uint256){
+        return configuracionTiempoDeFarming;
+    }
 
-    function superadoTiempoDeFarming(address addressFarming,uint8 cajaId) view public returns(bool){
+    function superadoTiempoDeFarming(address addressFarming,uint8 cajaId) view public cajasValidas(cajaId) returns(bool){
         return tiempoDeFarming(addressFarming,cajaId) > configuracionTiempoDeFarming;
     }
 
-    function recompensaAcumulada(address addressFarming,uint8 cajaId) view public returns(uint256 recompensa){
-        require(cajaId > 0 && cajaId < 4 , "La caja no existe");
-        if(cajaId == 1) {
-            return tiempoDeFarming(addressFarming,cajaId) * gananciasPorSegundoMicroondas.caja1;
-        }
-        if(cajaId == 2) {
-            return tiempoDeFarming(addressFarming,cajaId) * gananciasPorSegundoMicroondas.caja2;
-        }
-        if(cajaId == 3) {
-            return  tiempoDeFarming(addressFarming,cajaId) * gananciasPorSegundoMicroondas.caja3;
-        }
+    function recompensaAcumulada(address addressFarming,uint8 cajaId) view public cajasValidas(cajaId) returns(uint256 recompensa){
+        return tiempoDeFarming(addressFarming,cajaId) * gananciasPorSegundoMicroondas[cajaId];
     }
 
-    function tiempoDeFarmingTotal(address addressFarming,uint8 cajaId) view external returns(uint256){
+    function tiempoDeFarmingTotal(address addressFarming,uint8 cajaId) view external cajasValidas(cajaId) returns(uint256){
         return tiempoDeFarming(addressFarming,cajaId);
     }
 
-    function resetTiempoDeFarming(address addressFarming, uint8 cajaId) internal {
-        if(cajaId == 1 && listaDeFarming[addressFarming].caja1 > 0 ) {
-            listaDeFarming[addressFarming].caja1 =  block.timestamp;
-        }
-        if(cajaId == 2 && listaDeFarming[addressFarming].caja2 > 0) {
-            listaDeFarming[addressFarming].caja2 =  block.timestamp;
-        }
-        if(cajaId == 3 && listaDeFarming[addressFarming].caja3 > 0) {
-            listaDeFarming[addressFarming].caja3 =  block.timestamp;
-        }        
-    }
-
     function tiempoDeFarming(address addressFarming, uint8 cajaId)  view internal returns(uint256 farmado) {
-        if(cajaId == 1 && listaDeFarming[addressFarming].caja1 > 0 ) {
-            return block.timestamp - listaDeFarming[addressFarming].caja1;
-        }
-        if(cajaId == 2 && listaDeFarming[addressFarming].caja2 > 0) {
-            return block.timestamp - listaDeFarming[addressFarming].caja2;
-        }
-        if(cajaId == 3 && listaDeFarming[addressFarming].caja3 > 0) {
-            return block.timestamp - listaDeFarming[addressFarming].caja3;
-        }        
+        return listaDeFarming[addressFarming][cajaId] > 0 ? 
+        block.timestamp - listaDeFarming[addressFarming][cajaId] : 0;        
     }
 
     function decimals() public view virtual override returns (uint8) {

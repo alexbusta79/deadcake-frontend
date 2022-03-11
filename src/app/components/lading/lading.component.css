@@ -23,109 +23,98 @@ h5{
     color:#720029;
 }
 .rial{
+    font-size: 15px;
+    padding-top:25px;
+}
+
+.nombre_cajas{
 
     padding-top:40px;
 }
-/*
 
-.Panel_NFTS_enVenta{
-    display:flex;
-    width:auto;
-    position:absolute;
-}
 
-.ReservaNFT1{
-    background-color: rgb(255, 255, 255);
-    border-radius: 20%;
-    margin-top:500px;
-    margin-left: 113px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgb(114,0,41);
-    height: 50px;
-    width: 200px;
-}
+@media (max-width: 1060px) {
 
-.ReservaNFT2{
-    background-color: rgb(255, 255, 255);
-    border-radius: 20%;
-    margin-left: 233px;
-    margin-top:500px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgb(114,0,41);
-    height: 50px;
-    width: 200px;
-}
-
-.ReservaNFT3{
-    background-color: rgb(255, 255, 255);
-    border-radius: 20%;
-    margin-left: 233px;
-    margin-top:500px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgb(114,0,41);
-    height: 50px;
-    width: 200px;
-}
-
-@media (max-width: 1440px) {
-
-    
-.ReservaNFT1{
-    margin-left: 93px;
-}
-
-.ReservaNFT2{
-    margin-left: 170px;
-}
-
-.ReservaNFT3{
-    margin-left: 170px;
-}
-    
-}
-
-@media (max-width: 1200px) {
-
-    
-    .ReservaNFT1{
-        margin-left: 93px;
-    }
-    
-    .ReservaNFT2{
-        margin-left: 110px;
-    }
-    
-    .ReservaNFT3{
-        margin-left: 110px;
-    }
+    .section{
+        display: flex;
+        justify-content: center;
+        padding-top: 180px;
+        padding-bottom: 280px;
         
-    }
+      }
+      
+      .container{
+        width: 90%;
+      
+      }
+      
+      .column_1, .column_2, .column_3{
+        width: 100%;
+        padding-bottom: 30px;
+      }
+      
+      .box_1, .box_2, .box_3{
+        padding-bottom: 33px;
+        padding-top: 0px; 
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      .imagen_box_1{
+        max-width: 250px;
+        margin-top: -45px;
+        margin-bottom: -120px;
+      }
 
-    @media (max-width: 980px) {
+      .imagen_busd{
+          padding-bottom:0px;
+      }
+      
+      .price{
+        position:relative;
+        top:8px;
+        right:13px;
+        
+      }
+      
+      
+      h4{
+        font-size: 24px;
+      
+      }
+      
+      h5{
+        font-size: 18px;
+      
+      }
 
+      .nombre_cajas{
+        line-height: 0;
+
+      }
+      
+      .rial{
+        font-size: 12px;
+        line-height: 0;
+        
+      }
+      .button_1{
+        max-width: 110px;
+        font-size: 23px;
+        font-weight: 600;
+        padding-top: 17px;
+        position:relative; /* ESTO NO ESTABA */
+        top:0px;
+        line-height: 13px;
+        padding-bottom: 16px;  
+      
+      }
     
-        .Panel_NFTS_enVenta{
-            display:flex;
-            flex-direction: column;
-            position:auto;
-        }
 
-        .ReservaNFT1{
-            margin-top:350px;
-            margin-left: 40%;
-        }
-        
-        .ReservaNFT2{
-            margin-top:410px;
-            margin-left: 130px;
-        }
-        
-        .ReservaNFT3{
-            margin-top:420px;
-            margin-left: 130px;
-        }
             
+        } 
+
+       /* @media (max-width: 700px){
+            
+
         } */

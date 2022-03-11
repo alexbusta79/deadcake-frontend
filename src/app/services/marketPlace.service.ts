@@ -49,11 +49,11 @@ export class MarketPlaceService {
         return addresses.length ? addresses[0] : null;
     };
 
-    private deadCakeToken: string = "0xc98948F0dB29ced5dc23D88C0643e1737aBcD81C";
-    private busdToken: string = "0x7C677A0D5473ae3629ee0667f9008354A5B34eC7";
-    private nftContract: string = "0x9935D918343E7512a58A9Ea27f408dd921b40e77";
-    private marketPlaceContract: string = "0xd136C58Ad2768D6ee0174eA6B653393fcf7ffe62";
-    private gameContract: string = "0x7983BE84f0960015be189a77F2cE08821A4590eD";
+    private deadCakeToken: string = "0xA7Bf2fa31b9BaBbB8145e95e16E9f8ba9c6BF84B";
+    private busdToken: string = "0x736a116fD1A805A22c2A832b2DCc68D445D184B3";
+    private nftContract: string = "0xE8436205e77f79b7830D516007d983b7fdC16433";
+    private marketPlaceContract: string = "0xe1A2d540634B47Ed1CAF68079D321810D5745534";
+    private gameContract: string = "0x2483904AedfFe3A8F28A8B869cc69891a5028Faa";
 
     /* METODOS DEL NFT */
     public nftNoMinteados = async (idCaja: number ) => {
@@ -80,14 +80,14 @@ export class MarketPlaceService {
         }
     }
     
-    public propietarioNFT = async ( ) => {
+    public propietarioNFT = async (idCaja: number ) => {
         try {
                 const contract = new window.web3.eth.Contract(
                     nftAbi,
                     this.nftContract,
                 );
-                return await contract.methods.propietarioNFT(await this.getAddress()).call();
-        } catch (error) {
+                return await contract.methods.propietarioNFT(await this.getAddress(),idCaja).call();
+            } catch (error) {
             console.log(error);
         }
     }      
@@ -184,7 +184,20 @@ export class MarketPlaceService {
         } catch (error) {
             console.log(error);
         }
-    }       
+    }     
+    
+    public tiempoDeFarming = async () => {
+        try {
+                const contract = new window.web3.eth.Contract(
+                    gameAbi,
+                    this.gameContract,
+                );
+                return await contract.methods.tiempoDeFarming().call();
+        } catch (error) {
+            console.log(error);
+        }
+    }   
+
     public balanceDelFarming = async () => {
         try {
                 const contract = new window.web3.eth.Contract(

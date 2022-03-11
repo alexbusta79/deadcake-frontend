@@ -1,82 +1,157 @@
 <section  class="section_game" >
- <!-- *ngIF="FALSE" y cuando termine los 33s se convierte en true-->
-    <div class="game_window">
+    
+<!-- *ngIF="FALSE" y cuando termine los 33s se convierte en true-->
+ <div class="video" *ngIf="!video">
+    <video src="/assets/images/intro_playgame_dck.mp4" width="1920" height="1080" autoplay="true" class="this_video"></video>
+ </div>
+    <div class="game_window" *ngIf="video">
         <div class="cakes_view">
             <div class="game_window_part">
                 <!-- HORNO NUMERO 1-->
-                <div class="horno">
+                <div class="horno"> 
                     <div class="horno_cake">
-                        <div class="horno_cake_time"><img src="/assets/images/Juego DeadCake-32.png" alt=""></div>
+                        <div class="horno_cake_time"><img class="reloj" src="/assets/images/Juego DeadCake-32.png" alt=""></div>
                         <div class="horno_cake_interno">
-                            <div class="horno_cake_interno_NFT"><!-- Imagen del NFT --></div>
-                            <div class="horno_cake_interno_rewards"> <a href="#"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
+                            <div class="vidrio" *ngIf="superadoTiempoFarming1">
+                               <!-- *nfIF superadoTiempoFarming1=="true"-->
+                                <div class="horno_cake_interno_rewards"> <a (click)="reclamarRecompensa(1)"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
+                                <!-- fin del IF-->
+                            </div> 
+                        </div>
+                        <div class="horno_cake_interno_NFT" *ngIf="existenciaNFT1">
+                            <img class="NFT1" src="/assets/images/Character_DCK_Character_DCK_Deluxe-CakePharan.png" alt="">
+                        </div>
+                        <div class="horno_cake_interno_NFT" *ngIf="!existenciaNFT1"> 
+                            <!-- ***************************************************************************************************************************************** -->
+                            <img class="NFT1" src="/assets/images/Character_DCK_Character_DCK_Deluxe-CakePharan_invisible.png" alt="">
+                        </div>
+                         <!--  *************************************************************************************************************************-->
+                        <div class="recompensa_acumulada">
+                            <!--<h4 class="no_visible"> ESTO {{tiempoDeFarmingTotal1}} {{superadoTiempoFarming1}}  </h4>-->
+                            <h4 class="recompensa_acumulada_valor">{{recompensaAcumulada1}} </h4>
+                        </div>
+                        <div class="tiempo_restante">
+                            <ul class="time">
+                                <div class="time_hours">
+                                    <li class="time_unit"><h4>0</h4></li>
+                                    <li class="time_unit"><h4> {{unidadHora1}}<!-- 8 {{Variable unidad de hora.}}--></h4></li>
+                                </div>
+                                <div class="time_hours">
+                                    <li class="time_unit"><h4> {{decenaMinutos1}}<!-- 0{{Variable decena de minuto.}}--></h4></li>
+                                    <li class="time_unit"><h4> {{unidadMinutos1}}<!-- 8{{Variable unidad de minuto.}}--></h4></li>
+                                </div>
+                            </ul>
                         </div>
                     </div>
-                    
-                    {{nftTotales1}}
-                    {{tiempoDeFarmingTotal1}}
-                    {{recompensaAcumulada1}}
+                   
                     <div class="horno_items">
-                        {{superadoTiempoFarming1}}
                         
                         <ul class="horno_items_list">
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><a (click)="reclamarRecompensa(1)"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
-                            <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
+                            <li class="items_potenciadores"><a ><img class="items_start_img" src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
+                            <li class="items_potenciadores"><a ><img class="items_stop_img" src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
                         </ul>
-                    
+
                     </div>
                 </div>
 
                 <!-- HORNO NUMERO 2-->
-                <div class="horno">
+                <div class="horno"> 
                     <div class="horno_cake">
-                        <div class="horno_cake_time"><img src="/assets/images/Juego DeadCake-32.png" alt=""></div>
+                        <div class="horno_cake_time"><img class="reloj" src="/assets/images/Juego DeadCake-32.png" alt=""></div>
                         <div class="horno_cake_interno">
-                            <div class="horno_cake_interno_NFT"><!-- Imagen del NFT --></div>
-                            <div class="horno_cake_interno_rewards"> <a href="#"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
+                            <div class="vidrio" *ngIf="superadoTiempoFarming2">
+                               <!-- *nfIF superadoTiempoFarming2=="true"-->
+                                <div class="horno_cake_interno_rewards"> <a (click)="reclamarRecompensa(2)"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
+                                <!-- fin del IF-->
+                            </div> 
+                        </div>
+                        <div class="horno_cake_interno_NFT" *ngIf="existenciaNFT2">
+                            <img class="NFT2" src="/assets/images/Character DCK_Character_DCK_Maniac-CakeFango.png" alt="">
+                        </div>
+                        <div class="horno_cake_interno_NFT" *ngIf="!existenciaNFT2">
+                            <img class="NFT2" src="/assets/images/Character DCK_Character_DCK_Maniac-CakeFango_invisible.png" alt="">
+                        </div>
+                        <div class="recompensa_acumulada">
+                            <!--<h4 class="no_visible"> ESTO {{tiempoDeFarmingTotal2}} {{superadoTiempoFarming2}}  </h4> -->
+                            <h4 class="recompensa_acumulada_valor">{{recompensaAcumulada2}} </h4>
+                        </div>
+                        <div class="tiempo_restante">
+                            <ul class="time">
+                                <div class="time_hours">
+                                    <li class="time_unit"><h4>0</h4></li>
+                                    <li class="time_unit"><h4>{{unidadHora2}}<!--{{unidadHora2}}--></h4></li>
+                                </div>
+                                <div class="time_hours">
+                                    <li class="time_unit"><h4>{{decenaMinutos2}}<!--{{decenaMinutos2}}--></h4></li>
+                                    <li class="time_unit"><h4>{{unidadMinutos2}}<!--{{unidadMinutos2}}--></h4></li>
+                                </div>
+                            </ul>
                         </div>
                     </div>
-
-                    {{nftTotales2}}
-                    {{tiempoDeFarmingTotal2}}
-                    {{recompensaAcumulada2}}
+                   
                     <div class="horno_items">
-                        {{superadoTiempoFarming2}}
+                        
                         <ul class="horno_items_list">
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><a (click)="reclamarRecompensa(2)"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
-                            <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
+                            <li class="items_potenciadores"><a ><img class="items_start_img" src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
+                            <li class="items_potenciadores"><a ><img class="items_stop_img" src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
                         </ul>
+
                     </div>
                 </div>
             </div>
-            <div class="game_window_part">
+                <div class="game_window_part">
+                
                  <!-- HORNO NUMERO 3-->
-                 <div class="horno">
+                 <div class="horno"> 
                     <div class="horno_cake">
-                        <div class="horno_cake_time"><img src="/assets/images/Juego DeadCake-32.png" alt=""></div>
-                        <div class="horno_cake_interno">
-                            <div class="horno_cake_interno_NFT"> <!-- Imagen del NFT <img class="horno_cake_interno_NFT_img" src="/assets/images/Character_DCK_Character_DCK_Deluxe-CakePharan.png"> --> </div>
-                            <div class="horno_cake_interno_rewards"> <a href="#"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div>
+                        <div class="horno_cake_time"><img class="reloj" src="/assets/images/Juego DeadCake-32.png" alt=""></div>
+                        <div class="horno_cake_interno">  
+                            <div class="vidrio" *ngIf="superadoTiempoFarming3"> 
+                               <!-- *nfIF superadoTiempoFarming3=="true"-->
+                                <div class="horno_cake_interno_rewards"> <a (click)="reclamarRecompensa(3)"><img src="/assets/images/Juego DeadCake-11.png" alt=""></a></div> 
+                                <!-- fin del IF-->
+                            </div> 
+                        </div>
+                        <div class="horno_cake_interno_NFT" *ngIf="existenciaNFT3">
+                            <img class="NFT3" src="/assets/images/Character DCK_Character_DCK_Strange-CakeGruul.png" alt="">
+                        </div>
+                        <div class="horno_cake_interno_NFT" *ngIf="!existenciaNFT3">
+                            <img class="NFT3" src="/assets/images/Character DCK_Character_DCK_Strange-CakeGruul_invisible.png" alt="">
+                        </div>
+                        <div class="recompensa_acumulada">
+                            <!--<h4 class="no_visible"> ESTO {{tiempoDeFarmingTotal3}} {{superadoTiempoFarming3}}  </h4> -->
+                            <h4 class="recompensa_acumulada_valor">{{recompensaAcumulada3}} </h4>
+                        </div>
+                        <div class="tiempo_restante">
+                            <ul class="time">
+                                <div class="time_hours">
+                                    <li class="time_unit"><h4>0</h4></li>
+                                    <li class="time_unit"><h4>{{unidadHora3}}<!--{{Variable unidad de hora.}}--></h4></li>
+                                </div>
+                                <div class="time_hours">
+                                    <li class="time_unit"><h4>{{decenaMinutos3}}<!--{{Variable decena de minuto.}}--></h4></li>
+                                    <li class="time_unit"><h4>{{unidadMinutos3}}<!--{{Variable unidad de minuto.}}--></h4></li>
+                                </div>
+                            </ul>
                         </div>
                     </div>
-                    {{nftTotales3}}
-                    {{tiempoDeFarmingTotal3}}
-                    {{recompensaAcumulada3}}
+                   
                     <div class="horno_items">
-                        {{superadoTiempoFarming3}}
+                        
                         <ul class="horno_items_list">
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><img src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
-                            <li class="items_potenciadores"><a (click)="reclamarRecompensa(3)"><img src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
-                            <li class="items_potenciadores"><a href="#"><img src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt="" ></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
+                            <li class="items_potenciadores"><img class="items_potenciadores_img" src="/assets/images/Juego DeadCake-29_potenciadores.png" alt=""></li>
+                            <li class="items_potenciadores"><a ><img class="items_start_img" src="/assets/images/Juego DeadCake-30.png" alt=""></a></li>
+                            <li class="items_potenciadores"><a ><img class="items_stop_img" src="/assets/images/Juego DeadCake-31.png" alt=""></a></li>
                         </ul>
+
                     </div>
                 </div>
 
@@ -88,28 +163,44 @@
         </div>
 
         <div class="game_panel">
-            {{balanceDelFarming}}
-            --
-            {{balanceDelToken}}
-            --
-            {{balanceDelNFT}}
+            
             <div class="game_panel_statistics">
                 <ul class="panel_tokens">
-                    <li class="tokens"><div><img src="/assets/images/Juego_token_DCK.png" alt=""></div><div><img src="/assets/images/Juego_nivel_de_juego.png" alt="" class="barra_panel"></div></li>
-                    <li class="tokens"><div><img src="/assets/images/Juego_token_NFT.png" alt=""></div><div><img src="/assets/images/Juego_numero_tokens1.png" alt="" class="barra_panel"></div></li>
-                    <li class="tokens"><div><img src="/assets/images/Juego_token_farming.png" alt=""></div><div><img src="/assets/images/Juego_numero_tokens2.png" alt="" class="barra_panel"></div></li>    
+                    <li class="tokens"><div><img src="/assets/images/Juego_token_DCK.png" alt="" class="icon_tokens"></div><div><img src="/assets/images/Juego_numero_tokens1.png" alt="" class="barra_panel"></div></li>
+                    <li class="tokens"><div><img src="/assets/images/Juego_token_NFT.png" alt="" class="icon_tokens"></div><div><img src="/assets/images/Juego_numero_tokens1.png" alt="" class="barra_panel"></div></li>
+                    <li class="tokens"><div><img src="/assets/images/Juego_token_farming.png" alt="" class="icon_tokens"></div><div><img src="/assets/images/Juego_numero_tokens1.png" alt="" class="barra_panel"></div></li>    
                 </ul>
 
             </div>
+            
             <div class="game_panel_buttoms">
+                <h3 class="cantidad_de_cakes">CAKES IN THE OVENS</h3>
+                <h3 class="cantidad_de_cakes">Insane: {{nftTotales1}} </h3> 
+                <h3 class="cantidad_de_cakes">Maniac: {{nftTotales2}} </h3> 
+                <h3 class="cantidad_de_cakes">Strange: {{nftTotales3}} </h3> 
                 <ul class="botonera_de_opciones">
-                    <li class="game_panel_buttoms_img"><a href="#"><img src="/assets/images/Juego_boton_CAKE.png" alt=""></a></li>
-                    <li class="game_panel_buttoms_img"><a href="#"><img src="/assets/images/Juego_boton_CAKE_CREAMS.png" alt=""></a></li>
-                    <li class="game_panel_buttoms_img"><a href="#"><img src="/assets/images/Juego_boton_ITEMS.png" alt=""></a></li>
-                    <li class="game_panel_buttoms_img"><a href="#"><img src="/assets/images/Juego_boton_SHOP.png" alt=""></a></li>
-                    <li class="game_panel_buttoms_img"><a href="#"><img src="/assets/images/Juego_boton_MY_WALLET.png" alt=""></a></li>
-                    <li class="game_panel_buttoms_img"><a href="#"><img src="/assets/images/Juego_boton_CONVERTER.png" alt=""></a></li>
+                   <!-- <li ><img class="game_panel_buttoms_img_comingsoon" src="/assets/images/DCK_items_page_Comming_soon_inclinado.png" alt=""></li> -->
+                    <li class="game_panel_buttoms_img_connect"><a (click)="agregarIconDeadCakeToken()"><img src="/assets/images/Butoon_add_dck.png" alt=""></a></li>
+                    <li class="game_panel_buttoms_img_connect"><a (click)="agregarIconDeadCakeFarming()"><img src="/assets/images/Butoon_add_dckt.png" alt=""></a></li>
+                    <li class="game_panel_buttoms_img_connect"><a (click)="agregarIconDeadCakeNFT()"><img src="/assets/images/Butoon_add_nft.png" alt=""></a></li>
+                    <li class="game_panel_buttoms_img"><a ><img src="/assets/images/Juego_boton_SHOP.png" alt=""></a></li>
+                    <li class="game_panel_buttoms_img"><a ><img src="/assets/images/Juego_boton_ITEMS.png" alt=""></a></li>
+                    <!--<li class="game_panel_buttoms_img"><a ><img src="/assets/images/Juego_boton_MY_WALLET.png" alt=""></a></li>
+                     <li class="game_panel_buttoms_img"><a ><img src="/assets/images/Juego_boton_CONVERTER.png" alt=""></a></li> -->
                 </ul>
+
+            </div>
+            <div class="cantidad_tokens">
+               <div class="balance_farming">
+                {{balanceDelToken}}
+               </div>
+               <div class="balance_farming">
+                {{balanceDelNFT}}
+               </div> <!---->
+               <div class="balance_farming">
+                {{balanceDelFarming}}
+               </div>
+               
 
             </div>
 

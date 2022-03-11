@@ -28,22 +28,141 @@ export class PlayGameComponent implements OnInit {
   nftTotales2!: number;
   nftTotales3!: number;
   balanceDelNFT!: number;
+  /* ------------------- */ 
+  unidadHora1: number = 0;
+  decenaMinutos1: number = 0; 
+  unidadMinutos1: number = 0;
+  unidadHora2: number = 0
+  decenaMinutos2: number = 0;
+  unidadMinutos2: number = 0;
+  unidadHora3: number = 0;
+  decenaMinutos3: number = 0;
+  unidadMinutos3: number = 0;
+  unidadPrueba: number = 0; 
+
+  /* ----------------------------------------*/
+  existenciaNFT1: boolean = false;
+  existenciaNFT2: boolean = false;
+  existenciaNFT3: boolean = false;
+  videoFin: boolean = true;
+  
+  /* -------------------- */
+  
+
+  
 
   constructor(private marketPlaceService : MarketPlaceService,private router : Router) { }
 
 
   ngOnInit() {
+    this.desactivarVideo();
     this.marketPlaceService.superadoTiempoDeFarming(1).then(data => this.superadoTiempoFarming1 = data );
     this.marketPlaceService.superadoTiempoDeFarming(2).then(data => this.superadoTiempoFarming2 = data );
     this.marketPlaceService.superadoTiempoDeFarming(3).then(data => this.superadoTiempoFarming3 = data );
 
-    this.marketPlaceService.recompensaAcumulada(1).then(data => this.recompensaAcumulada1 = data );
-    this.marketPlaceService.recompensaAcumulada(2).then(data => this.recompensaAcumulada2 = data );
-    this.marketPlaceService.recompensaAcumulada(3).then(data => this.recompensaAcumulada3 = data );
+  //  setTimeout(() => {
+  //    this.desactivarVideo();
+  //  }, 13800);
 
-    this.marketPlaceService.tiempoDeFarmingTotal(1).then(data => this.tiempoDeFarmingTotal1 = data );
-    this.marketPlaceService.tiempoDeFarmingTotal(2).then(data => this.tiempoDeFarmingTotal2 = data );
-    this.marketPlaceService.tiempoDeFarmingTotal(3).then(data => this.tiempoDeFarmingTotal3 = data );
+    this.marketPlaceService.recompensaAcumulada(1).then(data =>{
+      if (isNaN(data ) ){ this.recompensaAcumulada1=0; } else { this.recompensaAcumulada1 = data; } 
+    });
+    this.marketPlaceService.recompensaAcumulada(2).then(data => {
+      if (isNaN(data ) ){ this.recompensaAcumulada2=0; } else { this.recompensaAcumulada2 = data; } 
+    });
+    this.marketPlaceService.recompensaAcumulada(3).then(data => {
+      if (isNaN(data ) ){ this.recompensaAcumulada3=0; } else { this.recompensaAcumulada3 = data; } 
+    });
+
+    this.marketPlaceService.tiempoDeFarmingTotal(1).then(data => {
+      this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
+        let tiempoRestante;
+        //let dato = 14123;
+          if (data >= tiempoFarming) {
+          tiempoRestante = 0;
+        } else { tiempoRestante = tiempoFarming - data; }
+        
+        let minutos = tiempoRestante / 60;
+        let hora = minutos / 60;
+        let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
+        let minutosDecena = cantidadMinutos / 10;
+  
+        this.unidadHora1= Math.trunc(hora);
+        this.decenaMinutos1 = Math.trunc(minutosDecena);
+        this.unidadMinutos1 = cantidadMinutos - (this.decenaMinutos1 * 10);
+        this.tiempoDeFarmingTotal1 = data;
+        //Mostrar NFT
+        this.existenciaNFT1 = true;
+  
+        if(isNaN(data)){
+        this.unidadHora1= 0;
+        this.decenaMinutos1 = 0;
+        this.unidadMinutos1 = 0;
+        this.existenciaNFT1 = false;
+        }
+      }
+      );
+    } );
+  
+    this.marketPlaceService.tiempoDeFarmingTotal(2).then(data => {
+      this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
+        let tiempoRestante;
+        //let dato = 14123;
+          if (data >= tiempoFarming) {
+          tiempoRestante = 0;
+        } else { tiempoRestante = tiempoFarming - data; }
+        
+        let minutos = tiempoRestante / 60;
+        let hora = minutos / 60;
+        let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
+        let minutosDecena = cantidadMinutos / 10;
+  
+        this.unidadHora2= Math.trunc(hora);
+        this.decenaMinutos2 = Math.trunc(minutosDecena);
+        this.unidadMinutos2 = cantidadMinutos - (this.decenaMinutos2 * 10);
+        this.tiempoDeFarmingTotal2 = data;
+        //Mostrar NFT
+        this.existenciaNFT2 = true;
+  
+        if(isNaN(data)){
+        this.unidadHora2= 0;
+        this.decenaMinutos2 = 0;
+        this.unidadMinutos2 = 0;
+        this.existenciaNFT2 = false;
+        }
+      }
+      );
+    } );
+
+    this.marketPlaceService.tiempoDeFarmingTotal(3).then(data => {
+      this.marketPlaceService.tiempoDeFarming().then(tiempoFarming => {
+        let tiempoRestante;
+        //let dato = 14123;
+          if (data >= tiempoFarming) {
+          tiempoRestante = 0;
+        } else { tiempoRestante = tiempoFarming - data; }
+        
+        let minutos = tiempoRestante / 60;
+        let hora = minutos / 60;
+        let cantidadMinutos = (Math.trunc(minutos) - (Math.trunc(hora) * 60) );
+        let minutosDecena = cantidadMinutos / 10;
+  
+        this.unidadHora3= Math.trunc(hora);
+        this.decenaMinutos3 = Math.trunc(minutosDecena);
+        this.unidadMinutos3 = cantidadMinutos - (this.decenaMinutos3 * 10);
+        this.tiempoDeFarmingTotal3 = data;
+        //Mostrar NFT
+        this.existenciaNFT3 = true;
+  
+        if(isNaN(data)){
+        this.unidadHora3= 0;
+        this.decenaMinutos3 = 0;
+        this.unidadMinutos3 = 0;
+        this.existenciaNFT3 = false;
+        }
+      }
+      );
+    } );
 
     this.marketPlaceService.balanceDelFarming().then(data => this.balanceDelFarming = data / this.decimalesJuego );
 
@@ -51,10 +170,23 @@ export class PlayGameComponent implements OnInit {
 
     this.marketPlaceService.balanceDelNFT().then(data => this.balanceDelNFT = data );
 
-    this.marketPlaceService.propietarioNFT().then(data => {
-      this.nftTotales1 = data.caja1; 
-      this.nftTotales2 = data.caja2;
-      this.nftTotales3 = data.caja3;
+    this.marketPlaceService.propietarioNFT(1).then(data => {
+      this.nftTotales1 = data.cantidad; 
+      if(isNaN(this.nftTotales1)){
+        this.nftTotales1=0;
+      }
+    });
+    this.marketPlaceService.propietarioNFT(2).then(data => {
+      this.nftTotales2 = data.cantidad; 
+      if(isNaN(this.nftTotales1)){
+        this.nftTotales1=0;
+      }
+    });
+    this.marketPlaceService.propietarioNFT(3).then(data => {
+      this.nftTotales3 = data.cantidad; 
+      if(isNaN(this.nftTotales1)){
+        this.nftTotales1=0;
+      }
     });
   }
   
@@ -62,6 +194,21 @@ export class PlayGameComponent implements OnInit {
     this.marketPlaceService.reclamarRecompensa(idCaja).then(data =>   this.ngOnInit()    );
   }
 
+  agregarIconDeadCakeToken() {
+    this.marketPlaceService.agregarIconDeadCakeToken().then();
+  }
+
+  agregarIconDeadCakeFarming() {
+    this.marketPlaceService.agregarIconDeadCakeFarming().then();
+  }
+
+  agregarIconDeadCakeNFT() {
+    this.marketPlaceService.agregarIconDeadCakeNFT().then();
+  }
+
+  desactivarVideo(){
+    this.video = true;
+  }
   /*
   riempiModaleConId(idRiga:number){
       this.usersService.getUser(idRiga).subscribe((userById: User) => {

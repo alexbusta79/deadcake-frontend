@@ -6,7 +6,16 @@
   }
   .game_panel_buttoms_img:hover{
     transform: scale(1.15);
-    transition:0.5s;
+    transition:0.6s;
+  }
+  .game_panel_buttoms_img_connect:hover{
+    transform: scale(1.10);
+    transition:0.3s;
+  }
+
+  .horno_cake_interno_rewards:hover{
+    transform: scale(1.06);
+    transition:0.3s;
   }
   /*---------*/
 
@@ -14,6 +23,18 @@
 
 
 /* ---------- PANEL DEL JUEGO ---------------*/
+
+.section_game{
+    background-image: url('/assets/images/Juego_DeadCake_FONDO.png'); 
+    background-color: rgb(34,34,34);
+    display: flex;
+    justify-content: center;
+    background-size:contain;
+    padding-top: 280px;
+    padding-bottom: 640px; /*max 2781*/
+    margin-top: -70px;
+  
+  }
 
 .game_window{
     display: flex;
@@ -31,43 +52,123 @@
     display:flex;
     background-image: url('/assets/images/Juego_horno.png');
     background-size: cover;
-    height: 384px; /* Original 384px, luego 500px*/
-    width:514px; /* Original 514px, 672px*/
+    height: 538px; /* Original 384px*/
+    width:690px; /* Original 514px*/
     margin-right: 0px;
     margin-bottom:30px;
 }
 .horno_cake{
+    width: 490px;
+    height: 450px;
     margin-right: 10px;
-    margin-top: 55px;
-    margin-left:70px;
+    margin-top: 65px;
+    margin-left:50px;
 }
 .horno_cake_interno_rewards{
-    position:absolute;
+    margin-top:150px;
+    margin-left:100px;
 }
 
 .horno_cake_time{
-    margin-left:150px;
-    margin-bottom:35px;
+    height: 10px;
+    margin-left:250px;
+    margin-top:7px;
 }
 
 .horno_cake_interno{
-    position:absolute;
-    margin-left: 55px;
-    margin-top:65px;
+    width: 450px;
+    height: 380px;
+    margin-top:1px;
+    margin-left:13px;
+   /* position:absolute; */
 
 }
+
+.no_visible{
+    display:none;
+}
+
+.vidrio{
+    background-image: url('/assets/images/Juego_vidrio_del_horno.png');
+    height: 333px;
+    width: 443px;
+}
+
+.NFT1 {
+    margin-top:67px;
+    margin-left:120px;
+    width: 230px;
+    height: 230px;
+}
+
+.NFT2{
+    margin-top:97px;
+    margin-left:120px;
+    width: 263px;
+    height: 200px;
+}
+
+.NFT3{
+    margin-top:97px;
+    margin-left:120px;
+    width: 268px;
+    height: 200px;
+}
+
+.recompensa_acumulada{
+    background-image: url('/assets/images/contador_de_recompensa.png');
+    margin-top:45px;
+    margin-left: 160px;
+    background-repeat: no-repeat;
+}
+h4{
+    font-size:29px;
+    font-weight: 700;
+    color:black;
+}
+.tiempo_restante{
+    position:relative;
+    margin-top:-504px;
+    margin-left:269px;
+    
+}
+
+.time{
+    display:flex;
+    list-style: none;
+}
+
+.time_unit{
+    margin-right: 13px;
+
+}
+.time_hours{
+    display:flex;
+    margin-right:6px;
+}
+
+.recompensa_acumulada_valor{
+    padding-bottom:80px;
+    font-size:19px;
+    color:black;
+    font-weight: 800;
+    padding-top:8px;
+    padding-right:133px;
+}
+
 .horno_items{
     position:right;
-    margin-left:20px;
-    margin-top:28px;
+    margin-right:20px;
+    margin-top:35px;
 }
 
 .horno_items_list{
     list-style: none;
+    margin-right:20px;
 }
 
 .items_potenciadores{
-    margin-bottom:9px;
+    margin-bottom:19px;
 }
 
 .boton_items{
@@ -78,23 +179,57 @@
 .game_panel{
     background-image: url('/assets/images/Juego_game_panel.png');
     position:flex;
-    width:318px;
-    height:801px;
+    width:416px; /*318px*/
+    height:1047px; /*801px*/
     
 }
 
 .game_panel_statistics{
-    margin-bottom: 105px;
+    margin-bottom: 65px;
 }
 
 .panel_tokens{
-    margin-top: 50px;
+    margin-top: 60px;
+    margin-left:25px;
 }
 .tokens{
     display:flex;
     text-align: center;
     margin-bottom:7px;
 }
+
+.cantidad_tokens{
+    position:relative;
+    margin-top:-897px;
+    margin-left:150px;
+}
+
+.balance_farming{
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 48px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#720029;
+    
+}
+
+.cantidad_de_cakes{
+    margin-left:60px;
+    font-size: 22px;
+    margin-bottom:20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    color:rgb(73, 17, 39);
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(117, 19, 43);
+    border-radius: 9px;
+    width: 300px;
+    padding:10px 10px;
+    background-color: aliceblue;
+}
+
 .barra_panel{
     margin-top:5px;
     margin-left:7px;
@@ -104,11 +239,26 @@
 .botonera_de_opciones{
     list-style: none;
     text-align: center;
+    margin-top:20px;
+    
 }
 
 .game_panel_buttoms_img{
     margin-left:-40px;
     margin-bottom: 15px;
+    opacity: 70%;
+}
+
+.game_panel_buttoms_img_connect{
+    margin-left:-40px;
+    margin-bottom: 15px;
+}
+
+.game_panel_buttoms_img_comingsoon{
+    padding-top:80px;
+    padding-right: 35px;
+    width: 285px;
+    height: 265px;
 }
 /* ----------------------------------------- */
 .horno_cake_interno_NFT_img{
@@ -149,17 +299,204 @@
 
     .horno{
         display:flex;
-        background-image: url('/assets/images/Juego_horno.png');
+        background-image: url('/assets/images/Juego_horno_chikito.png');
         height: 384px;
         width:516px;
         margin-right: 0px;
         margin-bottom:30px;
     }
 
+    .horno_cake{
+        width: 340px;
+        height: 310px;
+        margin-right: 0px;
+        margin-top: 45px;
+        margin-left:50px;
+    }
+
+    .horno_cake_time{
+        margin-left: 150px;
+        margin-bottom: 26px;
+
+    }
+    .horno_cake_interno{
+        height:230px;
+        width:310px;
+        margin-left:0px;
+    }
+    .vidrio{
+        background-image: url('/assets/images/Juego_vidro_chikito.png');
+        height: 249px;
+        width: 332px;
+    }
+
+    .horno_cake_interno_NFT{
+        height:230px;
+        width:310px;
+    }
+
+    .horno_cake_interno_rewards{
+        margin-top:90px;
+        margin-left:50px;
+    }
+    
+    .NFT1 {
+        margin-top:37px;
+        margin-left:70px;
+        width: 180px;
+        height: 180px;
+    }
+    
+    .NFT2{
+        margin-top:64px;
+        margin-left:70px;
+        width: 210px;
+        height: 160px; /* 1,315*/
+    }
+    
+    .NFT3{
+        margin-top:64px;
+        margin-left:70px;
+        width: 214px;
+        height: 160px; /* 1,34*/
+    }
+
+    .horno_items{
+        margin-left:0px;
+        margin-top:27px;
+    }
+    .items_potenciadores{
+        margin-bottom:10px;
+    }
+
+    .reloj{
+        width:124px;
+        height: 36px;
+
+    }
+
+    .tiempo_restante{
+        margin-top:-348px;
+        margin-left:159px;
+    }
+
+    h4{
+        font-size:22px;
+    }
+
+    .time_unit{
+        margin-left:-3px;
+    }
+
+    .time_hours{
+        margin-right:4px;
+    }
+    
+
+    .game_panel{
+        width:318px; /*318px*/
+        height:801px; /*801px*/
+    }
+
+    .recompensa_acumulada{
+        background-image: url('/assets/images/contador_de_recompensa_chikita.png');
+        margin-top:24px;
+        margin-left: 99px;
+        height: 60px;   
+    }
+
+    .recompensa_acumulada_valor{
+        font-size:17px;
+        margin-left:20px;
+    }
+
+    .boton_items{
+        background-image:url('/assets/images/Juego_start_chikito.png');
+        width:69px;
+        height:39px;
+    }
+    .game_panel{
+        /*display:none; */
+        background-image: url('/assets/images/Juego_panel_items_chikito.png');
+        width:318px; /*318px*/
+        height:801px; /*801px*/
+        
+    }
+
+    .items_potenciadores_img{
+        height:71px;
+        width:69px;
+    }
+
+    .items_start_img{
+        width: 69px;
+        height: 39px;
+    }
+
+    .items_stop_img{
+        width: 70px;
+        height: 40px;
+    }
+
+
+    /*PANEL ITEMS*/
+
+    .panel_tokens{
+        margin-left:10px;
+    }
+
+    .icon_tokens{
+        width:45px;
+        height:45px;
+    }
+    .barra_panel{
+        /*218 / 55 = */
+        width: 178px;
+        height: 45px;
+        margin-top:0px;
+    }
+
+    .cantidad_tokens{
+        margin-top:-690px;
+        margin-left:105px;
+        height:150px;
+    }
+
+    .balance_farming{
+        margin-bottom:24px;
+        font-size:18px;
+    }
+
+    .game_panel_statistics{
+        margin-bottom: 10px;
+
+    }
+
+    .cantidad_de_cakes{
+        margin-left:40px;
+        font-size:19px;
+        margin-bottom:12px;
+        width:235px;
+    }
+
+    .game_panel_buttoms_img{
+        margin-bottom:6px;
+        
+    }
+
+    .game_panel_buttoms_img_connect{
+        margin-bottom:6px;
+        
+    }
+
 
 }
 
 @media (max-width: 900px){
+    .this_video{ 
+        height:480px;
+        width:640px;
+    }
     .game_window{
         position:flex; /*No estaba antes*/
         flex-direction: column;
@@ -172,8 +509,22 @@
       margin-left: 18%;
     }
     
+    
 
 }
 
-/* FOOOOOTEEEER */
+@media (max-width: 450px){
+
+    .section_game{
+        background-repeat:repeat;
+        width:700px;
+        background-color: blueviolet;
+    }
+    .this_video{  
+        height:360px;
+        width:480px;
+    }
+
+}
+
 

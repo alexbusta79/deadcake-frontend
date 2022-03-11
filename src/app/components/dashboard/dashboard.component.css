@@ -166,6 +166,14 @@
 /* ------------------------------------------------------------------------------------------------- */
 
 @media (min-width:981px)and (max-width:1210px ){
+    .administrative{
+        width: 970px;
+    }
+
+    .título3{
+       margin-left:100px;
+       
+    }
 
     .panelMercado{
         width: 600px;
